@@ -1,0 +1,126 @@
+#body {
+    background-image: url(https://i2.wp.com/lanoticia.com/wp-content/uploads/2021/09/AdobeStock_231096579.jpg?fit=1200%2C766);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+#body_home {
+    background-color: rgb(230, 230, 230);
+}
+
+#vinuclo_cartas{
+    font-size:15px;
+    color:grey;
+    text-decoration:none;
+}
+
+#vinuclo_cartas:hover{
+    color: blue;
+}
+
+#seccion_cartas{
+    margin-top:10px;
+    display:flex;
+    margin-left: 20px;
+    margin-bottom:20px;
+}
+
+#cartas{
+    margin-right:10%;
+}
+
+#cartas:hover{
+    box-shadow:3px 3px 30px black;
+    transition: 0.1s;
+}
+
+#body_registro {
+    background-image: url(https://i2.wp.com/lanoticia.com/wp-content/uploads/2021/09/AdobeStock_231096579.jpg?fit=1200%2C766);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+#Titulo{
+    color: black;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 1px 1px 1px black;
+}
+
+#Login{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 350px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px;
+    margin-left: 65%;
+    padding-top: 5px;
+}
+#Login2{
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 350px;
+    height: 430px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px;
+    margin-left: 65%;
+    padding-top: 5px;
+}
+#Boton{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top:0px;
+}
+
+h2{
+    font-size: 20px;
+    text-align: center;
+}
+h3{
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+#caja{
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+}
+input{
+    margin-right: 10px;
+}
+i{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    color: rgba(0, 0, 0, 0.7);
+}
+a{
+    margin-left: 5%;
+    text-decoration:none;
+    color: black;
+}
+
+#Titulo_cartas{
+    margin-left: 5%;
+    text-decoration:none;
+    color: black;
+    font-size:30px;
+}
+
+#Titulo_cartas_div{
+    background-color: white;
+    padding-top:10px;
+    margin-top:10px;
+    padding-bottom:5px;
+}
+
+#NoCuenta{
+    margin-left: 5%;
+    text-decoration:none;
+    color: black;
+
+}
+p{
+    margin-top:5px;
+    margin-botton:0px;
+}
