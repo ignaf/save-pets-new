@@ -22,7 +22,12 @@
                 center: { "lat": -34.670283, "lng": -58.5638904 },
             });
             const infoWindow = new google.maps.InfoWindow();
-
+            const icon = {
+                url: "https://cdn-icons-png.flaticon.com/512/184/184197.png",
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
+            };
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
             var texto ='<h1>${refugio.nombre}</h1>'+'<p>${refugio.numeroTelefono}'+'<p>${refugio.direccion}</p>';
@@ -30,6 +35,7 @@
                 position: coordenadasRefugio,
                 map: map,
                 info: texto,
+                icon: icon,
             });
 
             google.maps.event.addListener(marker,'click', function(){
