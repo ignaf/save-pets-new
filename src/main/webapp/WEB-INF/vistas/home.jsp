@@ -19,13 +19,29 @@
                 zoom: 10,
                 center: { "lat": -34.670283, "lng": -58.5638904 },
             });
+            const infoWindow = new google.maps.InfoWindow();
+            const icon = {
+                url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
+            };
 
             <c:forEach items="${listaDeMascotas}" var="mascota">
             var coordenadasMascota = ${mascota.coordenadas}
+            var texto = '<h1>${mascota.especie}</h1>'+'<p>${mascota.direccion}</p>'
+
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
+                info: texto,
+                icon: icon,
             });
+
+            google.maps.event.addListener(marker,'click',function(){
+                infoWindow.setContent(this.info);
+                infoWindow.open(map,this);
+            })
             </c:forEach>
         }
 
@@ -40,12 +56,12 @@
 <nav>
     <div id="navegador" class="row">
         <div class="col"><a href="home"><h1>Save-Pets</h1></a></div>
-        <div id="nav_item" class="col"><a href="mostrar-mascotas"><h3>Mascotas</h3></a></div>
-        <div id="nav_item" class="col"><a href="registrar-mascota"><h3>Registrar mascota</h3></a></div>
-        <div id="nav_item" class="col"><a href="mostrar-refugios"><h3>Refugios</h3></a></div>
-        <div id="nav_item" class="col"><a href="registrar-refugio"><h3>Registrar refugio</h3></a></div>
-        <div id="nav_item" class="col"><a href="mapa-mascotas"><h3>Mapa Mascotas</h3></a></div>
-        <div id="nav_item" class="col"><a href="mapa-refugios"><h3>Mapa Refugios</h3></a></div>
+        <div id="nav_item" class="col"><a href="mostrar-mascotas"><h5>Mascotas</h5></a></div>
+        <div id="nav_item" class="col"><a href="registrar-mascota"><h5>Registrar mascota</h5></a></div>
+        <div id="nav_item" class="col"><a href="mostrar-refugios"><h5>Refugios</h5></a></div>
+        <div id="nav_item" class="col"><a href="registrar-refugio"><h5>Registrar refugio</h5></a></div>
+        <div id="nav_item" class="col"><a href="mapa-mascotas"><h5>Mapa Mascotas</h5></a></div>
+        <div id="nav_item" class="col"><a href="mapa-refugios"><h5>Mapa Refugios</h5></a></div>
         <div id="botones_home" class="col">
             <a href="registrar-usuario"><button class="btn btn-outline-primary">Registrarme</button></a>
             <a href="login"><button class="btn btn-outline-primary">Login</button></a>
