@@ -22,6 +22,12 @@
                 center: { "lat": -34.670283, "lng": -58.5638904 },
             });
             const infoWindow = new google.maps.InfoWindow();
+            const icon = {
+                url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
+            };
 
             <c:forEach items="${mascotas}" var="mascota">
             var coordenadasMascota = ${mascota.coordenadas}
@@ -30,6 +36,7 @@
                 position: coordenadasMascota,
                 map: map,
                 info: texto,
+                icon: icon,
             });
 
             google.maps.event.addListener(marker,'click',function(){
