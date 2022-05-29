@@ -47,12 +47,12 @@
 <nav>
     <div id="navegador" class="row">
         <div class="col"><a href="home"><h1>Save-Pets</h1></a></div>
-        <div id="nav_item" class="col"><a href="mostrar-mascotas"><h3>Mascotas</h3></a></div>
-        <div id="nav_item" class="col"><a href="registrar-mascota"><h3>Registrar mascota</h3></a></div>
-        <div id="nav_item" class="col"><a href="mostrar-refugios"><h3>Refugios</h3></a></div>
-        <div id="nav_item" class="col"><a href="#"><h3>Registrar refugio</h3></a></div>
-        <div id="nav_item" class="col"><a href="mapa-mascotas"><h3>Mapa Mascotas</h3></a></div>
-        <div id="nav_item" class="col"><a href="mapa-refugios"><h3>Mapa Refugios</h3></a></div>
+        <div id="nav_item" class="col"><a href="mostrar-mascotas"><h5>Mascotas</h5></a></div>
+        <div id="nav_item" class="col"><a href="registrar-mascota"><h5>Registrar mascota</h5></a></div>
+        <div id="nav_item" class="col"><a href="mostrar-refugios"><h5>Refugios</h5></a></div>
+        <div id="nav_item" class="col"><a href="registrar-refugio"><h5>Registrar refugio</h5></a></div>
+        <div id="nav_item" class="col"><a href="mapa-mascotas"><h5>Mapa Mascotas</h5></a></div>
+        <div id="nav_item" class="col"><a href="mapa-refugios"><h5>Mapa Refugios</h5></a></div>
         <div id="botones_home" class="col">
             <a href="registrar-usuario"><button class="btn btn-outline-primary">Registrarme</button></a>
             <a href="login"><button class="btn btn-outline-primary">Login</button></a>
