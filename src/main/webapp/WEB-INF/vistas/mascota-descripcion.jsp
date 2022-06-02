@@ -6,6 +6,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 
 <body id="body_home">
@@ -26,7 +27,23 @@
 </nav>
 
 <div items="${listaDeMascotas}" var="mascota"><img src="${mascota.imagen} width="30px" height="200px""></div>
+<footer id="footer">
+    <div class="row pt-3">
+        <div class="col-5">
+            <i class="bi bi-whatsapp"></i><a href="#">Contactanos por Wpp</a>
+            <i class="bi bi-instagram"></i><a href="#">Seguinos en instragram</a>
+        </div>
 
+        <div class="col-5">
+            <i class="bi bi-twitter"></i><a href="#">Seguinos en twitter</a>
+            <i class="bi bi-facebook"></i><a href="#">Seguinos en facebook</a>
+            </div>
+        </div>
+    </div>
+<div id="center" class="row mt-4 mb-2">
+            <p>Grupo 1 - Matias Cascini / Focas Ignacio</p>
+</div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

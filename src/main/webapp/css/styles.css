@@ -165,11 +165,15 @@ p{
     background-color:grey;
 }
 #seccion{
-    background-color:#f1f1f1;
+    background-color:#c2d3fc;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-top:30px;
+    margin-bottom:30px;
 }
 
 #menu-lateral{
-    background-color:#f1f1f1;
+    background-color:#c2d3fc;
     padding:30px;
     color:black;
 }
@@ -178,9 +182,11 @@ p{
     font-size:20px;
     list-style:none;
 }
-
+#menu-lateral li{
+    background-color:padding 5px;
+}
 #menu-lateral li:hover{
-    background-color:#e0e0e0;
+    background-color:#9ab7fa;
 }
 #buscar{
     margin:10px;
@@ -222,6 +228,33 @@ p{
 }
 
 #footer{
-    background-color:white;
-    height:100px;
+    background-color:#c2d3fc;
+
+}
+
+#footer i{
+    size:10px;
+}
+
+#especialistas{
+	margin-bottom:30px;
+	background-color:#c2d3fc;
+	border-radius:30px;
+}
+
+#especialistas img{
+	height:300px;
+}
+
+#cuida{
+	margin-left:10%;
+	text-align:center;
+	background-color:#c2d3fc;
+	width:80%;
+	border-radius:10px;
+}
+
+#resultado{
+margin-left:40%;
+margin-top:10%;
 }
