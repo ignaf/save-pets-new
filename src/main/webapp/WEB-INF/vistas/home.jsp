@@ -99,7 +99,28 @@
         </a>
     </form>
 </nav>
+
 <div class="container">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2019_30/2945251/190724-better-lost-dog-stock-se-1148a.jpg"
+                     class="d-block w-100" alt="..." height=500px>
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.villageveterinaryclinic.com/sites/default/files/tips-finding-lost-cats.jpg"
+                     class="d-block w-100" alt="..." height=500px>
+            </div>
+            <div class="carousel-item">
+                <img src="https://marvel-b1-cdn.bc0a.com/f00000000107629/daysmart-pet.imgix.net/uploads/2018/07/lost-dog-how-to-avoid-the-unthinkable-1.jpg"
+                     class="d-block w-100" alt="..." height=500px>
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.homeagain.com/media/wysiwyg/PetResourceArticles/prevent-loss.jpg?auto=webp&format=pjpg&quality=85"
+                     class="d-block w-100" alt="..." height=500px>
+            </div>
+        </div>
+    </div>
     <h3 class="text-center">Mapa de Pets</h3>
 
     <div id="map">

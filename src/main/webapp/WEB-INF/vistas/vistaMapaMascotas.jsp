@@ -33,7 +33,7 @@
 
             <c:forEach items="${mascotas}" var="mascota">
             var coordenadasMascota = ${mascota.coordenadas}
-            var texto = '<h1>${mascota.especie}</h1>'+'<p>${mascota.direccion}</p>'
+            var texto = '<img src="${mascota.imagen}" width=250px height=auto>'+'<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>'+'<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
