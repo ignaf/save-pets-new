@@ -32,7 +32,7 @@
             };
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
-            var texto ='<h1>${refugio.nombre}</h1>'+'<p>${refugio.numeroTelefono}'+'<p>${refugio.direccion}</p>';
+            var texto ='<img src="${refugio.imagen}" width=250px height=auto>'+'<h1>${refugio.nombre}</h1>'+'<p>Telefono:${refugio.numeroTelefono}'+'<p>Direccion:${refugio.direccion}</p>';
             var marker = new google.maps.Marker({
                 position: coordenadasRefugio,
                 map: map,
