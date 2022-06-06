@@ -53,12 +53,13 @@ public class DatosMascota {
         this.direccion = direccion;
     }
 
-    public DatosMascota(String especie, String direccion, String nombre, String descripcion, String raza, String pelaje){
+    public DatosMascota(String especie, String direccion, String nombre, String descripcion, String raza, String pelaje, String imagen){
         this.especie = especie;
         this.descripcion = descripcion;
         this.direccion = direccion;
         this.nombre = nombre;
         this.raza = raza;
         this.pelaje = pelaje;
+        this.imagen = imagen;
     }
 }
