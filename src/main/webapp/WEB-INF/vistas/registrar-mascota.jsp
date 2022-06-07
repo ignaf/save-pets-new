@@ -123,14 +123,14 @@
 
                 </div>
                 <div class="tab">
-                    <h6>Url de imagen</h6>
-                    <p><form:input placeholder="url" path="imagen" name="imagen" id="imagen"
+                    <h6>Url Imagen</h6>
+                    <p><form:input  placeholder="url imagen" path="imagen" name="imagen" id="imagen"
                                    type="text" oninput="this.className = ''"/></p>
                 </div>
 
                 <div class="thanks-message text-center" id="text-message"><img src="https://i.imgur.com/O18mJ1K.png"
                                                                                width="100" class="mb-4">
-                    <h3>Gracias por registrar la mascota!</h3> <span>Registrando animales estas ayudando a que puedan encontrar un nuevo hogar, o que vuelvan al suyo los que se perdieron</span>
+                    <h3>Gracias por registrar la mascota!</h3> <span>Registrando animales estas ayudando a que puedan encontrar un nuevo hogar, o que vuelvan al suyo los que se perdieron</span><br>
                     <button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
                 </div>
                 <div style="overflow:auto;" id="nextprevious" class="mt-2">

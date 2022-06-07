@@ -107,7 +107,7 @@
 
                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
                     <h3>Gracias por registrar el refugio!</h3> <span>Seguir sumando refugios nos ayuda a encontrar lugar para mas animales</span>
-                    <button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
+                    <br><button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
                 </div>
                 <div style="overflow:auto;" id="nextprevious" class="mt-2">
                     <div style="float:right;">

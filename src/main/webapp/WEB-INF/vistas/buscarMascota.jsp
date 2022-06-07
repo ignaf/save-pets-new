@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
 </head>
 
-<body id="body_patas">
+<body>
 
 <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container-fluid">
@@ -62,12 +62,14 @@
         </a>
     </form>
 </nav>
+
 <form:form action="buscarMascota" method="POST" modelAttribute="datosMascota">
     <div id="buscar" class="d-flex">
         <button id="boton_buscar" class="btn btn-outline-primary">Buscar</button>
         <input path="nombre" name="nombre" class="form-control me-2" type="text">
     </div>
 </form:form>
+
 <div id="resultado">
 <div id="seccion_cartas">
     <c:forEach items="${listaDeMascotas}" var="mascota">

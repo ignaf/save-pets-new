@@ -15,7 +15,7 @@
 
 </head>
 
-<body id="body_patas">
+<body>
 
 <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container-fluid">
