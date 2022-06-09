@@ -259,3 +259,6 @@ margin-left:40%;
 margin-top:10%;
 }
 
+.fixNav{
+    overflow: hidden;
+}
