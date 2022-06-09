@@ -15,20 +15,18 @@ public class Usuario {
 	private Long id;
 	private String email;
 	private String password;
-	private Boolean esAdmin;
+	private String rol;
 
 	public Usuario(){}
 	
 	public Usuario(String email, String password){
 		this.email=email;
 		this.password=password;
-		this.esAdmin=false;
 	}
 	
 	public Usuario(DatosRegistro datosRegistro) {
 		this.email = datosRegistro.getEmail();
 		this.password = datosRegistro.getClave();
-		this.esAdmin = false;
 	}
 
 	public Long getId() {
@@ -49,6 +47,10 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Boolean getEsAdmin() {return esAdmin;}
-	public void setEsAdmin(Boolean esAdmin) {this.esAdmin = esAdmin;}
+	public String getRol() {
+		return rol;
+	}
+	public void setRol(String rol) {
+		this.rol = rol;
+	}	
 }

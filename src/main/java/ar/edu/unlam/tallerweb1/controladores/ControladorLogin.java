@@ -47,6 +47,14 @@ public class ControladorLogin {
 		modelo.put("listaDeMascotas", servicioMascota.listarTodos());
 		return new ModelAndView("home",modelo);
 	}
+	
+	@RequestMapping("/homeAdmin")
+	public ModelAndView irAHomeAdmin() {
+		ModelMap modelo = new ModelMap();
+		modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+		modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+		return new ModelAndView("homeAdmin",modelo);
+	}
 
 
 	@RequestMapping("/login")
@@ -62,16 +70,17 @@ public class ControladorLogin {
 		ModelMap model = new ModelMap();
 
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin.getEmail(), datosLogin.getPassword());
-		if(usuarioBuscado==null){
+		request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
+		if(usuarioBuscado.getEmail()=="admin"&&usuarioBuscado.getPassword()=="admin") {
+			request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
+			return new ModelAndView("redirect:/homeAdmin");
+		}
+		else if(usuarioBuscado==null){
 			model.put("error", "Usuario o clave incorrecta");
-		}
-		else if(usuarioBuscado.getEmail()=="admin"&&usuarioBuscado.getPassword()=="admin") {
-//			request.getSession().setAttribute("ADMIN", usuarioBuscado.getRol());
-			return new ModelAndView("redirect:/mostrar-refugios");
 		}else{
-//				request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
-				return new ModelAndView("redirect:/mostrar-refugios");
+				return new ModelAndView("redirect:/home");
 		}
+		
 		return new ModelAndView("login", model);
 	}
 	

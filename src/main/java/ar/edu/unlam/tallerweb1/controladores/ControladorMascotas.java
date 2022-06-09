@@ -73,7 +73,7 @@ public class ControladorMascotas {
     @RequestMapping(path = "/buscarMascota", method = RequestMethod.POST)
     public ModelAndView mascotaBuscada(@ModelAttribute("datosMascota") DatosMascota datosMascota){
         ModelMap modelo = new ModelMap();
-        modelo.put("listaDeMascotas", servicioMascota.buscarMascota(datosMascota.getNombre()));
+        modelo.put("listaDeMascotas", servicioMascota.buscarGeneral(datosMascota.getNombre()));
         return new ModelAndView("buscarMascota", modelo);
     }
 

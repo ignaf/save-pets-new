@@ -3,6 +3,8 @@ package ar.edu.unlam.tallerweb1.repositorios.implementaciones;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioTienda;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
@@ -10,50 +12,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
+import ar.edu.unlam.tallerweb1.modelo.Producto;
 
 import javax.transaction.Transactional;
 
 @Transactional
-@Repository("repositorioMascota")
-public class RepositorioMascotaImpl implements RepositorioMascota {
+@Repository("repositorioTienda")
+public class RepositorioTiendaImpl implements RepositorioTienda {
 
     private SessionFactory sessionFactory;
 
     @Autowired
-    public RepositorioMascotaImpl(SessionFactory sessionFactory){
+    public RepositorioTiendaImpl(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
     }
 
 
     @Override
-    public void guardar(Mascota mascota) {
-        sessionFactory.getCurrentSession().save(mascota);
+    public void guardar(Producto producto) {
+        sessionFactory.getCurrentSession().save(producto);
     }
 
     @Override
-    public Mascota buscar(Long id) {
-        return(Mascota) sessionFactory.getCurrentSession().createCriteria(Mascota.class)
+    public Producto buscar(Long id) {
+        return(Producto) sessionFactory.getCurrentSession().createCriteria(Producto.class)
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();
     }
 
     @Override
-    public List<Mascota> buscarNombre(String nombre) {
-        return sessionFactory.getCurrentSession().createCriteria(Mascota.class)
+    public List<Producto> buscarNombre(String nombre) {
+        return sessionFactory.getCurrentSession().createCriteria(Producto.class)
                 .add(Restrictions.eq("nombre", nombre))
                 .list();
     }
 
     
     @Override
-    public List<Mascota> buscarGeneral(String nombre) {
-    return sessionFactory.getCurrentSession().createCriteria(Mascota.class)
+    public List<Producto> buscarGeneral(String nombre) {
+    return sessionFactory.getCurrentSession().createCriteria(Producto.class)
     	    .add(Restrictions.disjunction()
-    	            .add(Restrictions.like("especie", nombre,MatchMode.ANYWHERE))
     	            .add(Restrictions.like("nombre", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("direccion", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("raza", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("pelaje", nombre,MatchMode.ANYWHERE))
+    	            .add(Restrictions.like("animales", nombre,MatchMode.ANYWHERE))
     	            .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
     	        )
     	    .list();
@@ -61,9 +61,9 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
     }
     
     @Override
-    public List<Mascota> buscarTodos() {
+    public List<Producto> buscarTodos() {
         return sessionFactory.getCurrentSession()
-                .createCriteria(Mascota.class)
+                .createCriteria(Producto.class)
                 .list();
     }
 }

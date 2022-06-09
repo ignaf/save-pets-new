@@ -12,6 +12,8 @@ import com.google.maps.errors.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Refugio;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioRefugio;
 
@@ -50,9 +52,31 @@ public class ServicioRefugioImpl implements ServicioRefugio {
 		return repositorioRefugio.buscarNombre(nombre);
 	}
 	
+	@Override
+	public void eliminar(Long id) {
+		repositorioRefugio.eliminar(id);
+	}
+	
+	@Override
+	public void modificar(DatosRefugio datosRefugio) {
+		Refugio refugio = new Refugio(
+				datosRefugio.getId(),
+				datosRefugio.getNombre(),
+				datosRefugio.getNumeroTelefono(),
+				datosRefugio.getUrlimagen(),
+				datosRefugio.getDireccion(),
+				datosRefugio.getCapmax());
+		repositorioRefugio.modificar(refugio);
+	}
+	
     @Override
 	public List<Refugio> listarTodos(){
 		return repositorioRefugio.buscarTodos();
 	}
+    
+    @Override
+    public List<Refugio> buscarGeneral(String nombre) {
+        return repositorioRefugio.buscarGeneral(nombre);
+    }
 	
 }

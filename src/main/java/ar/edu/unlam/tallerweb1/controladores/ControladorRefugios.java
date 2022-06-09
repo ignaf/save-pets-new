@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -82,12 +83,40 @@ public class ControladorRefugios {
         modelo.put("datosRefugio", new DatosRefugio());
         return new ModelAndView("buscarRefugio", modelo);
     }
-
+    
     @RequestMapping(path = "/buscarRefugio", method = RequestMethod.POST)
-    public ModelAndView buscarRefugio(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio){
+    public ModelAndView refugioBuscado(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio){
         ModelMap modelo = new ModelMap();
-        modelo.put("refugio", servicioRefugio.buscarRefugioPorNombre(datosRefugio.getNombre()));
+        modelo.put("refugio", servicioRefugio.buscarGeneral(datosRefugio.getNombre()));
         return new ModelAndView("buscarRefugio", modelo);
+    }
+    
+    
+    @RequestMapping(path = "/mostrar-animales-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView mostrarAnimalesDeRefugio(@PathVariable("id") int idRefugio){
+        ModelMap modelo = new ModelMap();
+        modelo.put("refugio", "ola");
+        return new ModelAndView("mostrar-animales-refugio", modelo);
+    }
+    
+    @RequestMapping(path = "/borrar-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView borrarRefugio(@PathVariable("id") Long idRefugio){
+        servicioRefugio.eliminar(idRefugio);
+        return new ModelAndView("redirect:/homeAdmin");
+    }
+    
+    @RequestMapping(path = "/modificar-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView modificarRefugioId(@PathVariable("id") Long idRefugio){
+        ModelMap modelo = new ModelMap();
+        DatosRefugio refugio = new DatosRefugio(idRefugio);
+        modelo.put("datosRefugio", refugio);
+        return new ModelAndView("modificar-refugio", modelo);
+    }
+    
+    @RequestMapping(path = "/modificar-refugio", method = RequestMethod.GET)
+    public ModelAndView modificarRefugio(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio){
+        servicioRefugio.modificar(datosRefugio);
+        return new ModelAndView("redirect:/homeAdmin");
     }
 	
 }

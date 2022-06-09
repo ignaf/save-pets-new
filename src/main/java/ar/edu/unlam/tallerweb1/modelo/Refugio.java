@@ -30,6 +30,16 @@ public class Refugio {
 		this.imagen=datosRefugio.getUrlimagen();
 	}
 
+	public Refugio(Long id, String nombre, String numeroTelefono, String urlimagen, String direccion,
+			Integer capmax) {
+		this.id=id;
+		this.nombre=nombre;
+		this.numeroTelefono=numeroTelefono;
+		this.imagen=urlimagen;
+		this.direccion=direccion;
+		this.capMax=capmax;
+	}
+
 	public Long getId() {
 		return id;
 	}

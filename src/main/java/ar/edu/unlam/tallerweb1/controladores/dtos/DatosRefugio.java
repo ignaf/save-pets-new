@@ -4,13 +4,22 @@ public class DatosRefugio {
 
     //nombre direccion numerotelefono cap max imagen
 
+	private Long id;
     private String nombre;
     private String direccion;
     private String numeroTelefono;
     private Integer capmax;
     private String urlimagen;
 
-    public String getNombre() {
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
         return nombre;
     }
 
@@ -51,6 +60,10 @@ public class DatosRefugio {
     }
 
     public DatosRefugio(){}
+    
+    public DatosRefugio(Long id){
+    	this.id=id;
+    }
 
     public DatosRefugio(String nombre, String direccion, String numeroTelefono, Integer capmax, String urlimagen){
         this.nombre = nombre;
