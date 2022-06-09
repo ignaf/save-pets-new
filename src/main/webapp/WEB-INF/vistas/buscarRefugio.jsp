@@ -15,7 +15,7 @@
 
 </head>
 
-<body id="body_patas">
+<body>
 
 <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container-fluid">
@@ -34,7 +34,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Refugios
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
@@ -46,7 +46,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Pets
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>

@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosMascota;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -88,7 +89,24 @@ public class Mascota {
 	public void setCoordenadas(String coordenadas) {
 		this.coordenadas = coordenadas;
 	}
-/*
+
+	public String getRaza() {
+		return raza;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+
+	public String getPelaje() {
+		return pelaje;
+	}
+
+	public void setPelaje(String pelaje) {
+		this.pelaje = pelaje;
+	}
+
+	/*
 	public Boolean getRescatado() {	return rescatado;}
 
 	public void setRescatado(Boolean rescatado) {this.rescatado = rescatado;	}

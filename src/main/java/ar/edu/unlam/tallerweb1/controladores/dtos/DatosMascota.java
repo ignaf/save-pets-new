@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores.dtos;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class DatosMascota {
 
     private String nombre;

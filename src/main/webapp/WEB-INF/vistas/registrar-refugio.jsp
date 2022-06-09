@@ -32,7 +32,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Refugios
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
@@ -44,7 +44,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Pets
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
@@ -107,7 +107,7 @@
 
                 <div class="thanks-message text-center" id="text-message"> <img src="https://i.imgur.com/O18mJ1K.png" width="100" class="mb-4">
                     <h3>Gracias por registrar el refugio!</h3> <span>Seguir sumando refugios nos ayuda a encontrar lugar para mas animales</span>
-                    <button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
+                    <br><button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
                 </div>
                 <div style="overflow:auto;" id="nextprevious" class="mt-2">
                     <div style="float:right;">
