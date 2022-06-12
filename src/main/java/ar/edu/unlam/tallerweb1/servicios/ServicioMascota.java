@@ -11,6 +11,7 @@ public interface ServicioMascota {
 
     Mascota agregarMascota(DatosMascota datosMascota) throws InterruptedException, ApiException, IOException;
     Mascota agregarMascotaARefugio(DatosMascota datosMascota);
+    Mascota asignarRefugio(Long idMascota, Long idRefugio);
     List<Mascota> buscarMascota(String nombre);
     List<Mascota> listarTodos();
 

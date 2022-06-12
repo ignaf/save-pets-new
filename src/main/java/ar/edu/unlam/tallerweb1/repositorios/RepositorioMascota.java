@@ -6,6 +6,7 @@ import ar.edu.unlam.tallerweb1.modelo.Refugio;
 
 public interface RepositorioMascota {
     void guardar(Mascota mascota);
+    void asignarRefugio(Mascota mascota);
     Mascota buscar(Long id);
     List<Mascota> buscarNombre(String nombre);
     List<Mascota> buscarTodos();

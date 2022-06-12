@@ -21,8 +21,9 @@ public class Mascota {
 	private String raza;
 	private String pelaje;
 	//private Boolean rescatado;
-	/*@ManyToOne
-	private Refugio refugio;*/
+	@ManyToOne
+	@JoinColumn(name = "refugio", nullable=false)
+	private Refugio refugio;
 
 	public Mascota() {}
 
@@ -109,9 +110,9 @@ public class Mascota {
 	/*
 	public Boolean getRescatado() {	return rescatado;}
 
-	public void setRescatado(Boolean rescatado) {this.rescatado = rescatado;	}
+	public void setRescatado(Boolean rescatado) {this.rescatado = rescatado;	}*/
 
 	public Refugio getRefugio() {	return refugio;}
 
-	public void setRefugio(Refugio refugio) {	this.refugio = refugio;}*/
+	public void setRefugio(Refugio refugio) {	this.refugio = refugio;}
 }
