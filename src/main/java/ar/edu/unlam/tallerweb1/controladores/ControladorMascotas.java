@@ -54,19 +54,6 @@ public class ControladorMascotas {
         return new ModelAndView("vistaMapaMascotas", model);
     }
 
-    @RequestMapping(path = "/registrar-mascota-en-refugio", method = RequestMethod.GET)
-    public ModelAndView mostrarFormularioRegistroMascotaEnRefugio() {
-        ModelMap model = new ModelMap();
-        model.put("datosMascota", new DatosMascota());
-        return new ModelAndView("registrar-mascota-en-refugio", model);
-    }
-
-    @RequestMapping(path = "/registrar-mascota-en-refugio", method = RequestMethod.POST)
-    public ModelAndView registrarMascotaEnRefugio(@ModelAttribute("datosMascota") DatosMascota datosMascota) {
-        ModelMap model = new ModelMap();
-        servicioMascota.agregarMascotaARefugio(datosMascota);
-        return mostrarFormularioRegistroMascotaEnRefugio();
-    }
 
     @RequestMapping(path = "/buscarMascota", method = RequestMethod.GET)
     public ModelAndView buscarMascota() {
