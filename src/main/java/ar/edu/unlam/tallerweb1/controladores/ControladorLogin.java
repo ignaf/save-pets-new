@@ -22,57 +22,68 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ControladorLogin {
 
-	private ServicioUsuario servicioUsuario;
-	private ServicioLogin servicioLogin;
-	private ServicioRefugio servicioRefugio;
-	private ServicioMascota servicioMascota;
+    private ServicioUsuario servicioUsuario;
+    private ServicioLogin servicioLogin;
+    private ServicioRefugio servicioRefugio;
+    private ServicioMascota servicioMascota;
 
-	@Autowired
-	public ControladorLogin(ServicioLogin servicioLogin, ServicioUsuario servicioUsuario, ServicioMascota servicioMascota, ServicioRefugio servicioRefugios){
-		this.servicioUsuario = servicioUsuario;
-		this.servicioLogin= servicioLogin;
-		this.servicioRefugio=servicioRefugios;
-		this.servicioMascota=servicioMascota;
-	}
+    @Autowired
+    public ControladorLogin(ServicioLogin servicioLogin, ServicioUsuario servicioUsuario, ServicioMascota servicioMascota, ServicioRefugio servicioRefugios) {
+        this.servicioUsuario = servicioUsuario;
+        this.servicioLogin = servicioLogin;
+        this.servicioRefugio = servicioRefugios;
+        this.servicioMascota = servicioMascota;
+    }
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public ModelAndView inicio() {
-		return new ModelAndView("redirect:/home");
-	}
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public ModelAndView inicio() {
+        return new ModelAndView("redirect:/home");
+    }
 
-	@RequestMapping("/home")
-	public ModelAndView irAHome() {
-		ModelMap modelo = new ModelMap();
-		modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
-		modelo.put("listaDeMascotas", servicioMascota.listarTodos());
-		return new ModelAndView("home",modelo);
-	}
+    @RequestMapping("/home")
+    public ModelAndView irAHome() {
+        ModelMap modelo = new ModelMap();
+        modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+        modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+        return new ModelAndView("home", modelo);
+    }
 
+    @RequestMapping("/home-admin")
+    public ModelAndView irAHomeAdmin(HttpServletRequest request) {
+        if (request.getSession().getAttribute("Rol") == "Admin") {
+            ModelMap modelo = new ModelMap();
+            modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+            modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+            return new ModelAndView("home-admin", modelo);
+        } else return new ModelAndView("redirect:/home");
+    }
 
-	@RequestMapping("/login")
-	public ModelAndView irALogin() {
+    @RequestMapping("/login")
+    public ModelAndView irALogin() {
 
-		ModelMap modelo = new ModelMap();
-		modelo.put("datosLogin", new DatosLogin());
-		return new ModelAndView("login", modelo);
-	}
+        ModelMap modelo = new ModelMap();
+        modelo.put("datosLogin", new DatosLogin());
+        return new ModelAndView("login", modelo);
+    }
 
-	@RequestMapping(path = "/validar-login", method = RequestMethod.POST)
-	public ModelAndView validarLogin(@ModelAttribute("datosLogin") DatosLogin datosLogin, HttpServletRequest request) {
-		ModelMap model = new ModelMap();
+    @RequestMapping(path = "/validar-login", method = RequestMethod.POST)
+    public ModelAndView validarLogin(@ModelAttribute("datosLogin") DatosLogin datosLogin, HttpServletRequest request) {
+        ModelMap model = new ModelMap();
 
-		Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin.getEmail(), datosLogin.getPassword());
-		if(usuarioBuscado==null){
-			model.put("error", "Usuario o clave incorrecta");
-		}
-		else if(usuarioBuscado.getEmail()=="admin"&&usuarioBuscado.getPassword()=="admin") {
-//			request.getSession().setAttribute("ADMIN", usuarioBuscado.getRol());
-			return new ModelAndView("redirect:/mostrar-refugios");
-		}else{
-//				request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
-				return new ModelAndView("redirect:/mostrar-refugios");
-		}
-		return new ModelAndView("login", model);
-	}
-	
+        Usuario usuarioBuscado = servicioLogin.consultarUsuario(datosLogin.getEmail(), datosLogin.getPassword());
+        if (usuarioBuscado == null) {
+            model.put("error", "Usuario o clave incorrecta");
+        }
+        if (usuarioBuscado != null) {
+            if (usuarioBuscado.getEsAdmin() == true) {
+                request.getSession().setAttribute("Rol", "Admin");
+                return new ModelAndView("redirect:/home-admin");
+            } else if (usuarioBuscado.getEsAdmin() == false) {
+                request.getSession().setAttribute("Rol", "UsuarioEstandar");
+                return new ModelAndView("redirect:/home");
+            }
+        }
+        return new ModelAndView("login", model);
+    }
+
 }
