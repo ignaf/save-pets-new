@@ -37,12 +37,6 @@ public class ServicioMascotaImpl implements ServicioMascota {
         return nuevaMascota;
     }
 
-    @Override
-    public Mascota agregarMascotaARefugio(DatosMascota datosMascota) {
-        Mascota nuevaMascota = new Mascota(datosMascota);
-        repositorioMascota.guardar(nuevaMascota);
-        return nuevaMascota;
-    }
 
     @Override
     public Mascota asignarRefugio(Long id, Long refugioId) {
