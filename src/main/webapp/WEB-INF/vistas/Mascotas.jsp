@@ -61,26 +61,6 @@
     </form>
 </nav>
 
-<%--<div id="seccion" class="container">--%>
-<%--    <div class="row">--%>
-<%--        <div class="col">--%>
-<%--            <div id="seccion_cartas">--%>
-<%--                <c:forEach items="${listaDeMascotas}" var="mascota">--%>
-<%--                    <div id="cartas" class="card" style="width: 18rem;">--%>
-<%--                        <img src="${mascota.imagen}" class="card-img-top" alt="..." width="30px" height="200px">--%>
-<%--                        <div class="card-body">--%>
-<%--                            <h5 class="card-title">${mascota.especie}</h5>--%>
-<%--                            <h5 class="card-title">${mascota.nombre}</h5>--%>
-<%--                            <p class="card-text">${mascota.descripcion}</p>--%>
-<%--                            <a href="mostrar-animales" class="btn btn-primary">Saber mas</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </c:forEach>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <c:forEach items="${listaDeMascotas}" var="mascota">
@@ -93,6 +73,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">Visto por ultima vez en: ${mascota.direccion}</h6>
                         <p class="card-text">${mascota.descripcion}</p>
                         <a href="mapa-mascotas" class="btn btn-primary">Ver mapa</a>
+                        <a href="asignar-refugio?id=${mascota.id}" class="btn btn-primary">Asignar Refugio</a>
                     </div>
                 </div>
 

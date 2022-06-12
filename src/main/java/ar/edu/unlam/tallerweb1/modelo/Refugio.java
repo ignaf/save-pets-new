@@ -2,10 +2,10 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosRefugio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Refugio {
@@ -19,6 +19,8 @@ public class Refugio {
 	private String numeroTelefono;
 	private Integer capMax;
 	private String imagen;
+	@OneToMany(mappedBy = "refugio")
+	private Set<Mascota> mascotas;
 	
 	public Refugio() {}
 	
@@ -81,4 +83,12 @@ public class Refugio {
 	public String getCoordenadas() {return coordenadas;	}
 
 	public void setCoordenadas(String coordenadas) {this.coordenadas = coordenadas;	}
+
+	public Collection<Mascota> getMascotas() {
+		return mascotas;
+	}
+
+	public void setMascotas(Set<Mascota> mascotas) {
+		this.mascotas = mascotas;
+	}
 }

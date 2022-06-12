@@ -30,6 +30,11 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
     }
 
     @Override
+    public void asignarRefugio(Mascota mascota) {
+        sessionFactory.getCurrentSession().update(mascota);
+    }
+
+    @Override
     public Mascota buscar(Long id) {
         return(Mascota) sessionFactory.getCurrentSession().createCriteria(Mascota.class)
                 .add(Restrictions.eq("id", id))
@@ -49,4 +54,6 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
                 .createCriteria(Mascota.class)
                 .list();
     }
+
+
 }
