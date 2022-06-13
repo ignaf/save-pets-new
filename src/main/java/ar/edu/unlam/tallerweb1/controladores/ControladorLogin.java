@@ -26,13 +26,15 @@ public class ControladorLogin {
     private ServicioLogin servicioLogin;
     private ServicioRefugio servicioRefugio;
     private ServicioMascota servicioMascota;
+    private HttpServletRequest request;
 
     @Autowired
-    public ControladorLogin(ServicioLogin servicioLogin, ServicioUsuario servicioUsuario, ServicioMascota servicioMascota, ServicioRefugio servicioRefugios) {
+    public ControladorLogin(ServicioLogin servicioLogin, ServicioUsuario servicioUsuario, ServicioMascota servicioMascota, ServicioRefugio servicioRefugios, HttpServletRequest request) {
         this.servicioUsuario = servicioUsuario;
         this.servicioLogin = servicioLogin;
         this.servicioRefugio = servicioRefugios;
         this.servicioMascota = servicioMascota;
+        this.request = request;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
@@ -41,21 +43,35 @@ public class ControladorLogin {
     }
 
     @RequestMapping("/home")
-    public ModelAndView irAHome() {
-        ModelMap modelo = new ModelMap();
-        modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
-        modelo.put("listaDeMascotas", servicioMascota.listarTodos());
-        return new ModelAndView("home", modelo);
+    public ModelAndView irAHome(HttpServletRequest request) {
+        if(esAdmin()==false && estaLogueado()==true){
+            ModelMap modelo = new ModelMap();
+            modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+            modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+            return new ModelAndView("home", modelo);
+        }else if(esAdmin()){
+            return new ModelAndView("redirect:/home-admin");
+        }else{
+            return new ModelAndView("redirect:/landing");
+        }
+
     }
 
     @RequestMapping("/home-admin")
     public ModelAndView irAHomeAdmin(HttpServletRequest request) {
-        if (request.getSession().getAttribute("Rol") == "Admin") {
+        if (esAdmin()) {
             ModelMap modelo = new ModelMap();
             modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
             modelo.put("listaDeMascotas", servicioMascota.listarTodos());
             return new ModelAndView("home-admin", modelo);
         } else return new ModelAndView("redirect:/home");
+    }
+
+    @RequestMapping("/landing")
+    public ModelAndView landingSinLoguear(){
+        ModelMap modelo = new ModelMap();
+        modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+        return new ModelAndView("landing", modelo);
     }
 
     @RequestMapping("/login")
@@ -85,5 +101,29 @@ public class ControladorLogin {
         }
         return new ModelAndView("login", model);
     }
+
+    @RequestMapping(path = "/logout", method = RequestMethod.GET)
+    public ModelAndView cerrarSesion(){
+        request.getSession().invalidate();
+        return new ModelAndView("redirect:/landing");
+    }
+
+    public boolean estaLogueado() {
+        if (request.getSession().getAttribute("Rol") == "Admin" || request.getSession().getAttribute("Rol") == "UsuarioEstandar") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean esAdmin() {
+        if (request.getSession().getAttribute("Rol") == "Admin") {
+            return true;
+        }
+        return false;
+    }
+
+
+
 
 }
