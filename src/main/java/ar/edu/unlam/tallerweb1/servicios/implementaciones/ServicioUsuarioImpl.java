@@ -12,6 +12,8 @@ import ar.edu.unlam.tallerweb1.controladores.dtos.DatosRegistro;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioUsuario;
 
+import java.util.List;
+
 
 @Service("servicioUsuario")
 @Transactional
@@ -46,5 +48,10 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
     public Boolean laClaveTieneLongitudIncorrecta(DatosRegistro datosRegistro) {
         return datosRegistro.getClave().length() < 8;
     }
-    
+
+    @Override
+    public List<Usuario> listarTodos() {
+        return repo.buscarTodos();
+    }
+
 }
