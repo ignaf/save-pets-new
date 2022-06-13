@@ -55,11 +55,8 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
-        <a href="login">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        </a>
-        <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+        <a href="logout">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
         </a>
     </form>
 </nav>

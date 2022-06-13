@@ -70,6 +70,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">Visto por ultima vez en: ${mascota.direccion}</h6>
                         <p class="card-text">${mascota.descripcion}</p>
                         <a href="mapa-mascotas" class="btn btn-primary">Ver mapa</a>
+                        <a href="asignar-refugio?id=${mascota.id}" class="btn btn-primary">Asignar Refugio</a>
                     </div>
                 </div>
 
