@@ -33,7 +33,6 @@
                     </a>
                     <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
                         <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
                     </ul>
