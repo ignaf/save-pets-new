@@ -129,7 +129,8 @@ public class ControladorMascotas {
         if(esAdmin()){
         ModelMap modelo = new ModelMap();
         servicioMascota.asignarRefugio(datosMascota.getId(), datosMascota.getRefugioId());
-        return new ModelAndView("home", modelo);}else{
+        return new ModelAndView("home", modelo);
+        }else{
             return new ModelAndView("redirect:/login");
         }
     }
