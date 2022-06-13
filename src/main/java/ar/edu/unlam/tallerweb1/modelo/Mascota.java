@@ -22,7 +22,7 @@ public class Mascota {
 	private String pelaje;
 	//private Boolean rescatado;
 	@ManyToOne
-	@JoinColumn(name = "refugio", nullable=false)
+	@JoinColumn(name = "refugio", nullable=true)
 	private Refugio refugio;
 
 	public Mascota() {}
