@@ -118,6 +118,15 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card h-100 border-0" style="width: 18rem;">
+                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png" class="card-img-top" alt="..."
+                         width="30px" height="200px">
+                    <div class="card-body text-center">
+                        <a href="enviar-mensaje" class="btn btn-primary">Enviar Mensaje</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <h3 class="text-center mt-2">Mapa de Pets</h3>
