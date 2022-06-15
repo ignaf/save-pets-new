@@ -42,4 +42,9 @@ public class ServicioMensajeImpl implements ServicioMensaje {
         return repositorioMensaje.buscarTodos(idDestinatario);
     }
 
+    @Override
+    public void eliminar(Long id) {
+        repositorioMensaje.eliminar(id);
+    }
+
 }
