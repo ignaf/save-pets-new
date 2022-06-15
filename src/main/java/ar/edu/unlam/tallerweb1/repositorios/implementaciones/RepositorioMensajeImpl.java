@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 @Repository("repositorioMensaje")
@@ -26,6 +27,14 @@ public class RepositorioMensajeImpl implements RepositorioMensaje {
         return(Mensaje) sessionFactory.getCurrentSession().createCriteria(Mensaje.class)
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();
+    }
+
+    @Override
+    public List<Mensaje> buscarTodos(Long idDestinatario) {
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Mensaje.class)
+                .add(Restrictions.eq("idDestinatario", idDestinatario))
+                .list();
     }
 
     @Override

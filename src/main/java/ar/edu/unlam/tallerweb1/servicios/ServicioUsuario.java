@@ -8,6 +8,7 @@ import java.util.List;
 public interface ServicioUsuario {
 
 	Usuario registrar(DatosRegistro datosRegistro);
+	Usuario buscarPorId(Long id);
 	Boolean lasClavesSonDistintas(DatosRegistro datosRegistro);
 	Boolean laClaveTieneLongitudIncorrecta(DatosRegistro datosRegistro);
 	List<Usuario> listarTodos();

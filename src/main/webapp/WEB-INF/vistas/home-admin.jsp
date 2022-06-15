@@ -4,7 +4,6 @@
 
 <html>
 <head>
-    <!--  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
@@ -90,12 +89,34 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
+        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+            Ver Mensajes
+        </button>
         <a href="logout">
             <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
         </a>
     </form>
 </nav>
-
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mensajes</h5>
+            </div>
+            <div class="modal-body">
+                <c:forEach items="${listaDeMensajes}" var="mensaje">
+                    <p>${mensaje.contenido}</p>
+                    <hr>
+                </c:forEach>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
 
     <div class="container mt-5">
@@ -120,7 +141,8 @@
             </div>
             <div class="col">
                 <div class="card h-100 border-0" style="width: 18rem;">
-                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png" class="card-img-top" alt="..."
+                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
+                         class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
                         <a href="enviar-mensaje" class="btn btn-primary">Enviar Mensaje</a>

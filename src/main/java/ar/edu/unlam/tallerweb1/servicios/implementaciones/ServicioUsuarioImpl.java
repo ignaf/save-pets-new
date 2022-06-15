@@ -41,6 +41,11 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
         return nuevoUsuario;
     }
 
+    @Override
+    public Usuario buscarPorId(Long id) {
+        return repo.buscarId(id);
+    }
+
     public Boolean lasClavesSonDistintas(DatosRegistro datosRegistro) {
         return !datosRegistro.getClave().equals(datosRegistro.getRepiteClave());
     }

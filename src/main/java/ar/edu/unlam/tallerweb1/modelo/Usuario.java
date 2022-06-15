@@ -2,10 +2,9 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosRegistro;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Usuario {
@@ -16,6 +15,8 @@ public class Usuario {
 	private String email;
 	private String password;
 	private Boolean esAdmin;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idDestinatario")
+	private List<Mensaje> mensajes;
 
 	public Usuario(){}
 	
@@ -51,4 +52,12 @@ public class Usuario {
 	}
 	public Boolean getEsAdmin() {return esAdmin;}
 	public void setEsAdmin(Boolean esAdmin) {this.esAdmin = esAdmin;}
+
+	public List<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+	public void setMensajes(List<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
 }

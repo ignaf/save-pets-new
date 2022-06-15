@@ -79,23 +79,7 @@
         <button class="btn btn-outline-primary mt-2" type="submit">Enviar</button>
     </form:form>
 </div>
-<%--<div class="container">--%>
-<%--<form:form action="enviar-mensaje" method="POST" modelAttribute="datosMensaje">--%>
-<%--    <div class="form-group">--%>
-<%--        <form:label for="idDestinatario" path="idDestinatario">Destinatario:</form:label>--%>
-<%--        <form:select class="form-control" id="idDestinatario" name="idDestinatario" path="idDestinatario">--%>
-<%--            <:c:forEach items="${usuarios}" var="usuario">--%>
-<%--                <form:option value="${usuario.id}">${usuario.email}</form:option>--%>
-<%--            </:c:forEach>--%>
-<%--        </form:select>--%>
-<%--    </div>--%>
-<%--    <div class="form-group">--%>
-<%--        <form:label for="contenido" path="contenido">Mensaje:</form:label>--%>
-<%--        <form:textarea class="form-control" id="contenido" path="contenido" name="contenido" rows="3"/>--%>
-<%--    </div>--%>
-<%--    <button type="submit" class="btn btn-primary">Enviar</button>--%>
-<%--</form:form>--%>
-<%--</div>--%>
+
 <footer class="text-center text-white" style="background-color: #f1f1f1;">
     <div class="container pt-4">
         <section class="mb-4">

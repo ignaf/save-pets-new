@@ -8,6 +8,8 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioMensaje;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service("ServicioMensaje")
 public class ServicioMensajeImpl implements ServicioMensaje {
 
@@ -33,6 +35,11 @@ public class ServicioMensajeImpl implements ServicioMensaje {
         mensaje.setIdDestinatario(repositorioUsuario.buscarId(idDestinatario));
         repositorioMensaje.asignarUsuarios(mensaje);
         return mensaje;
+    }
+
+    @Override
+    public List<Mensaje> buscarMensajes(Long idDestinatario) {
+        return repositorioMensaje.buscarTodos(idDestinatario);
     }
 
 }
