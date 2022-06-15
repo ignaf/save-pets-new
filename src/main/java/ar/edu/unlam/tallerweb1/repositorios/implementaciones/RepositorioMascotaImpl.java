@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
+import ar.edu.unlam.tallerweb1.modelo.Refugio;
 
 import javax.transaction.Transactional;
 
@@ -66,4 +67,32 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
                 .createCriteria(Mascota.class)
                 .list();
     }
+    
+    @Override
+	public void eliminar(Long id) {
+    	Mascota mascotaABorrar = this.buscar(id);
+		sessionFactory.getCurrentSession().delete(mascotaABorrar);
+	}
+    
+    @Override
+	public void asignarRefugioAMascota(Mascota mascota) {
+		sessionFactory.getCurrentSession().update(mascota);
+	}
+    
+    @Override
+    public Mascota buscarPorId(Long id) {
+        return(Mascota) sessionFactory.getCurrentSession().createCriteria(Mascota.class)
+                .add(Restrictions.eq("id", id))
+                .uniqueResult();
+    }
+    
+    @Override
+    public List<Mascota> buscarMascotaPorRefugio(Long id) {
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Mascota.class)
+                .createAlias("refugio", "refugio")
+                .add(Restrictions.eq("refugio.id", id))
+                .list();
+    }
+    
 }

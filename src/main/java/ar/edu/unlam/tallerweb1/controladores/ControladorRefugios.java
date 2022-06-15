@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.*;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
+import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioCoordenadasYaExisteException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioNombreYaExisteException;
 import com.google.maps.errors.ApiException;
@@ -22,13 +23,22 @@ public class ControladorRefugios {
 
     private MapaService mapaService;
 	private ServicioRefugio servicioRefugio;
+	private ServicioMascota servicioMascota;
 
 	@Autowired
-	public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService){
+	public ControladorRefugios(ServicioMascota servicioMascota, ServicioRefugio servicioRefugio, MapaService mapaService){
 		this.servicioRefugio=servicioRefugio;
 		this.mapaService = mapaService;
+		this.servicioMascota=servicioMascota;
 	}
 
+	@RequestMapping(path = "/adminRefugio", method = RequestMethod.GET)
+    public ModelAndView mostrarAdminRefugio(){
+	    ModelMap modelo = new ModelMap();
+	    modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+	    return new ModelAndView("adminRefugio", modelo);
+    }
+	
 	@RequestMapping(path = "/registrar-refugio", method = RequestMethod.GET)
     public ModelAndView mostrarFormularioRegistroRefugio(){
 	    ModelMap model = new ModelMap();
@@ -91,18 +101,10 @@ public class ControladorRefugios {
         return new ModelAndView("buscarRefugio", modelo);
     }
     
-    
-    @RequestMapping(path = "/mostrar-animales-refugio/{id}", method = RequestMethod.GET)
-    public ModelAndView mostrarAnimalesDeRefugio(@PathVariable("id") int idRefugio){
-        ModelMap modelo = new ModelMap();
-        modelo.put("refugio", "ola");
-        return new ModelAndView("mostrar-animales-refugio", modelo);
-    }
-    
     @RequestMapping(path = "/borrar-refugio/{id}", method = RequestMethod.GET)
     public ModelAndView borrarRefugio(@PathVariable("id") Long idRefugio){
         servicioRefugio.eliminar(idRefugio);
-        return new ModelAndView("redirect:/homeAdmin");
+        return new ModelAndView("redirect:/adminRefugio");
     }
     
     @RequestMapping(path = "/modificar-refugio/{id}", method = RequestMethod.GET)
@@ -116,7 +118,14 @@ public class ControladorRefugios {
     @RequestMapping(path = "/modificar-refugio", method = RequestMethod.GET)
     public ModelAndView modificarRefugio(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio){
         servicioRefugio.modificar(datosRefugio);
-        return new ModelAndView("redirect:/homeAdmin");
+        return new ModelAndView("redirect:/adminRefugio");
+    }
+    
+    @RequestMapping(path = "/mostrar-animales-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView mostrarMascotasDeRefugio(@PathVariable("id") Long idRefugio){
+        ModelMap modelo = new ModelMap();
+        modelo.put("listaDeMascotas", servicioMascota.buscarMascotaPorRefugio(idRefugio));
+        return new ModelAndView("Mascotas", modelo);
     }
 	
 }

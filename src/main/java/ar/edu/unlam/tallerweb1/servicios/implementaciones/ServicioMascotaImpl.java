@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
+import ar.edu.unlam.tallerweb1.modelo.Refugio;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
 
 @Service("ServicioMascota")
@@ -55,4 +56,26 @@ public class ServicioMascotaImpl implements ServicioMascota {
     public List<Mascota> listarTodos() {
         return repositorioMascota.buscarTodos();
     }
+    
+	@Override
+	public void eliminar(Long id) {
+		repositorioMascota.eliminar(id);
+	}
+	
+	@Override
+	public Mascota buscarMascotaPorId(Long idMascota){
+		return repositorioMascota.buscarPorId(idMascota);
+	}
+	
+	@Override
+	public void asignarRefugioAMascota(Long idMascota, Refugio refugio) {
+		Mascota mascotabuscada= buscarMascotaPorId(idMascota);
+		mascotabuscada.setRefugio(refugio);
+		repositorioMascota.asignarRefugioAMascota(mascotabuscada);
+	}
+	
+	@Override
+	public List<Mascota> buscarMascotaPorRefugio(Long idRefugio){
+		return repositorioMascota.buscarMascotaPorRefugio(idRefugio);
+	}
 }

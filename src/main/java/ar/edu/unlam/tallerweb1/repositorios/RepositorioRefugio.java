@@ -13,4 +13,5 @@ public interface RepositorioRefugio {
 	Refugio buscarCoordenadas(String coordenadas);
 	List<Refugio> buscarTodos();
 	List<Refugio> buscarGeneral(String nombre);
+	Refugio buscarPorId(Long id);
 }

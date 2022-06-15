@@ -77,6 +77,12 @@ public class RepositorioRefugioImpl implements RepositorioRefugio {
     	            .add(Restrictions.like("numeroTelefono", nombre,MatchMode.ANYWHERE))
     	        )
     	    .list();
-
     }
+    
+	@Override
+	public Refugio buscarPorId(Long id) {
+		return (Refugio) sessionFactory.getCurrentSession().createCriteria(Refugio.class)
+				.add(Restrictions.eq("id", id))
+				.uniqueResult();
+	}
 }

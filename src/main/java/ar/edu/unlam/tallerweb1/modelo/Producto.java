@@ -26,6 +26,7 @@ public class Producto {
 		this.precio=datosProducto.getPrecio();
 		this.descripcion=datosProducto.getDescripcion();
 		this.animales=datosProducto.getAnimales();
+		this.imagen=datosProducto.getImagen();
 	}
 
 	public Long getId() {

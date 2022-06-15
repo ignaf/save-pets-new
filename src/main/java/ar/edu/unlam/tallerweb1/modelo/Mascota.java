@@ -20,8 +20,8 @@ public class Mascota {
 	private String raza;
 	private String pelaje;
 	//private Boolean rescatado;
-	/*@ManyToOne
-	private Refugio refugio;*/
+	@ManyToOne
+	private Refugio refugio;
 
 	public Mascota() {}
 
@@ -57,10 +57,6 @@ public class Mascota {
 
 	public void setImagen(String imagen) {this.imagen = imagen;}
 
-	/*public Integer getEdad() {return edad;}
-
-	public void setEdad(Integer edad) {	this.edad = edad;	}*/
-
 	public String getDescripcion() {return descripcion;	}
 
 	public void setDescripcion(String descripcion) {this.descripcion = descripcion;	}
@@ -88,12 +84,29 @@ public class Mascota {
 	public void setCoordenadas(String coordenadas) {
 		this.coordenadas = coordenadas;
 	}
-/*
-	public Boolean getRescatado() {	return rescatado;}
 
-	public void setRescatado(Boolean rescatado) {this.rescatado = rescatado;	}
+	public String getRaza() {
+		return raza;
+	}
 
-	public Refugio getRefugio() {	return refugio;}
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
 
-	public void setRefugio(Refugio refugio) {	this.refugio = refugio;}*/
+	public String getPelaje() {
+		return pelaje;
+	}
+
+	public void setPelaje(String pelaje) {
+		this.pelaje = pelaje;
+	}
+
+	public Refugio getRefugio() {
+		return refugio;
+	}
+
+	public void setRefugio(Refugio refugio) {
+		this.refugio = refugio;
+	}
+
 }
