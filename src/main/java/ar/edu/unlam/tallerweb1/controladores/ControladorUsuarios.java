@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,6 +47,16 @@ public class ControladorUsuarios {
            Mensaje mensaje = servicioMensaje.agregarMensaje(datosMensaje);
            servicioMensaje.asignarUsuarios(mensaje.getId(),datosMensaje.getIdDestinatario());
            return new ModelAndView("redirect:/home-admin");
+        }else{
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
+    @RequestMapping(path="/borrar-mensaje/{id}", method = RequestMethod.GET)
+    public ModelAndView borrarMensaje(@PathVariable("id") Long idMensaje){
+        if(estaLogueado()) {
+            servicioMensaje.eliminar(idMensaje);
+            return new ModelAndView("redirect:/home");
         }else{
             return new ModelAndView("redirect:/login");
         }

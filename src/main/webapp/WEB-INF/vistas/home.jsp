@@ -110,7 +110,7 @@
             </div>
             <div class="modal-body">
                 <c:forEach items="${listaDeMensajes}" var="mensaje">
-                    <p>${mensaje.contenido}</p>
+                    <p>${mensaje.contenido}</p><a href="borrar-mensaje/${mensaje.id}">Borrar</a>
                     <hr>
                 </c:forEach>
             </div>

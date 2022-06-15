@@ -9,4 +9,5 @@ public interface ServicioMensaje {
     Mensaje agregarMensaje(DatosMensaje datosMensaje);
     Mensaje asignarUsuarios(Long idMensaje, Long idDestinatario);
     List<Mensaje> buscarMensajes(Long idDestinatario);
+    void eliminar(Long id);
 }

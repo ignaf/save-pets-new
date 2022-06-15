@@ -46,4 +46,10 @@ public class RepositorioMensajeImpl implements RepositorioMensaje {
     public void guardar(Mensaje mensaje) {
         sessionFactory.getCurrentSession().save(mensaje);
     }
+
+    @Override
+    public void eliminar(Long id) {
+        Mensaje mensajeABorrar = this.buscar(id);
+        sessionFactory.getCurrentSession().delete(mensajeABorrar);
+    }
 }

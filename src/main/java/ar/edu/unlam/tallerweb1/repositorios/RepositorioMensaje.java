@@ -9,4 +9,5 @@ public interface RepositorioMensaje {
     List<Mensaje> buscarTodos(Long idDestinatario);
     void asignarUsuarios(Mensaje mensaje);
     void guardar(Mensaje mensaje);
+    void eliminar(Long id);
 }
