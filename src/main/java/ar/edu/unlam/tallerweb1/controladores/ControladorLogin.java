@@ -4,10 +4,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosLogin;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
-import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
-import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
-import ar.edu.unlam.tallerweb1.servicios.ServicioRefugio;
-import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
+import ar.edu.unlam.tallerweb1.servicios.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,18 +20,20 @@ import javax.servlet.http.HttpServletRequest;
 public class ControladorLogin {
 
     private ServicioUsuario servicioUsuario;
+    private ServicioMensaje servicioMensaje;
     private ServicioLogin servicioLogin;
     private ServicioRefugio servicioRefugio;
     private ServicioMascota servicioMascota;
     private HttpServletRequest request;
 
     @Autowired
-    public ControladorLogin(ServicioLogin servicioLogin, ServicioUsuario servicioUsuario, ServicioMascota servicioMascota, ServicioRefugio servicioRefugios, HttpServletRequest request) {
+    public ControladorLogin(ServicioLogin servicioLogin, ServicioUsuario servicioUsuario, ServicioMascota servicioMascota, ServicioRefugio servicioRefugios, HttpServletRequest request, ServicioMensaje servicioMensaje) {
         this.servicioUsuario = servicioUsuario;
         this.servicioLogin = servicioLogin;
         this.servicioRefugio = servicioRefugios;
         this.servicioMascota = servicioMascota;
         this.request = request;
+        this.servicioMensaje = servicioMensaje;
     }
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
@@ -46,8 +45,12 @@ public class ControladorLogin {
     public ModelAndView irAHome(HttpServletRequest request) {
         if(esAdmin()==false && estaLogueado()==true){
             ModelMap modelo = new ModelMap();
+            Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+            Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
             modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+            modelo.put("listaDeMensajes", usuario.getMensajes());
+
             return new ModelAndView("home", modelo);
         }else if(esAdmin()){
             return new ModelAndView("redirect:/home-admin");
@@ -61,8 +64,11 @@ public class ControladorLogin {
     public ModelAndView irAHomeAdmin(HttpServletRequest request) {
         if (esAdmin()) {
             ModelMap modelo = new ModelMap();
+            Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+            Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
             modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+            modelo.put("listaDeMensajes", usuario.getMensajes());
             return new ModelAndView("home-admin", modelo);
         } else return new ModelAndView("redirect:/home");
     }
@@ -91,11 +97,14 @@ public class ControladorLogin {
             model.put("error", "Usuario o clave incorrecta");
         }
         if (usuarioBuscado != null) {
+            model.put("usuario", usuarioBuscado);
             if (usuarioBuscado.getEsAdmin() == true) {
                 request.getSession().setAttribute("Rol", "Admin");
+                request.getSession().setAttribute("idUsuario", usuarioBuscado.getId());
                 return new ModelAndView("redirect:/home-admin");
             } else if (usuarioBuscado.getEsAdmin() == false) {
                 request.getSession().setAttribute("Rol", "UsuarioEstandar");
+                request.getSession().setAttribute("idUsuario", usuarioBuscado.getId());
                 return new ModelAndView("redirect:/home");
             }
         }

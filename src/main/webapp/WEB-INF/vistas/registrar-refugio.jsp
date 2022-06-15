@@ -154,7 +154,6 @@
         2022 Taller Web I / Ignacio Focas - Matias Cascini
     </div>
 </footer>
-<!--JavaScript at end of body for optimized loading-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
