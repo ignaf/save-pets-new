@@ -29,9 +29,8 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Refugios
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
                         <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
                     </ul>
@@ -41,7 +40,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Pets
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
@@ -52,34 +51,11 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
-        <a href="login">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        </a>
-        <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+        <a href="logout">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
         </a>
     </form>
 </nav>
-
-<%--<div id="seccion" class="container">--%>
-<%--    <div class="row">--%>
-<%--        <div class="col">--%>
-<%--            <div id="seccion_cartas">--%>
-<%--                <c:forEach items="${listaDeMascotas}" var="mascota">--%>
-<%--                    <div id="cartas" class="card" style="width: 18rem;">--%>
-<%--                        <img src="${mascota.imagen}" class="card-img-top" alt="..." width="30px" height="200px">--%>
-<%--                        <div class="card-body">--%>
-<%--                            <h5 class="card-title">${mascota.especie}</h5>--%>
-<%--                            <h5 class="card-title">${mascota.nombre}</h5>--%>
-<%--                            <p class="card-text">${mascota.descripcion}</p>--%>
-<%--                            <a href="mostrar-animales" class="btn btn-primary">Saber mas</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </c:forEach>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
 
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">

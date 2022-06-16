@@ -101,7 +101,7 @@
 </nav>
 	<div id="centrado" class="row mt-4">
 	<div class="col-5"></div>
-	<div class="col"><a href="registrar-refugio" class="btn btn-primary">Nuevo refugio</a>
+	<div class="col"><a href="registrar-mascota" class="btn btn-primary">Nueva Mascota</a>
 	</div>
 	<div class="col"></div>
 	</div>

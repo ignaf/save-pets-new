@@ -10,7 +10,7 @@ public class DatosRefugio {
     private String numeroTelefono;
     private Integer capmax;
     private String urlimagen;
-
+    
     public Long getId() {
 		return id;
 	}
@@ -60,10 +60,6 @@ public class DatosRefugio {
     }
 
     public DatosRefugio(){}
-    
-    public DatosRefugio(Long id){
-    	this.id=id;
-    }
 
     public DatosRefugio(String nombre, String direccion, String numeroTelefono, Integer capmax, String urlimagen){
         this.nombre = nombre;

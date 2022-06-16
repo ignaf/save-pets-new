@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
-import ar.edu.unlam.tallerweb1.modelo.Refugio;
 
 import javax.transaction.Transactional;
 
@@ -18,7 +17,7 @@ import javax.transaction.Transactional;
 @Repository("repositorioMascota")
 public class RepositorioMascotaImpl implements RepositorioMascota {
 
-    private SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
     @Autowired
     public RepositorioMascotaImpl(SessionFactory sessionFactory){
@@ -94,5 +93,4 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
                 .add(Restrictions.eq("refugio.id", id))
                 .list();
     }
-    
 }

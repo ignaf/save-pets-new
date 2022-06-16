@@ -5,34 +5,33 @@
 <head>
     <title>Mapa Refugios</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!--  <link rel="stylesheet" type="text/css" href="webapp/css/styles.css" />-->
-    <!--  <script type="module" src="webapp/js/index.js"></script>-->
-
     <script>
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
-                center: { "lat": -34.670283, "lng": -58.5638904 },
+                center: {"lat": -34.670283, "lng": -58.5638904},
             });
             const infoWindow = new google.maps.InfoWindow();
             const icon = {
                 url: "https://cdn-icons-png.flaticon.com/512/184/184197.png",
-                scaledSize: new google.maps.Size(50,50),
-                origin: new google.maps.Point(0,0),
-                anchor: new google.maps.Point(0,0),
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
             };
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
-            var texto ='<img src="${refugio.imagen}" width=250px height=auto>'+'<h1>${refugio.nombre}</h1>'+'<p>Telefono:${refugio.numeroTelefono}'+'<p>Direccion:${refugio.direccion}</p>';
+            var texto = '<img src="${refugio.imagen}" width=250px height=auto>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
             var marker = new google.maps.Marker({
                 position: coordenadasRefugio,
                 map: map,
@@ -40,9 +39,9 @@
                 icon: icon,
             });
 
-            google.maps.event.addListener(marker,'click', function(){
+            google.maps.event.addListener(marker, 'click', function () {
                 infoWindow.setContent(this.info);
-                infoWindow.open(map,this);
+                infoWindow.open(map, this);
             })
             </c:forEach>
         }
@@ -77,9 +76,8 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Refugios
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
                         <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
                     </ul>
@@ -89,7 +87,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Pets
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
@@ -100,11 +98,8 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
-        <a href="login">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        </a>
-        <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+        <a href="logout">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
         </a>
     </form>
 </nav>

@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosMascota;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -57,6 +58,10 @@ public class Mascota {
 
 	public void setImagen(String imagen) {this.imagen = imagen;}
 
+	/*public Integer getEdad() {return edad;}
+
+	public void setEdad(Integer edad) {	this.edad = edad;	}*/
+
 	public String getDescripcion() {return descripcion;	}
 
 	public void setDescripcion(String descripcion) {this.descripcion = descripcion;	}
@@ -101,12 +106,12 @@ public class Mascota {
 		this.pelaje = pelaje;
 	}
 
-	public Refugio getRefugio() {
-		return refugio;
-	}
+	/*
+	public Boolean getRescatado() {	return rescatado;}
 
-	public void setRefugio(Refugio refugio) {
-		this.refugio = refugio;
-	}
+	public void setRescatado(Boolean rescatado) {this.rescatado = rescatado;	}*/
 
+	public Refugio getRefugio() {	return refugio;}
+
+	public void setRefugio(Refugio refugio) {	this.refugio = refugio;}
 }

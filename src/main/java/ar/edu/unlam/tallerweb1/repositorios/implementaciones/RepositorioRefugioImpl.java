@@ -9,9 +9,10 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Refugio;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @Repository("repositorioRefugio")
 public class RepositorioRefugioImpl implements RepositorioRefugio {
 

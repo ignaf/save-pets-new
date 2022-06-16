@@ -69,7 +69,12 @@
         <input path="nombre" name="nombre" class="form-control me-2" type="text">
     </div>
 </form:form>
-
+<div id="centrado" class="row mt-4">
+	<div class="col-5"></div>
+	<div class="col"><a href="registrar-producto" class="btn btn-primary">Nuevo Producto</a>
+	</div>
+	<div class="col"></div>
+	</div>
 <div class="container mt-5">
     <div class="">
         <c:forEach items="${productos}" var="producto">

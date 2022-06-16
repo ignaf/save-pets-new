@@ -1,5 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores.dtos;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class DatosMascota {
 
     private String nombre;
@@ -47,11 +49,6 @@ public class DatosMascota {
     public void setPelaje(String pelaje) {this.pelaje = pelaje;}
 
     public DatosMascota(){}
-
-    public DatosMascota(String especie, String direccion){
-        this.especie = especie;
-        this.direccion = direccion;
-    }
 
     public DatosMascota(String especie, String direccion, String nombre, String descripcion, String raza, String pelaje, String imagen){
         this.especie = especie;

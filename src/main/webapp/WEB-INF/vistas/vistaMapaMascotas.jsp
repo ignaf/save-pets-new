@@ -13,8 +13,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <!--  <link rel="stylesheet" type="text/css" href="webapp/css/styles.css" />-->
-    <!--  <script type="module" src="webapp/js/index.js"></script>-->
 
     <script>
         function initMap() {
@@ -78,9 +76,8 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Refugios
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
                         <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
                     </ul>
@@ -90,7 +87,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Pets
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
@@ -101,11 +98,8 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
-        <a href="login">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        </a>
-        <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+        <a href="logout">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
         </a>
     </form>
 </nav>

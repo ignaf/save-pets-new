@@ -5,7 +5,6 @@ public class DatosRegistro {
     private String email;
     private String clave;
     private String repiteClave;
-    private String rol;
 
     public String getEmail() {
         return email;
@@ -31,15 +30,7 @@ public class DatosRegistro {
         this.repiteClave = repiteClave;
     }
 
-    public String getRol() {
-		return rol;
-	}
-
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
-
-	public DatosRegistro(){}
+    public DatosRegistro(){}
 
     public DatosRegistro(String email, String clave, String repiteClave) {
         this.email = email;

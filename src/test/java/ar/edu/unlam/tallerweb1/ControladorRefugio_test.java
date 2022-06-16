@@ -22,7 +22,7 @@ public class ControladorRefugio_test {
 	private MapaService mapaService = mock(MapaService.class);
 	private ServicioMascota servicioMascota = mock(ServicioMascota.class);
 	private ServicioRefugio servicioRefugio = mock(ServicioRefugio.class);
-	private ControladorRefugios controladorRefugios = new ControladorRefugios(servicioMascota,servicioRefugio,mapaService);
+	/*private ControladorRefugios controladorRefugios = new ControladorRefugios(servicioMascota,servicioRefugio,mapaService);
 	
 	ModelAndView mav;
 	
@@ -66,5 +66,5 @@ public class ControladorRefugio_test {
 
 	private void givenNoExisteUnRefugio() {
 
-	}
+	}*/
 }

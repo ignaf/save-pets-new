@@ -259,20 +259,6 @@ margin-left:40%;
 margin-top:10%;
 }
 
-#refugioAdmin{
-	background-color:#e5e5e5;
-	padding-top:10px;
-	padding-bottom:10px;
-	transition:0.2s;
-}
-
-#refugioAdmin:hover{
-	background-color:#cfcfcf;
-	padding-top:15px;
-	padding-bottom:15px;
-}
-
-#centrado{
-	display:flex;
-	align-items:center;
+.fixNav{
+    overflow: hidden;
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosMascota;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioRefugio;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
 import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
 import com.google.maps.errors.ApiException;
@@ -17,7 +18,7 @@ import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
 @Service("ServicioMascota")
 public class ServicioMascotaImpl implements ServicioMascota {
 
-    private RepositorioMascota repositorioMascota;
+	private RepositorioMascota repositorioMascota;
     private ServicioMascotaImpl servicioMascota;
     private MapaService mapaService;
 

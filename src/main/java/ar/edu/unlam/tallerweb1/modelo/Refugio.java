@@ -2,10 +2,10 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosRefugio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Refugio {
@@ -39,7 +39,7 @@ public class Refugio {
 		this.direccion=direccion;
 		this.capMax=capmax;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -91,4 +91,5 @@ public class Refugio {
 	public String getCoordenadas() {return coordenadas;	}
 
 	public void setCoordenadas(String coordenadas) {this.coordenadas = coordenadas;	}
+
 }

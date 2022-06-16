@@ -34,7 +34,6 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
                         <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
                     </ul>
@@ -55,11 +54,8 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
-        <a href="login">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        </a>
-        <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+        <a href="logout">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
         </a>
     </form>
 </nav>
@@ -123,14 +119,14 @@
 
                 </div>
                 <div class="tab">
-                    <h6>Url de imagen</h6>
-                    <p><form:input placeholder="url" path="imagen" name="imagen" id="imagen"
+                    <h6>Url Imagen</h6>
+                    <p><form:input  placeholder="url imagen" path="imagen" name="imagen" id="imagen"
                                    type="text" oninput="this.className = ''"/></p>
                 </div>
 
                 <div class="thanks-message text-center" id="text-message"><img src="https://i.imgur.com/O18mJ1K.png"
                                                                                width="100" class="mb-4">
-                    <h3>Gracias por registrar la mascota!</h3> <span>Registrando animales estas ayudando a que puedan encontrar un nuevo hogar, o que vuelvan al suyo los que se perdieron</span>
+                    <h3>Gracias por registrar la mascota!</h3> <span>Registrando animales estas ayudando a que puedan encontrar un nuevo hogar, o que vuelvan al suyo los que se perdieron</span><br>
                     <button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
                 </div>
                 <div style="overflow:auto;" id="nextprevious" class="mt-2">
@@ -184,11 +180,9 @@
         2022 Taller Web I / Ignacio Focas - Matias Cascini
     </div>
 </footer>
-<!--JavaScript at end of body for optimized loading-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
