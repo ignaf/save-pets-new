@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -123,6 +124,28 @@ public class ControladorRefugios {
             return new ModelAndView("redirect:/login");
         }
 
+    }
+
+    @RequestMapping(path = "/borrar-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView borrarRefugio(@PathVariable("id") Long idRefugio) {
+        if (esAdmin()) {
+            servicioRefugio.eliminar(idRefugio);
+            return new ModelAndView("redirect:/adminRefugio");
+        } else {
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
+
+    @RequestMapping(path = "/adminRefugio", method = RequestMethod.GET)
+    public ModelAndView mostrarAdminRefugio() {
+        if (esAdmin()) {
+            ModelMap modelo = new ModelMap();
+            modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+            return new ModelAndView("adminRefugio", modelo);
+        } else {
+            return new ModelAndView("redirect:/login");
+        }
     }
 
     public boolean estaLogueado() {

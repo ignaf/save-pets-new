@@ -11,43 +11,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script>
-        function initMap() {
-
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 10,
-                center: {"lat": -34.670283, "lng": -58.5638904},
-            });
-            const infoWindow = new google.maps.InfoWindow();
-            const icon = {
-                url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
-                scaledSize: new google.maps.Size(50, 50),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(0, 0),
-            };
-
-            <c:forEach items="${listaDeMascotas}" var="mascota">
-            var coordenadasMascota =
-            ${mascota.coordenadas}
-            var texto = '<h1>${mascota.especie}</h1>' + '<p>${mascota.direccion}</p>'
-
-            var marker = new google.maps.Marker({
-                position: coordenadasMascota,
-                map: map,
-                info: texto,
-                icon: icon,
-            });
-
-            google.maps.event.addListener(marker, 'click', function () {
-                infoWindow.setContent(this.info);
-                infoWindow.open(map, this);
-            })
-            </c:forEach>
-        }
-
-        window.initMap = initMap;
-
-    </script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-light sticky-top">
@@ -98,66 +61,36 @@
         </a>
     </form>
 </nav>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mensajes</h5>
+<div id="centrado" class="row mt-4">
+    <div class="col-5"></div>
+    <div class="col"><a href="registrar-refugio" class="btn btn-primary">Nuevo refugio</a>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="container mt-5">
+    <div class="">
+        <c:forEach items="${listaDeRefugios}" var="refugio">
+            <div id="refugioAdmin" class="row mt-5">
+                <div id="centrado" class="col">
+                    <img src="${refugio.imagen}" alt="..." width="70px" height="50px">
+                </div>
+                <div id="centrado" class="col">
+                    <h5 class="">${refugio.nombre}</h5>
+                </div>
+                <div id="centrado" class="col">
+                    <h6 id="center">${refugio.direccion}</h6>
+                </div>
+                <div id="centrado" class="col">
+                    <h6 class="">Capacidad maxima: ${refugio.capMax}</h6>
+                </div>
+                <div id="centrado" class="col">
+                    <a href="borrar-refugio/${refugio.id}" class="btn btn-primary">Borrar refugio</a>
+                </div>
             </div>
-            <div class="modal-body">
-                <c:forEach items="${listaDeMensajes}" var="mensaje">
-                    <p>${mensaje.contenido}</p><a href="borrar-mensaje/${mensaje.id}">Borrar</a>
-                    <hr>
-                </c:forEach>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
+        </c:forEach>
     </div>
 </div>
-<div class="container">
 
-    <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center">
-            <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
-                         width="30px" height="200px">
-                    <div class="card-body text-center">
-                        <a href="adminRefugio" class="btn btn-primary">Administrar Refugios</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
-                         width="30px" height="200px">
-                    <div class="card-body text-center">
-                        <a href="mostrar-mascotas" class="btn btn-primary">Asignar Animal a Refugio</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
-                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
-                         class="card-img-top" alt="..."
-                         width="30px" height="200px">
-                    <div class="card-body text-center">
-                        <a href="enviar-mensaje" class="btn btn-primary">Enviar Mensaje</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h3 class="text-center mt-2">Mapa de Pets</h3>
-
-    <div id="map">
-        <script async
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
-    </div>
-</div>
 <footer class="text-center text-white" style="background-color: #f1f1f1;">
     <div class="container pt-4">
         <section class="mb-4">

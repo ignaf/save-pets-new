@@ -54,4 +54,11 @@ public class RepositorioRefugioImpl implements RepositorioRefugio {
                 .createCriteria(Refugio.class)
                 .list();
     }
+
+	@Override
+	public void eliminar(Long id) {
+		Refugio refugioABorrar = this.buscar(id);
+		sessionFactory.getCurrentSession().delete(refugioABorrar);
+	}
+
 }

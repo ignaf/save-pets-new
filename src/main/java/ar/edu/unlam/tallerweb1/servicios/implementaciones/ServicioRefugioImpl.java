@@ -54,5 +54,12 @@ public class ServicioRefugioImpl implements ServicioRefugio {
 	public List<Refugio> listarTodos(){
 		return repositorioRefugio.buscarTodos();
 	}
+
+	@Override
+	public void eliminar(Long id) {
+		repositorioRefugio.eliminar(id);
+	}
+
+
 	
 }
