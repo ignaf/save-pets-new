@@ -48,7 +48,7 @@ public class ControladorLogin {
             Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
             Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
-            modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+            modelo.put("listaDeMascotas", servicioMascota.listarMascotasSinRefugio());
             modelo.put("listaDeMensajes", usuario.getMensajes());
 
             return new ModelAndView("home", modelo);
@@ -67,7 +67,7 @@ public class ControladorLogin {
             Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
             Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
-            modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+            modelo.put("listaDeMascotas", servicioMascota.listarMascotasSinRefugio());
             modelo.put("listaDeMensajes", usuario.getMensajes());
             return new ModelAndView("home-admin", modelo);
         } else return new ModelAndView("redirect:/home");
@@ -76,7 +76,7 @@ public class ControladorLogin {
     @RequestMapping("/landing")
     public ModelAndView landingSinLoguear(){
         ModelMap modelo = new ModelMap();
-        modelo.put("listaDeMascotas", servicioMascota.listarTodos());
+        modelo.put("listaDeMascotas", servicioMascota.listarMascotasSinRefugio());
         return new ModelAndView("landing", modelo);
     }
 

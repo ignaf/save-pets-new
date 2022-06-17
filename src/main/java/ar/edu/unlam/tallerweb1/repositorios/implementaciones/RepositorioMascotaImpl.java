@@ -87,5 +87,12 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
 
     }
 
+    @Override
+    public List<Mascota> listarMascotasSinRefugio() {
+        return sessionFactory.getCurrentSession().createQuery(
+                "from Mascota where refugio=null"
+        ).list();
+    }
+
 
 }
