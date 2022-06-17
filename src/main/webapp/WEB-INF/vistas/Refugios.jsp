@@ -68,7 +68,7 @@
                         <h5 class="card-title">${refugio.nombre}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${refugio.direccion}</h6>
                         <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
-                        <a href="motrar-animales" class="btn btn-primary">Ver animales</a>
+                        <a href="animales-refugio/${refugio.id}" class="btn btn-primary">Ver animales</a>
                     </div>
                 </div>
 

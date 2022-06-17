@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.*;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
+import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioCoordenadasYaExisteException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioNombreYaExisteException;
 import com.google.maps.errors.ApiException;
@@ -23,13 +24,15 @@ public class ControladorRefugios {
 
     private MapaService mapaService;
     private ServicioRefugio servicioRefugio;
+    private ServicioMascota servicioMascota;
     private HttpServletRequest request;
 
     @Autowired
-    public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService, HttpServletRequest request) {
+    public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService, HttpServletRequest request, ServicioMascota servicioMascota) {
         this.servicioRefugio = servicioRefugio;
         this.mapaService = mapaService;
         this.request = request;
+        this.servicioMascota = servicioMascota;
     }
 
     @RequestMapping(path = "/registrar-refugio", method = RequestMethod.GET)
@@ -147,6 +150,18 @@ public class ControladorRefugios {
             return new ModelAndView("redirect:/login");
         }
     }
+
+    @RequestMapping(path="/animales-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView mostrarAnimalesDeRefugio(@PathVariable("id") Long idRefugio){
+        if(estaLogueado()){
+            ModelMap model = new ModelMap();
+            model.put("listaDeMascotas",servicioMascota.buscarMascotaPorRefugio(idRefugio));
+            return new ModelAndView("Mascotas", model);
+        }else{
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
 
     public boolean estaLogueado() {
         if (request.getSession().getAttribute("Rol") == "Admin" || request.getSession().getAttribute("Rol") == "UsuarioEstandar") {

@@ -61,5 +61,10 @@ public class ServicioMascotaImpl implements ServicioMascota {
         repositorioMascota.eliminar(id);
     }
 
+    @Override
+    public List<Mascota> buscarMascotaPorRefugio(Long idRefugio){
+        return repositorioMascota.buscarMascotaPorRefugio(idRefugio);
+    }
+
 
 }

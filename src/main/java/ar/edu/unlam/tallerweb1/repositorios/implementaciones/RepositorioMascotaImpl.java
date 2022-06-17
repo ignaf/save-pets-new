@@ -61,5 +61,14 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
         sessionFactory.getCurrentSession().delete(mascotaABorrar);
     }
 
+    @Override
+    public List<Mascota> buscarMascotaPorRefugio(Long id) {
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Mascota.class)
+                .createAlias("refugio", "refugio")
+                .add(Restrictions.eq("refugio.id", id))
+                .list();
+    }
+
 
 }
