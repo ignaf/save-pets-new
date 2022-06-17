@@ -16,21 +16,19 @@
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
-                center: {"lat": -34.670283, "lng": -58.5638904},
+                center: { "lat": -34.670283, "lng": -58.5638904 },
             });
             const infoWindow = new google.maps.InfoWindow();
             const icon = {
                 url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
-                scaledSize: new google.maps.Size(50, 50),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
             };
 
             <c:forEach items="${listaDeMascotas}" var="mascota">
-            var coordenadasMascota =
-            ${mascota.coordenadas}
-            var texto = '<h1>${mascota.especie}</h1>' + '<p>${mascota.direccion}</p>'
-
+            var coordenadasMascota = ${mascota.coordenadas}
+            var texto = '<img src="${mascota.imagen}" width=250px height=auto>'+'<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>'+'<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
@@ -38,9 +36,9 @@
                 icon: icon,
             });
 
-            google.maps.event.addListener(marker, 'click', function () {
+            google.maps.event.addListener(marker,'click',function(){
                 infoWindow.setContent(this.info);
-                infoWindow.open(map, this);
+                infoWindow.open(map,this);
             })
             </c:forEach>
         }
@@ -50,73 +48,10 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="home">Save-Pets</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Refugios
-                    </a>
-                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
-                        <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Pets
-                    </a>
-                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
-                        <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
-                        <li><a class="dropdown-item" href="buscarMascota">Buscador</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <form class="container-fluid justify-content-end">
-        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
-            Ver Mensajes
-        </button>
-        <a href="logout">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
-        </a>
-    </form>
-</nav>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Mensajes</h5>
-            </div>
-            <div class="modal-body">
-                <c:forEach items="${listaDeMensajes}" var="mensaje">
-                    <p>${mensaje.contenido}</p><a href="borrar-mensaje/${mensaje.id}">Borrar</a>
-                    <hr>
-                </c:forEach>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+<%@include file="../../template/navbar.jsp"%>
+
+<%@include file="../../template/modalMensaje.jsp"%>
 <div class="container">
 
     <div class="container mt-5">
@@ -149,6 +84,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card h-100 border-0" style="width: 18rem;">
+                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
+                         class="card-img-top" alt="..."
+                         width="30px" height="200px">
+                    <div class="card-body text-center">
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                            Ver Mensajes
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <h3 class="text-center mt-2">Mapa de Pets</h3>
@@ -158,44 +106,7 @@
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
 </div>
-<footer class="text-center text-white" style="background-color: #f1f1f1;">
-    <div class="container pt-4">
-        <section class="mb-4">
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-facebook"></i
-            ></a>
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-twitter"></i
-            ></a>
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-whatsapp"></i
-            ></a>
-
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-instagram"></i
-            ></a>
-        </section>
-    </div>
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        2022 Taller Web I / Ignacio Focas - Matias Cascini
-    </div>
-</footer>
+<%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

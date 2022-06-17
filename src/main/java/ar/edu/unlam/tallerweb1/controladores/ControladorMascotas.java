@@ -59,7 +59,7 @@ public class ControladorMascotas {
     public ModelAndView mostrarMapaMascotas() throws InterruptedException, ApiException, IOException {
         if (estaLogueado()) {
             ModelMap model = new ModelMap();
-            model.put("mascotas", servicioMascota.listarTodos());
+            model.put("mascotas", servicioMascota.listarMascotasSinRefugio());
             return new ModelAndView("vistaMapaMascotas", model);
         } else {
             return new ModelAndView("redirect:/login");

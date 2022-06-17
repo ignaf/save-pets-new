@@ -57,6 +57,11 @@ public class ServicioMascotaImpl implements ServicioMascota {
     }
 
     @Override
+    public List<Mascota> listarMascotasSinRefugio() {
+        return repositorioMascota.listarMascotasSinRefugio();
+    }
+
+    @Override
     public void eliminar(Long id) {
         repositorioMascota.eliminar(id);
     }
