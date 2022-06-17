@@ -17,21 +17,19 @@
 
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
-                center: {"lat": -34.670283, "lng": -58.5638904},
+                center: { "lat": -34.670283, "lng": -58.5638904 },
             });
             const infoWindow = new google.maps.InfoWindow();
             const icon = {
                 url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
-                scaledSize: new google.maps.Size(50, 50),
-                origin: new google.maps.Point(0, 0),
-                anchor: new google.maps.Point(0, 0),
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
             };
 
             <c:forEach items="${listaDeMascotas}" var="mascota">
-            var coordenadasMascota =
-            ${mascota.coordenadas}
-            var texto = '<h1>${mascota.especie}</h1>' + '<p>${mascota.direccion}</p>'
-
+            var coordenadasMascota = ${mascota.coordenadas}
+            var texto = '<img src="${mascota.imagen}" width=250px height=auto>'+'<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>'+'<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
@@ -39,9 +37,9 @@
                 icon: icon,
             });
 
-            google.maps.event.addListener(marker, 'click', function () {
+            google.maps.event.addListener(marker,'click',function(){
                 infoWindow.setContent(this.info);
-                infoWindow.open(map, this);
+                infoWindow.open(map,this);
             })
             </c:forEach>
         }
