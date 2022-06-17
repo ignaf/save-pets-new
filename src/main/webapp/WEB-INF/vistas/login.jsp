@@ -62,26 +62,7 @@
         </a>
     </form>
 </nav>
-<%--    <div class="contenedor">--%>
-<%--        <h1 id="Titulo">Bienvenidos</h1>--%>
-<%--        <form:form action="validar-login" method="POST" modelAttribute="datosLogin">--%>
-<%--        <div id="Login">--%>
-<%--        <i class="material-icons medium">account_circle</i>  --%>
-<%--        <h3>Usuario:<form:input path="email" id="email" class="form-control" /></h3>--%>
-<%--        <h3>Contrasena:<form:input path="password" type="password" id="password" class="form-control"/></h3>--%>
-<%--        <button id="Boton" class="btn btn-lg btn-primary btn-block" Type="Submit"/>Login</button>--%>
-<%--       	<p id="NoCuenta"><b>Aun no tenes cuenta?</b></p>--%>
-<%--        <a href="registrar-usuario"	><b>Registrarme</b></a>--%>
-<%--        <a href="mostrar-refugios"	><b>Refugios</b></a>--%>
-<%--        </div>--%>
-<%--        </form:form>--%>
-<%--				&lt;%&ndash;Bloque que es visible si el elemento error no esta vacio&ndash;%&gt;--%>
-<%--				<c:if test="${not empty error}">--%>
-<%--			        <h4><span>${error}</span></h4>--%>
-<%--			        <br>--%>
-<%--		        </c:if>--%>
-<%--				${msg}--%>
-<%--	</div>--%>
+
 <div class="container mt-5">
     <c:if test="${not empty error}">
         <h4 style="color: red"><span>${error}</span></h4>
@@ -109,7 +90,7 @@
 
 </div>
 
-
+<%@include file="../../template/footer.jsp"%>
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
@@ -117,43 +98,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
-<footer class="text-center text-white" style="background-color: #f1f1f1;">
-    <div class="container pt-4">
-        <section class="mb-4">
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-facebook"></i
-            ></a>
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-twitter"></i
-            ></a>
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-whatsapp"></i
-            ></a>
 
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-instagram"></i
-            ></a>
-        </section>
-    </div>
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        2022 Taller Web I / Ignacio Focas - Matias Cascini
-    </div>
-</footer>
 </body>
 </html>
