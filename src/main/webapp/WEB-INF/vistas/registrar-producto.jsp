@@ -1,16 +1,19 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/formulario.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width" initial-scale=1.0>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="js/formulario.js"></script>
 </head>
-
-<body>
 
 <nav class="navbar navbar-expand-lg bg-light sticky-top">
     <div class="container-fluid">
@@ -29,8 +32,9 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Refugios
                     </a>
-                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
+                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
                         <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
                     </ul>
@@ -40,7 +44,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Pets
                     </a>
-                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
                         <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
@@ -51,57 +55,48 @@
         </div>
     </div>
     <form class="container-fluid justify-content-end">
-        <a href="logout">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
+        <a href="login">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
+        </a>
+        <a href="registrar-usuario">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
         </a>
     </form>
 </nav>
 
+<body>
 
 <div class="container mt-5">
-    <div class="">
-        <c:forEach items="${refugios}" var="refugio">
-            <div id="refugioAdmin" class="row mt-5">
-                <div id="centrado" class="col">
-                    <img src="${refugio.imagen}" alt="..." width="70px" height="50px">
-                </div>
-                <div id="centrado" class="col">
-                    <h5 class="">${refugio.nombre}</h5>
-                </div>
-                <div id="centrado" class="col">
-                    <h6 id="center">${refugio.direccion}</h6>
-                </div>
-                <div id="centrado" class="col">
-                    <h6 class="">Capacidad maxima: ${refugio.capMax}</h6>
-                </div>
-                <div id="centrado" class="col">
-                    <form:form action="asignar-refugio" method="post" modelAttribute="DatosMascota">
-                        <input type="hidden" name="id" value="${mascota}">
-                        <input type="hidden" name="refugioId" value="${refugio.id}">
-                        <input type="submit" value="SELECCIONAR">
-                    </form:form>
-                </div>
-
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-8">
+            <form:form action="registrar-producto" method="POST" modelAttribute="datosProducto">
+            <h1 id="register">Registrar Producto</h1>
+            <div class="">
+                <h6>Nombre</h6>
+                <p>
+                    <form:input placeholder="Nombre..." path="nombre" id="nombre" type="text" name="nombre"/></p>
             </div>
-        </c:forEach>
+            <div class="">
+                <h6>Descripcion</h6>
+                <p><form:input placeholder="Descripcion" path="descripcion" type="text" id="descripcion" name="descripcion"/></p>
+            </div>
+            <div class="">
+                <h6>Precio</h6>
+                <p><form:input placeholder="Precio" path="precio" name="precio" id="precio" type="number"/></p>
+            </div>
+            <div class="">
+                <h6>Animales</h6>
+                <p><form:input placeholder="Animales" path="animales" name="animales" id="animales" type="text"/></p>
+            </div>
+            <div class="">
+                <h6>Url de imagen</h6>
+                <p><form:input placeholder="url de imagen" path="imagen" name="imagen" id="imagen" type="text" /></p>
+            </div>
+            <button class="btn btn-outline-primary" type="submit">Confirmar registro</button>
+        </div>
+        </form:form>
     </div>
 </div>
-
-<div id="cuida" class="mt-4 mb-4">
-    <h1>Cuida a los animales</h1>
-</div>
-<div id="especialistas" class="container">
-    <div class="row">
-        <div class="col">
-            <img src="css/Imagen1.png">
-        </div>
-        <div class="col">
-            <img src="css/Imagen2.png">
-        </div>
-        <div class="col">
-            <img src="css/Imagen3.png">
-        </div>
-    </div>
 </div>
 
 <footer class="text-center text-white" style="background-color: #f1f1f1;">
@@ -142,9 +137,13 @@
         2022 Taller Web I / Ignacio Focas - Matias Cascini
     </div>
 </footer>
+<!--JavaScript at end of body for optimized loading-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-</body>
 
+
+</body>
 </html>

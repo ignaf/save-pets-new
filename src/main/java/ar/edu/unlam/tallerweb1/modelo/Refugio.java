@@ -32,6 +32,8 @@ public class Refugio {
 		this.imagen=datosRefugio.getUrlimagen();
 	}
 
+
+
 	public Long getId() {
 		return id;
 	}

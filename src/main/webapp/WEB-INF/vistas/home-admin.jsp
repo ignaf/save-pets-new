@@ -107,7 +107,7 @@
             </div>
             <div class="modal-body">
                 <c:forEach items="${listaDeMensajes}" var="mensaje">
-                    <p>${mensaje.contenido}</p>
+                    <p>${mensaje.contenido}</p><a href="borrar-mensaje/${mensaje.id}">Borrar</a>
                     <hr>
                 </c:forEach>
             </div>
@@ -126,7 +126,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
-                        <a href="registrar-refugio" class="btn btn-primary">Registrar Refugios</a>
+                        <a href="adminRefugio" class="btn btn-primary">Administrar Refugios</a>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
-                        <a href="mostrar-mascotas" class="btn btn-primary">Asignar Animal a Refugio</a>
+                        <a href="adminMascota" class="btn btn-primary">Administrar Animales</a>
                     </div>
                 </div>
             </div>

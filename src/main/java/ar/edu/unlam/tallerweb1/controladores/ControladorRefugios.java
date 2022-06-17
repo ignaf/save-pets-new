@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.*;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
+import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioCoordenadasYaExisteException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioNombreYaExisteException;
 import com.google.maps.errors.ApiException;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,13 +24,15 @@ public class ControladorRefugios {
 
     private MapaService mapaService;
     private ServicioRefugio servicioRefugio;
+    private ServicioMascota servicioMascota;
     private HttpServletRequest request;
 
     @Autowired
-    public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService, HttpServletRequest request) {
+    public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService, HttpServletRequest request, ServicioMascota servicioMascota) {
         this.servicioRefugio = servicioRefugio;
         this.mapaService = mapaService;
         this.request = request;
+        this.servicioMascota = servicioMascota;
     }
 
     @RequestMapping(path = "/registrar-refugio", method = RequestMethod.GET)
@@ -117,13 +121,47 @@ public class ControladorRefugios {
     public ModelAndView buscarRefugio(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio) {
         if (estaLogueado()) {
             ModelMap modelo = new ModelMap();
-            modelo.put("refugio", servicioRefugio.buscarRefugioPorNombre(datosRefugio.getNombre()));
+            modelo.put("refugio", servicioRefugio.buscarGeneral(datosRefugio.getNombre()));
             return new ModelAndView("buscarRefugio", modelo);
         } else {
             return new ModelAndView("redirect:/login");
         }
 
     }
+
+    @RequestMapping(path = "/borrar-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView borrarRefugio(@PathVariable("id") Long idRefugio) {
+        if (esAdmin()) {
+            servicioRefugio.eliminar(idRefugio);
+            return new ModelAndView("redirect:/adminRefugio");
+        } else {
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
+
+    @RequestMapping(path = "/adminRefugio", method = RequestMethod.GET)
+    public ModelAndView mostrarAdminRefugio() {
+        if (esAdmin()) {
+            ModelMap modelo = new ModelMap();
+            modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
+            return new ModelAndView("adminRefugio", modelo);
+        } else {
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
+    @RequestMapping(path="/animales-refugio/{id}", method = RequestMethod.GET)
+    public ModelAndView mostrarAnimalesDeRefugio(@PathVariable("id") Long idRefugio){
+        if(estaLogueado()){
+            ModelMap model = new ModelMap();
+            model.put("listaDeMascotas",servicioMascota.buscarMascotaPorRefugio(idRefugio));
+            return new ModelAndView("Mascotas", model);
+        }else{
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
 
     public boolean estaLogueado() {
         if (request.getSession().getAttribute("Rol") == "Admin" || request.getSession().getAttribute("Rol") == "UsuarioEstandar") {

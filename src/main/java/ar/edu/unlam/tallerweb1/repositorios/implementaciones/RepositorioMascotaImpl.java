@@ -4,6 +4,7 @@ import java.util.List;
 
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -53,6 +54,37 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
         return sessionFactory.getCurrentSession()
                 .createCriteria(Mascota.class)
                 .list();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        Mascota mascotaABorrar = this.buscar(id);
+        sessionFactory.getCurrentSession().delete(mascotaABorrar);
+    }
+
+    @Override
+    public List<Mascota> buscarMascotaPorRefugio(Long id) {
+        return sessionFactory.getCurrentSession()
+                .createCriteria(Mascota.class)
+                .createAlias("refugio", "refugio")
+                .add(Restrictions.eq("refugio.id", id))
+                .list();
+    }
+
+
+    @Override
+    public List<Mascota> buscarGeneral(String nombre) {
+        return sessionFactory.getCurrentSession().createCriteria(Mascota.class)
+                .add(Restrictions.disjunction()
+                        .add(Restrictions.like("especie", nombre, MatchMode.ANYWHERE))
+                        .add(Restrictions.like("nombre", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("direccion", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("raza", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("pelaje", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
+                )
+                .list();
+
     }
 
 
