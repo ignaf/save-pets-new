@@ -121,7 +121,7 @@ public class ControladorRefugios {
     public ModelAndView buscarRefugio(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio) {
         if (estaLogueado()) {
             ModelMap modelo = new ModelMap();
-            modelo.put("refugio", servicioRefugio.buscarRefugioPorNombre(datosRefugio.getNombre()));
+            modelo.put("refugio", servicioRefugio.buscarGeneral(datosRefugio.getNombre()));
             return new ModelAndView("buscarRefugio", modelo);
         } else {
             return new ModelAndView("redirect:/login");

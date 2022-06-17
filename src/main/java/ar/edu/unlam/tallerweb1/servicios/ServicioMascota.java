@@ -15,5 +15,6 @@ public interface ServicioMascota {
     List<Mascota> listarTodos();
     void eliminar(Long id);
     List<Mascota> buscarMascotaPorRefugio(Long idRefugio);
+    List<Mascota> buscarGeneral(String nombre);
 
 }

@@ -23,7 +23,7 @@ public class ServicioMascotaImpl implements ServicioMascota {
     private MapaService mapaService;
 
     @Autowired
-    public ServicioMascotaImpl(RepositorioMascota repositorioMascota, RepositorioRefugio repositorioRefugio, MapaService mapaService){
+    public ServicioMascotaImpl(RepositorioMascota repositorioMascota, RepositorioRefugio repositorioRefugio, MapaService mapaService) {
         this.repositorioMascota = repositorioMascota;
         this.repositorioRefugio = repositorioRefugio;
         this.mapaService = mapaService;
@@ -62,9 +62,15 @@ public class ServicioMascotaImpl implements ServicioMascota {
     }
 
     @Override
-    public List<Mascota> buscarMascotaPorRefugio(Long idRefugio){
+    public List<Mascota> buscarMascotaPorRefugio(Long idRefugio) {
         return repositorioMascota.buscarMascotaPorRefugio(idRefugio);
     }
+
+    @Override
+    public List<Mascota> buscarGeneral(String nombre) {
+        return repositorioMascota.buscarGeneral(nombre);
+    }
+
 
 
 }

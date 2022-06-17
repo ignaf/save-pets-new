@@ -19,47 +19,51 @@ import ar.edu.unlam.tallerweb1.repositorios.RepositorioRefugio;
 @Transactional
 public class ServicioRefugioImpl implements ServicioRefugio {
 
-	private MapaService mapaService;
-	private RepositorioRefugio repositorioRefugio;
-	private ServicioRefugioImpl servicioRefugio;
-	
-	@Autowired
-	public ServicioRefugioImpl(RepositorioRefugio servicioRefugioDao, MapaService mapaService){
-		this.repositorioRefugio = servicioRefugioDao;
-		this.mapaService = mapaService;
-	}
-	
-	
-	@Override
-	public Refugio agregarRefugio(DatosRefugio datosRefugio) throws InterruptedException, ApiException, IOException {
-		String coordenadas = mapaService.convertirDireccionACoordenadas(datosRefugio.getDireccion());
-		if(repositorioRefugio.buscarCoordenadas(coordenadas)!=null){
-			throw new RefugioCoordenadasYaExisteException();
-		}
-		if(repositorioRefugio.buscarNombre(datosRefugio.getNombre())!=null){
-			throw new RefugioNombreYaExisteException();
-		}
-		Refugio nuevoRefugio = new Refugio(datosRefugio);
-		nuevoRefugio.setCoordenadas(mapaService.convertirDireccionACoordenadas(datosRefugio.getDireccion()));
-		repositorioRefugio.guardar(nuevoRefugio);
-		return nuevoRefugio;
-	}
+    private MapaService mapaService;
+    private RepositorioRefugio repositorioRefugio;
+    private ServicioRefugioImpl servicioRefugio;
 
-	@Override
-	public Refugio buscarRefugioPorNombre(String nombre) {
-		return repositorioRefugio.buscarNombre(nombre);
-	}
-	
+    @Autowired
+    public ServicioRefugioImpl(RepositorioRefugio servicioRefugioDao, MapaService mapaService) {
+        this.repositorioRefugio = servicioRefugioDao;
+        this.mapaService = mapaService;
+    }
+
+
     @Override
-	public List<Refugio> listarTodos(){
-		return repositorioRefugio.buscarTodos();
-	}
+    public Refugio agregarRefugio(DatosRefugio datosRefugio) throws InterruptedException, ApiException, IOException {
+        String coordenadas = mapaService.convertirDireccionACoordenadas(datosRefugio.getDireccion());
+        if (repositorioRefugio.buscarCoordenadas(coordenadas) != null) {
+            throw new RefugioCoordenadasYaExisteException();
+        }
+        if (repositorioRefugio.buscarNombre(datosRefugio.getNombre()) != null) {
+            throw new RefugioNombreYaExisteException();
+        }
+        Refugio nuevoRefugio = new Refugio(datosRefugio);
+        nuevoRefugio.setCoordenadas(mapaService.convertirDireccionACoordenadas(datosRefugio.getDireccion()));
+        repositorioRefugio.guardar(nuevoRefugio);
+        return nuevoRefugio;
+    }
 
-	@Override
-	public void eliminar(Long id) {
-		repositorioRefugio.eliminar(id);
-	}
+    @Override
+    public Refugio buscarRefugioPorNombre(String nombre) {
+        return repositorioRefugio.buscarNombre(nombre);
+    }
+
+    @Override
+    public List<Refugio> listarTodos() {
+        return repositorioRefugio.buscarTodos();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        repositorioRefugio.eliminar(id);
+    }
+
+    @Override
+    public List<Refugio> buscarGeneral(String nombre) {
+        return repositorioRefugio.buscarGeneral(nombre);
+    }
 
 
-	
 }
