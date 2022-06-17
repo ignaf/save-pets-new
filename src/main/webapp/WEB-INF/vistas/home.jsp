@@ -51,6 +51,7 @@
 </head>
 <body>
 <%@include file="../../template/navbar.jsp"%>
+
 <%@include file="../../template/modalMensaje.jsp"%>
 
 <div class="container">

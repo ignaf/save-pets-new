@@ -50,7 +50,6 @@ public class ControladorLogin {
             modelo.put("listaDeRefugios", servicioRefugio.listarTodos());
             modelo.put("listaDeMascotas", servicioMascota.listarMascotasSinRefugio());
             modelo.put("listaDeMensajes", usuario.getMensajes());
-
             return new ModelAndView("home", modelo);
         }else if(esAdmin()){
             return new ModelAndView("redirect:/home-admin");
