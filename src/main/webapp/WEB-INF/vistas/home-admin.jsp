@@ -135,7 +135,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
-                        <a href="mostrar-mascotas" class="btn btn-primary">Asignar Animal a Refugio</a>
+                        <a href="adminMascota" class="btn btn-primary">Administrar Animales</a>
                     </div>
                 </div>
             </div>

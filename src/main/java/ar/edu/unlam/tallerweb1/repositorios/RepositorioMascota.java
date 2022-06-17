@@ -10,4 +10,5 @@ public interface RepositorioMascota {
     Mascota buscar(Long id);
     List<Mascota> buscarNombre(String nombre);
     List<Mascota> buscarTodos();
+    void eliminar(Long id);
 }

@@ -55,5 +55,11 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
                 .list();
     }
 
+    @Override
+    public void eliminar(Long id) {
+        Mascota mascotaABorrar = this.buscar(id);
+        sessionFactory.getCurrentSession().delete(mascotaABorrar);
+    }
+
 
 }

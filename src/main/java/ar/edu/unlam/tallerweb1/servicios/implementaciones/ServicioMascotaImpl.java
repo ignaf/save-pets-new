@@ -55,4 +55,11 @@ public class ServicioMascotaImpl implements ServicioMascota {
     public List<Mascota> listarTodos() {
         return repositorioMascota.buscarTodos();
     }
+
+    @Override
+    public void eliminar(Long id) {
+        repositorioMascota.eliminar(id);
+    }
+
+
 }
