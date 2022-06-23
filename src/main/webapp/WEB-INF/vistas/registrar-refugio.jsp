@@ -13,6 +13,14 @@
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="js/formulario.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input[type=text]').forEach(node => node.addEventListener('keypress', e => {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                }
+            }))
+        });</script>
 </head>
 
 

@@ -13,6 +13,14 @@
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="js/formulario.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('input[type=text]').forEach(node => node.addEventListener('keypress', e => {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                }
+            }))
+        });</script>
 </head>
 
 
@@ -25,11 +33,12 @@
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
             <form:form action="registrar-mascota" method="post" modelAttribute="datosMascota">
-               <h1 id="register">Registrar Pet</h1>
+                <h1 id="register">Registrar Pet</h1>
                 <div>
                     <h6>Direccion</h6>
                     <p>
-                    <form:input type="text" path="direccion" class="form-control" name="direccion" id="direccion" placeholder="Direccion"/></p>
+                        <form:input type="text" path="direccion" class="form-control" name="direccion" id="direccion"
+                                    placeholder="Direccion"/></p>
                 </div>
                 <div>
                     <h6>Seleccionar especie</h6>
@@ -40,11 +49,13 @@
                 </div>
                 <div>
                     <h6>Nombre</h6>
-                    <form:input type="text" path="nombre" class="form-control" name="nombre" id="nombre" placeholder="Nombre"/>
+                    <form:input type="text" path="nombre" class="form-control" name="nombre" id="nombre"
+                                placeholder="Nombre"/>
                 </div>
                 <div>
                     <h6>Descripcion</h6>
-                    <form:textarea path="descripcion" class="form-control" id="descripcion" name="descripcion" rows="3"></form:textarea>
+                    <form:textarea path="descripcion" class="form-control" id="descripcion" name="descripcion"
+                                   rows="3"></form:textarea>
                 </div>
                 <div>
                     <h6>Sabes su raza?</h6>
@@ -62,7 +73,8 @@
                 </div>
                 <div>
                     <h6>URL de imagen</h6>
-                    <form:input type="text" path="imagen" class="form-control" name="imagen" id="imagen" placeholder="Url imagen"/>
+                    <form:input type="text" path="imagen" class="form-control" name="imagen" id="imagen"
+                                placeholder="Url imagen"/>
                 </div>
                 <button class="btn btn-outline-primary mt-2" type="submit">Confirmar registro</button>
             </form:form>
@@ -70,7 +82,7 @@
     </div>
 </div>
 
-<%@include file="../../template/footer.jsp"%>
+<%@include file="../../template/footer.jsp" %>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
