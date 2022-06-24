@@ -1,8 +1,10 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.DatosMascota;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
 import ar.edu.unlam.tallerweb1.servicios.ServicioRefugio;
+import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 import com.google.maps.errors.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,15 +23,17 @@ public class ControladorMascotas {
     private MapaService mapaService;
     private ServicioMascota servicioMascota;
     private ServicioRefugio servicioRefugio;
+    private ServicioUsuario servicioUsuario;
     private HttpServletRequest request;
 
 
     @Autowired
-    public ControladorMascotas(ServicioMascota servicioMascota, MapaService mapaService, ServicioRefugio servicioRefugio, HttpServletRequest request) {
+    public ControladorMascotas(ServicioMascota servicioMascota, MapaService mapaService, ServicioRefugio servicioRefugio, HttpServletRequest request, ServicioUsuario servicioUsuario) {
         this.servicioMascota = servicioMascota;
         this.servicioRefugio = servicioRefugio;
         this.mapaService = mapaService;
         this.request = request;
+        this.servicioUsuario = servicioUsuario;
     }
 
     @RequestMapping(path = "/registrar-mascota", method = RequestMethod.GET)
@@ -59,7 +63,10 @@ public class ControladorMascotas {
     public ModelAndView mostrarMapaMascotas() throws InterruptedException, ApiException, IOException {
         if (estaLogueado()) {
             ModelMap model = new ModelMap();
+            Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+            Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             model.put("mascotas", servicioMascota.listarMascotasSinRefugio());
+            model.put("direccionUsuario", usuario.getCoordenadas());
             return new ModelAndView("vistaMapaMascotas", model);
         } else {
             return new ModelAndView("redirect:/login");
@@ -103,18 +110,17 @@ public class ControladorMascotas {
             return new ModelAndView("redirect:/login");
         }
     }
-
-    @RequestMapping(path = "/mostrar-descripcion", method = RequestMethod.GET)
-    public ModelAndView mascotaDescripcion() {
+    @RequestMapping(path = "/pet/{id}", method = RequestMethod.GET)
+    public ModelAndView detalleMascota(@PathVariable("id") Long id) {
         if (estaLogueado()) {
             ModelMap modelo = new ModelMap();
-            modelo.put("listaDeMascotas", servicioMascota.listarTodos());
-            return new ModelAndView("mascota-descripcion", modelo);
+            modelo.put("mascota", servicioMascota.buscarPorId(id));
+            return new ModelAndView("mascotaDetalle", modelo);
         } else {
             return new ModelAndView("redirect:/login");
         }
-    }
 
+    }
     @RequestMapping(path = "/asignar-refugio", method = RequestMethod.GET)
     public ModelAndView asignarRefugio(@RequestParam(value = "id") String mascota) {
         if (esAdmin()) {

@@ -1,9 +1,11 @@
 package ar.edu.unlam.tallerweb1.servicios.implementaciones;
 
+import ar.edu.unlam.tallerweb1.servicios.MapaService;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.ClaveLongitudIncorrectaException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.ClavesDistintasException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.UsuarioYaExisteException;
+import com.google.maps.errors.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,7 @@ import ar.edu.unlam.tallerweb1.controladores.dtos.DatosRegistro;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioUsuario;
 
+import java.io.IOException;
 import java.util.List;
 
 
@@ -20,13 +23,15 @@ import java.util.List;
 public class ServicioUsuarioImpl implements ServicioUsuario {
 
 	private RepositorioUsuario repo;
+    private MapaService mapaService;
 	
 	@Autowired
-	public ServicioUsuarioImpl(RepositorioUsuario servicioUsuarioDao){
+	public ServicioUsuarioImpl(RepositorioUsuario servicioUsuarioDao, MapaService mapaService){
         this.repo = servicioUsuarioDao;
+        this.mapaService = mapaService;
     }
 
-    public Usuario registrar(DatosRegistro datosRegistro) {
+    public Usuario registrar(DatosRegistro datosRegistro) throws InterruptedException, ApiException, IOException {
     	if(lasClavesSonDistintas(datosRegistro)){
             throw new ClavesDistintasException();
         }
@@ -37,6 +42,7 @@ public class ServicioUsuarioImpl implements ServicioUsuario {
             throw new UsuarioYaExisteException();
         }
         Usuario nuevoUsuario = new Usuario(datosRegistro);
+        nuevoUsuario.setCoordenadas(mapaService.convertirDireccionACoordenadas(datosRegistro.getDireccion()));
         repo.guardar(nuevoUsuario);
         return nuevoUsuario;
     }

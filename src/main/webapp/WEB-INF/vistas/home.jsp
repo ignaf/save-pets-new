@@ -15,30 +15,53 @@
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 10,
-                center: { "lat": -34.670283, "lng": -58.5638904 },
+                zoom: 13,
+                center: ${direccionUsuario},
             });
             const infoWindow = new google.maps.InfoWindow();
-            const icon = {
-                url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
-                scaledSize: new google.maps.Size(50,50),
-                origin: new google.maps.Point(0,0),
-                anchor: new google.maps.Point(0,0),
+            const iconGato = {
+                url: "https://cdn-icons-png.flaticon.com/512/616/616430.png",
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
             };
+            const iconPerro = {
+                url: "https://cdn-icons-png.flaticon.com/512/616/616408.png",
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
+            };
+            const iconUser = {
+                url: "https://static.thenounproject.com/png/331569-200.png",
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
+            };
+            var marker = new google.maps.Marker({
+                position: ${direccionUsuario},
+                map: map,
+                icon: iconUser,
+            });
 
             <c:forEach items="${listaDeMascotas}" var="mascota">
-            var coordenadasMascota = ${mascota.coordenadas}
-            var texto = '<img src="${mascota.imagen}" width=250px height=auto>'+'<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>'+'<p>${mascota.descripcion}</p>'
+            var coordenadasMascota =
+            ${mascota.coordenadas}
+            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=250px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
                 info: texto,
-                icon: icon,
+                icon: <c:choose><c:when test="${mascota.especie=='gato'}">
+                iconGato
+                </c:when>
+                <c:when test="${mascota.especie=='perro'}">
+                iconPerro
+                </c:when></c:choose>
             });
 
-            google.maps.event.addListener(marker,'click',function(){
+            google.maps.event.addListener(marker, 'click', function () {
                 infoWindow.setContent(this.info);
-                infoWindow.open(map,this);
+                infoWindow.open(map, this);
             })
             </c:forEach>
         }

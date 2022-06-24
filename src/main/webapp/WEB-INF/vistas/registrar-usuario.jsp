@@ -35,6 +35,11 @@
         </div>
 
         <div class="form-outline mb-4">
+            <form:input path="direccion" type="text" id="direccion" class="form-control"/>
+            <form:label class="form-label" for="direccion" path="direccion">Direccion</form:label>
+        </div>
+
+        <div class="form-outline mb-4">
             <form:input path="clave" type="password" id="clave" class="form-control"/>
             <form:label class="form-label" for="clave" path="clave">Clave</form:label>
         </div>

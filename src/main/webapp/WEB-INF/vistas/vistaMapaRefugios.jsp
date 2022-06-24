@@ -19,8 +19,8 @@
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 10,
-                center: {"lat": -34.670283, "lng": -58.5638904},
+                zoom: 13,
+                center: ${direccionUsuario},
             });
             const infoWindow = new google.maps.InfoWindow();
             const icon = {
@@ -29,9 +29,20 @@
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(0, 0),
             };
+            const iconUser = {
+                url: "https://static.thenounproject.com/png/331569-200.png",
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
+            };
+            var marker = new google.maps.Marker({
+                position: ${direccionUsuario},
+                map: map,
+                icon: iconUser,
+            });
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
-            var texto = '<img src="${refugio.imagen}" width=250px height=auto>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
+            var texto = '<a href="refugio/${refugio.nombre}"><img src="${refugio.imagen}" width=250px height=auto></a>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
             var marker = new google.maps.Marker({
                 position: coordenadasRefugio,
                 map: map,
@@ -49,6 +60,7 @@
         window.initMap = initMap;
 
     </script>
+
     <style>
         #map {
             height: 400px;

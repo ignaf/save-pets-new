@@ -7,20 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/formulario.css">    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('input[type=text]').forEach(node => node.addEventListener('keypress', e => {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+            }
+        }))
+    });</script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="js/formulario.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('input[type=text]').forEach(node => node.addEventListener('keypress', e => {
-                if (e.keyCode == 13) {
-                    e.preventDefault();
-                }
-            }))
-        });</script>
+
 </head>
 
 

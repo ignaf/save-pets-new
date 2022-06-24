@@ -1,8 +1,10 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.*;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
 import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
+import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioCoordenadasYaExisteException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.RefugioNombreYaExisteException;
 import com.google.maps.errors.ApiException;
@@ -25,14 +27,16 @@ public class ControladorRefugios {
     private MapaService mapaService;
     private ServicioRefugio servicioRefugio;
     private ServicioMascota servicioMascota;
+    private ServicioUsuario servicioUsuario;
     private HttpServletRequest request;
 
     @Autowired
-    public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService, HttpServletRequest request, ServicioMascota servicioMascota) {
+    public ControladorRefugios(ServicioRefugio servicioRefugio, MapaService mapaService, HttpServletRequest request, ServicioMascota servicioMascota, ServicioUsuario servicioUsuario) {
         this.servicioRefugio = servicioRefugio;
         this.mapaService = mapaService;
         this.request = request;
         this.servicioMascota = servicioMascota;
+        this.servicioUsuario = servicioUsuario;
     }
 
     @RequestMapping(path = "/registrar-refugio", method = RequestMethod.GET)
@@ -68,7 +72,10 @@ public class ControladorRefugios {
     public ModelAndView mostrarMapaRefugios() throws InterruptedException, ApiException, IOException {
         if (estaLogueado()) {
             ModelMap model = new ModelMap();
+            Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+            Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             model.put("refugios", servicioRefugio.listarTodos());
+            model.put("direccionUsuario", usuario.getCoordenadas());
             return new ModelAndView("vistaMapaRefugios", model);
         } else {
             return new ModelAndView("redirect:/login");
@@ -94,6 +101,18 @@ public class ControladorRefugios {
             ModelMap modelo = new ModelMap();
             modelo.put("listaDeAnimales", servicioRefugio.listarTodos());
             return new ModelAndView("Refugios", modelo);
+        } else {
+            return new ModelAndView("redirect:/login");
+        }
+
+    }
+
+    @RequestMapping(path = "/refugio/{nombre}", method = RequestMethod.GET)
+    public ModelAndView detalleRefugio(@PathVariable("nombre") String nombre) {
+        if (estaLogueado()) {
+            ModelMap modelo = new ModelMap();
+            modelo.put("refugio", servicioRefugio.buscarRefugioPorNombre(nombre));
+            return new ModelAndView("refugioDetalle", modelo);
         } else {
             return new ModelAndView("redirect:/login");
         }
