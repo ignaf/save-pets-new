@@ -20,11 +20,17 @@
                 center: { "lat": -34.670283, "lng": -58.5638904 },
             });
             const infoWindow = new google.maps.InfoWindow();
-            const icon = {
-                url: "https://cdn-icons-png.flaticon.com/512/3460/3460335.png",
-                scaledSize: new google.maps.Size(50,50),
-                origin: new google.maps.Point(0,0),
-                anchor: new google.maps.Point(0,0),
+            const iconGato = {
+                url: "https://cdn-icons-png.flaticon.com/512/616/616430.png",
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
+            };
+            const iconPerro = {
+                url: "https://cdn-icons-png.flaticon.com/512/616/616408.png",
+                scaledSize: new google.maps.Size(50, 50),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 0),
             };
 
             <c:forEach items="${listaDeMascotas}" var="mascota">
@@ -34,7 +40,12 @@
                 position: coordenadasMascota,
                 map: map,
                 info: texto,
-                icon: icon,
+                icon: <c:choose><c:when test="${mascota.especie=='gato'}">
+                iconGato
+                </c:when>
+                <c:when test="${mascota.especie=='perro'}">
+                iconPerro
+                </c:when></c:choose>
             });
 
             google.maps.event.addListener(marker,'click',function(){

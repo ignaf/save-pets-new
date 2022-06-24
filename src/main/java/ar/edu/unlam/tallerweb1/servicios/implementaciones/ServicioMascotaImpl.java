@@ -76,6 +76,10 @@ public class ServicioMascotaImpl implements ServicioMascota {
         return repositorioMascota.buscarGeneral(nombre);
     }
 
+    @Override
+    public Mascota buscarPorId(Long id) {
+        return repositorioMascota.buscar(id);
+    }
 
 
 }
