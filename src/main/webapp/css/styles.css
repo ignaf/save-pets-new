@@ -130,8 +130,7 @@ p{
 }
 
 #map {
-    height: 400px;
-    width: 100%;
+    height: 795px;
 }
 
 #navegador{
@@ -261,4 +260,153 @@ margin-top:10%;
 
 .fixNav{
     overflow: hidden;
+}
+
+#portada{
+	width:100%;
+	height:500px;
+	background-image:url("MascotaGrande.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#centrado{
+padding-left:100px;
+padding-top:150px;
+}
+
+#textoGrande{
+font-size:70px;
+}
+
+#textoMediano{
+font-size:35px;
+}
+
+#imagenGrupal{
+	height:500px;
+	background-image:url("animalGrupo.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	align-items:center;
+	text-align:center;
+}
+
+#arribaMapa{
+	height: 50px;
+    width:50%;
+	margin-left:25%;
+	background-color:#7983ff;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#fondoColor{
+	background-color:#b5b1ff;
+}
+
+#degrade{
+	height:50px;
+	background-image: linear-gradient(180deg, white, #b5b1ff);
+}
+
+#derecha{
+	align-items:right;
+}
+
+#margenIzquierdo{
+	margin-left:10px;
+}
+#marginTopNegativo2{
+	margin-top:-2px;
+}
+#marginTopNegativo15{
+	margin-top:-15px;
+}
+#huella{
+	margin-top:100px;
+	width:200px;
+	transition:0.2s;
+	margin-left:-50px;
+}
+#huella:hover{
+	width:230px;
+}
+#completarLogin{
+	height:800px;
+}
+#marginLeft{
+	padding-left:100px;
+}
+#mascotasCercanasCartel{
+	text-align:right;
+	padding-top:200px;
+	position:absolute;
+	text-shadow: 2px 2px 3px;
+}
+#iconoAdmin{
+	width:300px;
+	height:200px;
+}
+#columnaMascota{
+	transition:.2s;
+	margin-left:25%;
+}
+#columnaMascota:hover {
+	transform: translateY(-10px) scale(1.05);
+	box-shadow: 0 5px 5px 0px rgba(0,0,0, .4);
+}
+#transition{
+	transition:.8s;
+}
+#tarjetasAlto{
+	height:65px;
+}
+#iconos{
+	background-color:black;
+}
+#fondoVioletaHome{
+	background-image: url(fondoVioleta.jpg);
+	height:600px;
+}
+#degradeReves{
+	background-image: linear-gradient(360deg, white, #b5b1ff);
+	height:100px;
+}
+#degrade-body{
+	background-image: linear-gradient(180deg, white, #b5b1ff);
+	height:100%
+}
+#headerRefugios{
+	background-image: url(fondoRefugios.jpg);
+	height:500px;
+}
+#tituloRefugios{
+	text-align:center;
+	align-items:center;
+	font-size:70px;
+	text-shadow: 1px 1px 2px;
+	padding-top:200px;
+}
+#headerMascotas{
+	background-image: url(fondoMascotas.jpg);
+	height:500px;
+}
+#refugioAdmin:hover{
+	transform: translateY(-10px) scale(1.05);
+	box-shadow: 0 5px 5px 0px rgba(0,0,0, .4);
+}
+#refugioAdmin{
+	background-color:#b5b1ff;
+	transition:0.2s;
+}
+#adminIcono{
+	background-color:#b5b1ff;
+	transition:0.2s;
+}
+#adminIcono:hover{
+	transform: translateY(-10px);
+	box-shadow: 0 5px 5px 0px rgba(0,0,0, .4);
+}
+#iconoLeft{
+	padding-left:70px;
 }

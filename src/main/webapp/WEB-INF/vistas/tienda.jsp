@@ -14,54 +14,8 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="home">Save-Pets</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Refugios
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-refugio">Registrar</a></li>
-                        <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
-                        <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Pets
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
-                        <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
-                        <li><a class="dropdown-item" href="buscarMascota">Buscador</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <form class="container-fluid justify-content-end">
-        <a href="login">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
-        </a>
-        <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
-        </a>
-    </form>
-</nav>
+<%@include file="../../template/navbar.jsp"%>
+
 
 <form:form action="buscarProducto" method="POST" modelAttribute="datosProducto">
     <div id="buscar" class="d-flex">
@@ -70,42 +24,38 @@
     </div>
 </form:form>
 <div id="centrado" class="row mt-4">
-	<div class="col-5"></div>
-	<div class="col"><a href="registrar-producto" class="btn btn-primary">Nuevo Producto</a>
-	</div>
-	<div class="col"></div>
-	</div>
+    <div class="col-5"></div>
+    <div class="col"><a href="registrar-producto" class="btn btn-primary">Nuevo Producto</a>
+    </div>
+    <div class="col"></div>
+</div>
 <div class="container mt-5">
     <div class="">
         <c:forEach items="${productos}" var="producto">
-            		<div id="refugioAdmin" class="row mt-5">
-            			<div id="centrado" class="col">
-                    	<img src="${producto.imagen}" alt="..." width="70px" height="50px">
-                    	</div>
-                    	<div id="centrado" class="col">
-                        <h5 class="">${producto.nombre}</h5>
-                        </div>
-                        <div id="centrado" class="col">
-                        <h6 class="">${producto.descripcion}</h6>
-                        </div>
-                        <div id="centrado" class="col">
-                        <h6 class="">ARS$ ${producto.precio}</h6>
-                        </div>
-                        <div id="centrado" class="col">
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                        </div>
-                        <div id="centrado" class="col">
-                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
-                        </div>
-            		</div>
+            <div id="refugioAdmin" class="row mt-5">
+                <div id="centrado" class="col">
+                    <img src="${producto.imagen}" alt="..." width="70px" height="50px">
+                </div>
+                <div id="centrado" class="col">
+                    <h5 class="">${producto.nombre}</h5>
+                </div>
+                <div id="centrado" class="col">
+                    <h6 class="">${producto.descripcion}</h6>
+                </div>
+                <div id="centrado" class="col">
+                    <h6 class="">ARS$ ${producto.precio}</h6>
+                </div>
+                <div id="centrado" class="col">
+                    <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+                <div id="centrado" class="col">
+                    <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                </div>
+            </div>
         </c:forEach>
     </div>
 </div>
-<footer>
-    <div class="text-center text-dark p-3 mt-5" style="background-color: rgba(0, 0, 0, 0.2);">
-        2022 Taller Web I / Ignacio Focas - Matias Cascini
-    </div>
-</footer>
+<%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

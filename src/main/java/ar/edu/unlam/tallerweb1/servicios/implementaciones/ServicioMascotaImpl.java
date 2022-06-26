@@ -12,19 +12,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
-import ar.edu.unlam.tallerweb1.modelo.Refugio;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
 
 @Service("ServicioMascota")
 public class ServicioMascotaImpl implements ServicioMascota {
 
-	private RepositorioMascota repositorioMascota;
+    private RepositorioMascota repositorioMascota;
+    private RepositorioRefugio repositorioRefugio;
     private ServicioMascotaImpl servicioMascota;
     private MapaService mapaService;
 
     @Autowired
-    public ServicioMascotaImpl(RepositorioMascota repositorioMascota, MapaService mapaService){
+    public ServicioMascotaImpl(RepositorioMascota repositorioMascota, RepositorioRefugio repositorioRefugio, MapaService mapaService) {
         this.repositorioMascota = repositorioMascota;
+        this.repositorioRefugio = repositorioRefugio;
         this.mapaService = mapaService;
     }
 
@@ -36,47 +37,49 @@ public class ServicioMascotaImpl implements ServicioMascota {
         return nuevaMascota;
     }
 
+
     @Override
-    public Mascota agregarMascotaARefugio(DatosMascota datosMascota) {
-        Mascota nuevaMascota = new Mascota(datosMascota);
-        repositorioMascota.guardar(nuevaMascota);
-        return nuevaMascota;
+    public Mascota asignarRefugio(Long id, Long refugioId) {
+        Mascota mascota = repositorioMascota.buscar(id);
+        mascota.setRefugio(repositorioRefugio.buscar(refugioId));
+        repositorioMascota.asignarRefugio(mascota);
+        return mascota;
     }
 
     @Override
     public List<Mascota> buscarMascota(String nombre) {
         return repositorioMascota.buscarNombre(nombre);
     }
-    
+
+    @Override
+    public List<Mascota> listarTodos() {
+        return repositorioMascota.buscarTodos();
+    }
+
+    @Override
+    public List<Mascota> listarMascotasSinRefugio() {
+        return repositorioMascota.listarMascotasSinRefugio();
+    }
+
+    @Override
+    public void eliminar(Long id) {
+        repositorioMascota.eliminar(id);
+    }
+
+    @Override
+    public List<Mascota> buscarMascotaPorRefugio(Long idRefugio) {
+        return repositorioMascota.buscarMascotaPorRefugio(idRefugio);
+    }
+
     @Override
     public List<Mascota> buscarGeneral(String nombre) {
         return repositorioMascota.buscarGeneral(nombre);
     }
 
     @Override
-    public List<Mascota> listarTodos() {
-        return repositorioMascota.buscarTodos();
+    public Mascota buscarPorId(Long id) {
+        return repositorioMascota.buscar(id);
     }
-    
-	@Override
-	public void eliminar(Long id) {
-		repositorioMascota.eliminar(id);
-	}
-	
-	@Override
-	public Mascota buscarMascotaPorId(Long idMascota){
-		return repositorioMascota.buscarPorId(idMascota);
-	}
-	
-	@Override
-	public void asignarRefugioAMascota(Long idMascota, Refugio refugio) {
-		Mascota mascotabuscada= buscarMascotaPorId(idMascota);
-		mascotabuscada.setRefugio(refugio);
-		repositorioMascota.asignarRefugioAMascota(mascotabuscada);
-	}
-	
-	@Override
-	public List<Mascota> buscarMascotaPorRefugio(Long idRefugio){
-		return repositorioMascota.buscarMascotaPorRefugio(idRefugio);
-	}
+
+
 }

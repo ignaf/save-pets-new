@@ -17,19 +17,23 @@ public class Usuario {
 	private Boolean esAdmin;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "idDestinatario")
 	private List<Mensaje> mensajes;
+	private String direccion;
+	private String coordenadas;
 
 	public Usuario(){}
 	
-	public Usuario(String email, String password){
+	public Usuario(String email, String password, String direccion){
 		this.email=email;
 		this.password=password;
 		this.esAdmin=false;
+		this.direccion=direccion;
 	}
 	
 	public Usuario(DatosRegistro datosRegistro) {
 		this.email = datosRegistro.getEmail();
 		this.password = datosRegistro.getClave();
 		this.esAdmin = false;
+		this.direccion = datosRegistro.getDireccion();
 	}
 
 	public Long getId() {
@@ -59,5 +63,21 @@ public class Usuario {
 
 	public void setMensajes(List<Mensaje> mensajes) {
 		this.mensajes = mensajes;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getCoordenadas() {
+		return coordenadas;
+	}
+
+	public void setCoordenadas(String coordenadas) {
+		this.coordenadas = coordenadas;
 	}
 }

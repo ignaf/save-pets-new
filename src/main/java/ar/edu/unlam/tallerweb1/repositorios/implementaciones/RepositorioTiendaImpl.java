@@ -1,20 +1,15 @@
 package ar.edu.unlam.tallerweb1.repositorios.implementaciones;
 
-import java.util.List;
-
-import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
+import ar.edu.unlam.tallerweb1.modelo.Producto;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioTienda;
-
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import ar.edu.unlam.tallerweb1.modelo.Mascota;
-import ar.edu.unlam.tallerweb1.modelo.Producto;
-
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 @Repository("repositorioTienda")
@@ -47,19 +42,19 @@ public class RepositorioTiendaImpl implements RepositorioTienda {
                 .list();
     }
 
-    
+
     @Override
     public List<Producto> buscarGeneral(String nombre) {
-    return sessionFactory.getCurrentSession().createCriteria(Producto.class)
-    	    .add(Restrictions.disjunction()
-    	            .add(Restrictions.like("nombre", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("animales", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
-    	        )
-    	    .list();
+        return sessionFactory.getCurrentSession().createCriteria(Producto.class)
+                .add(Restrictions.disjunction()
+                        .add(Restrictions.like("nombre", nombre, MatchMode.ANYWHERE))
+                        .add(Restrictions.like("animales", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
+                )
+                .list();
 
     }
-    
+
     @Override
     public List<Producto> buscarTodos() {
         return sessionFactory.getCurrentSession()

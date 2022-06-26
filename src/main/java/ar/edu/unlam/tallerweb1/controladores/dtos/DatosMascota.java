@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class DatosMascota {
 
+    private Long id;
     private String nombre;
     private String especie;
     private String imagen;
@@ -11,6 +12,7 @@ public class DatosMascota {
     private String direccion;
     private String raza;
     private String pelaje;
+    private Long refugioId;
 
     public String getNombre() {return nombre;}
 
@@ -48,7 +50,28 @@ public class DatosMascota {
 
     public void setPelaje(String pelaje) {this.pelaje = pelaje;}
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getRefugioId() {
+        return refugioId;
+    }
+
+    public void setRefugioId(Long refugioId) {
+        this.refugioId = refugioId;
+    }
+
     public DatosMascota(){}
+
+    public DatosMascota(Long id, Long refugioId){
+        this.id = id;
+        this.refugioId = refugioId;
+    }
 
     public DatosMascota(String especie, String direccion, String nombre, String descripcion, String raza, String pelaje, String imagen){
         this.especie = especie;

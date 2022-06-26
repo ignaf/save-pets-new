@@ -17,7 +17,7 @@ import javax.transaction.Transactional;
 @Repository("repositorioMascota")
 public class RepositorioMascotaImpl implements RepositorioMascota {
 
-	private SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     @Autowired
     public RepositorioMascotaImpl(SessionFactory sessionFactory){
@@ -28,6 +28,11 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
     @Override
     public void guardar(Mascota mascota) {
         sessionFactory.getCurrentSession().save(mascota);
+    }
+
+    @Override
+    public void asignarRefugio(Mascota mascota) {
+        sessionFactory.getCurrentSession().update(mascota);
     }
 
     @Override
@@ -44,47 +49,19 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
                 .list();
     }
 
-    
-    @Override
-    public List<Mascota> buscarGeneral(String nombre) {
-    return sessionFactory.getCurrentSession().createCriteria(Mascota.class)
-    	    .add(Restrictions.disjunction()
-    	            .add(Restrictions.like("especie", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("nombre", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("direccion", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("raza", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("pelaje", nombre,MatchMode.ANYWHERE))
-    	            .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
-    	        )
-    	    .list();
-
-    }
-    
     @Override
     public List<Mascota> buscarTodos() {
         return sessionFactory.getCurrentSession()
                 .createCriteria(Mascota.class)
                 .list();
     }
-    
+
     @Override
-	public void eliminar(Long id) {
-    	Mascota mascotaABorrar = this.buscar(id);
-		sessionFactory.getCurrentSession().delete(mascotaABorrar);
-	}
-    
-    @Override
-	public void asignarRefugioAMascota(Mascota mascota) {
-		sessionFactory.getCurrentSession().update(mascota);
-	}
-    
-    @Override
-    public Mascota buscarPorId(Long id) {
-        return(Mascota) sessionFactory.getCurrentSession().createCriteria(Mascota.class)
-                .add(Restrictions.eq("id", id))
-                .uniqueResult();
+    public void eliminar(Long id) {
+        Mascota mascotaABorrar = this.buscar(id);
+        sessionFactory.getCurrentSession().delete(mascotaABorrar);
     }
-    
+
     @Override
     public List<Mascota> buscarMascotaPorRefugio(Long id) {
         return sessionFactory.getCurrentSession()
@@ -93,4 +70,29 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
                 .add(Restrictions.eq("refugio.id", id))
                 .list();
     }
+
+
+    @Override
+    public List<Mascota> buscarGeneral(String nombre) {
+        return sessionFactory.getCurrentSession().createCriteria(Mascota.class)
+                .add(Restrictions.disjunction()
+                        .add(Restrictions.like("especie", nombre, MatchMode.ANYWHERE))
+                        .add(Restrictions.like("nombre", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("direccion", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("raza", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("pelaje", nombre,MatchMode.ANYWHERE))
+                        .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
+                )
+                .list();
+
+    }
+
+    @Override
+    public List<Mascota> listarMascotasSinRefugio() {
+        return sessionFactory.getCurrentSession().createQuery(
+                "from Mascota where refugio=null"
+        ).list();
+    }
+
+
 }

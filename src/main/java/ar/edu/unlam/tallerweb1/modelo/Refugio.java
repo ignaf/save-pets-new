@@ -19,6 +19,8 @@ public class Refugio {
 	private String numeroTelefono;
 	private Integer capMax;
 	private String imagen;
+	@OneToMany(mappedBy = "refugio")
+	private Set<Mascota> mascotas;
 	
 	public Refugio() {}
 	
@@ -30,16 +32,8 @@ public class Refugio {
 		this.imagen=datosRefugio.getUrlimagen();
 	}
 
-	public Refugio(Long id, String nombre, String numeroTelefono, String urlimagen, String direccion,
-			Integer capmax) {
-		this.id=id;
-		this.nombre=nombre;
-		this.numeroTelefono=numeroTelefono;
-		this.imagen=urlimagen;
-		this.direccion=direccion;
-		this.capMax=capmax;
-	}
-	
+
+
 	public Long getId() {
 		return id;
 	}
@@ -92,4 +86,11 @@ public class Refugio {
 
 	public void setCoordenadas(String coordenadas) {this.coordenadas = coordenadas;	}
 
+	public Collection<Mascota> getMascotas() {
+		return mascotas;
+	}
+
+	public void setMascotas(Set<Mascota> mascotas) {
+		this.mascotas = mascotas;
+	}
 }

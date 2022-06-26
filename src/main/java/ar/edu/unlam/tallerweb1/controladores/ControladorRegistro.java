@@ -4,6 +4,7 @@ import ar.edu.unlam.tallerweb1.servicios.*;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.ClaveLongitudIncorrectaException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.ClavesDistintasException;
 import ar.edu.unlam.tallerweb1.servicios.excepciones.UsuarioYaExisteException;
+import com.google.maps.errors.ApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
 
 @Controller
 public class ControladorRegistro {
@@ -30,7 +33,7 @@ public class ControladorRegistro {
     }
 
     @RequestMapping(path="/registrar-usuario", method = RequestMethod.POST)
-    public ModelAndView registrar(@ModelAttribute("datosRegistro") DatosRegistro datosRegistro){
+    public ModelAndView registrar(@ModelAttribute("datosRegistro") DatosRegistro datosRegistro) throws InterruptedException, ApiException, IOException {
         ModelMap model = new ModelMap();
         try{
             servicioUsuario.registrar(datosRegistro);

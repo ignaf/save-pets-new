@@ -19,8 +19,8 @@
         function initMap() {
 
             const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 10,
-                center: {"lat": -34.670283, "lng": -58.5638904},
+                zoom: 13,
+                center: ${direccionUsuario},
             });
             const infoWindow = new google.maps.InfoWindow();
             const icon = {
@@ -29,9 +29,20 @@
                 origin: new google.maps.Point(0, 0),
                 anchor: new google.maps.Point(0, 0),
             };
+            const iconUser = {
+                url: "https://static.thenounproject.com/png/331569-200.png",
+                scaledSize: new google.maps.Size(50,50),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0),
+            };
+            var marker = new google.maps.Marker({
+                position: ${direccionUsuario},
+                map: map,
+                icon: iconUser,
+            });
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
-            var texto = '<img src="${refugio.imagen}" width=250px height=auto>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
+            var texto = '<a href="refugio/${refugio.nombre}"><img src="${refugio.imagen}" width=250px height=auto></a>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
             var marker = new google.maps.Marker({
                 position: coordenadasRefugio,
                 map: map,
@@ -49,6 +60,7 @@
         window.initMap = initMap;
 
     </script>
+
     <style>
         #map {
             height: 400px;
@@ -59,50 +71,8 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="home">Save-Pets</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Refugios
-                    </a>
-                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="mostrar-refugios">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="mapa-refugios">Mapa</a></li>
-                        <li><a class="dropdown-item" href="buscarRefugio">Buscador</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Pets
-                    </a>
-                    <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
-                        <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
-                        <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
-                        <li><a class="dropdown-item" href="buscarMascota">Buscador</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <form class="container-fluid justify-content-end">
-        <a href="logout">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Cerrar sesion</button>
-        </a>
-    </form>
-</nav>
+<%@include file="../../template/navbar.jsp"%>
+
 <div class="container">
     <h3 class="text-center">Mapa de Refugios</h3>
 
@@ -111,43 +81,6 @@
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
 </div>
-<footer class="text-center text-white" style="background-color: #f1f1f1;">
-    <div class="container pt-4">
-        <section class="mb-4">
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-facebook"></i
-            ></a>
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-twitter"></i
-            ></a>
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-whatsapp"></i
-            ></a>
-
-            <a
-                    class="btn btn-link btn-floating btn-lg text-dark m-1"
-                    href="#!"
-                    role="button"
-                    data-mdb-ripple-color="dark"
-            ><i class="bi bi-instagram"></i
-            ></a>
-        </section>
-    </div>
-    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        2022 Taller Web I / Ignacio Focas - Matias Cascini
-    </div>
-</footer>
+<%@include file="../../template/footer.jsp"%>
 </body>
 </html>

@@ -1,3 +1,12 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type=text]').forEach( node => node.addEventListener('keypress', e => {
+        if(e.keyCode == 13) {
+            e.preventDefault();
+        }
+    }))
+});
+
 var currentTab = 0;
 document.addEventListener("DOMContentLoaded", function(event) {
 
@@ -66,3 +75,6 @@ function fixStepIndicator(n) {
     }
     x[n].className += " active";
 }
+
+
+
