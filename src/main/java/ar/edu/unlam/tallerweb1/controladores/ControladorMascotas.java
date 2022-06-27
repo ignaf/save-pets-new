@@ -61,6 +61,21 @@ public class ControladorMascotas {
 
     @RequestMapping(path = "/mapa-mascotas", method = RequestMethod.GET)
     public ModelAndView mostrarMapaMascotas() throws InterruptedException, ApiException, IOException {
+        if(estaLogueado()){
+            ModelMap model = new ModelMap();
+            Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+            Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
+            model.put("mascotas", servicioMascota.listarTodos());
+            model.put("direccionUsuario",usuario.getCoordenadas());
+            return new ModelAndView("vistaMapaMascotas",model);
+        }else{
+            return new ModelAndView("redirect:/login");
+        }
+
+    }
+
+    @RequestMapping(path="/mapa-mascotas-cercanas", method = RequestMethod.GET)
+    public ModelAndView mostrarMapaCercanas() throws InterruptedException, ApiException, IOException{
         if (estaLogueado()) {
             ModelMap model = new ModelMap();
             Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
@@ -71,7 +86,6 @@ public class ControladorMascotas {
         } else {
             return new ModelAndView("redirect:/login");
         }
-
     }
 
 

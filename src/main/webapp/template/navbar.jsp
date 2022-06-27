@@ -31,7 +31,8 @@
                     <ul class="dropdown-menu" style="overflow: hidden" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="mostrar-mascotas">Ver todos</a></li>
                         <li><a class="dropdown-item" href="registrar-mascota">Registrar</a></li>
-                        <li><a class="dropdown-item" href="mapa-mascotas">Mapa</a></li>
+                        <li><a class="dropdown-item" href="mapa-mascotas">Mapa Todas Las Mascotas</a></li>
+                        <li><a class="dropdown-item" href="mapa-mascotas-cercanas">Mapa Mascotas Cercanas</a></li>
                         <li><a class="dropdown-item" href="buscarMascota">Buscador</a></li>
                     </ul>
                 </li>
