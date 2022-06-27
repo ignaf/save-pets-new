@@ -65,7 +65,7 @@ public class ControladorMascotas {
             ModelMap model = new ModelMap();
             Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
             Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
-            model.put("mascotas", servicioMascota.listarMascotasSinRefugio());
+            model.put("mascotas", mapaService.filtrarMascotasPorDistancia(usuario.getCoordenadas(),servicioMascota.listarMascotasSinRefugio()));
             model.put("direccionUsuario", usuario.getCoordenadas());
             return new ModelAndView("vistaMapaMascotas", model);
         } else {
