@@ -5,6 +5,7 @@ import ar.edu.unlam.tallerweb1.controladores.dtos.DatosRefugio;
 import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Refugio;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioMascota;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioMensaje;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioRefugio;
 import ar.edu.unlam.tallerweb1.servicios.implementaciones.ServicioMascotaImpl;
 import org.junit.Test;
@@ -15,8 +16,10 @@ public class ServicioMascotaTest {
 
     private RepositorioRefugio repositorioRefugio = mock(RepositorioRefugio.class);
     private RepositorioMascota repositorioMascota = mock(RepositorioMascota.class);
+    private RepositorioMensaje repositorioMensaje = mock(RepositorioMensaje.class);
     private MapaService mapaService = mock(MapaService.class);
-    private ServicioMascota servicioMascota = new ServicioMascotaImpl(repositorioMascota, repositorioRefugio, mapaService);
+    private ServicioUsuario servicioUsuario = mock(ServicioUsuario.class);
+    private ServicioMascota servicioMascota = new ServicioMascotaImpl(repositorioMascota, repositorioRefugio, mapaService, servicioUsuario, repositorioMensaje);
 
     @Test
     public void asignarRefugioAUnaMascota(){
