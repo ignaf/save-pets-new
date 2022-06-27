@@ -8,5 +8,6 @@ import java.io.IOException;
 public interface MapaService {
 
     String convertirDireccionACoordenadas(String direccion) throws InterruptedException, ApiException, IOException;
+    Double obtenerDistancia(String direccionA, String direccionB);
 }
 
