@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.servicios.implementaciones;
 
+import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,6 +16,8 @@ import okhttp3.*;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service("mapaService")
 public class MapaServiceImpl implements MapaService {
@@ -72,6 +75,19 @@ public class MapaServiceImpl implements MapaService {
         double distancia = radioTierra * va2;
 
         return distancia;
+    }
+
+    @Override
+    public List<Mascota> filtrarMascotasPorDistancia(String coordenadasUsuario, List<Mascota> mascotas) throws InterruptedException, ApiException, IOException {
+        List<Mascota> mascotasFiltradas = new ArrayList<>();
+        
+        for (Mascota mascota: mascotas) {
+            Double distancia = obtenerDistancia(coordenadasUsuario, mascota.getCoordenadas());
+            if(distancia<5){
+                mascotasFiltradas.add(mascota);
+            }
+        }
+        return mascotasFiltradas;
     }
 
 
