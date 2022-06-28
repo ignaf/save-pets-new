@@ -50,7 +50,7 @@ public class ControladorMascotaTest {
 
     @Test
     public void asignarRefugioAUnaMascotaGet() throws Exception {
-        when(request.getSession().getAttribute("Rol") == "Admin").thenReturn(true);
+//        when(request.getSession().getAttribute("Rol") == "Admin").thenReturn(true);
 //        when(controladorMascotas.esAdmin()).thenReturn(true);
         List<Refugio> refugios = new ArrayList<>();
         when(servicioRefugio.listarTodos()).thenReturn(refugios);
