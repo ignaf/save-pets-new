@@ -28,7 +28,7 @@
 
 <%@include file="../../template/navbar.jsp" %>
 
-
+<main>
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -81,7 +81,7 @@
         </div>
     </div>
 </div>
-
+</main>
 <%@include file="../../template/footer.jsp" %>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

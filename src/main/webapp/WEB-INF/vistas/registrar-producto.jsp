@@ -27,7 +27,7 @@
 
 <body>
 <%@include file="../../template/navbar.jsp"%>
-
+<main>
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -60,7 +60,7 @@
     </div>
 </div>
 </div>
-
+</main>
 <%@include file="../../template/footer.jsp"%>
 <!--JavaScript at end of body for optimized loading-->
 

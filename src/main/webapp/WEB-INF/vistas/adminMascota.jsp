@@ -15,6 +15,7 @@
 </head>
 <body>
 <%@include file="../../template/navbar.jsp" %>
+<main>
 <div id="centrado" class="row mt-4">
     <div class="col-5"></div>
     <div class="col"><a href="registrar-mascota" class="btn btn-primary">Nueva Mascota</a>
@@ -45,7 +46,7 @@
     </c:forEach>
     </tbody>
 </table>
-
+</main>
 <%@include file="../../template/footer.jsp" %>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

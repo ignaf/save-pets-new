@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="../home">Save-Pets</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -58,11 +58,14 @@
 
     </form>
 </nav>
+<main>
 <h1>${refugio.nombre}</h1>
 <img src="${refugio.imagen}" alt="">
+</main>
+<%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-<%@include file="../../template/footer.jsp"%>
+
 </html>

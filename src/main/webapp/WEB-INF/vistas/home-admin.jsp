@@ -71,16 +71,19 @@
     </script>
 </head>
 <body>
-
 <%@include file="../../template/navbar.jsp"%>
-
 <%@include file="../../template/modalMensaje.jsp"%>
+<main>
+    <button type="button" class="btnmensajes" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+        <i class="bi bi-chat-right-heart-fill"></i>
+    </button>
 <div class="container">
 
     <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center">
+        <div class="row" style="justify-content: center">
             <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
+                <div class="card h-100 border-0">
                     <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
@@ -89,7 +92,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
+                <div class="card h-100 border-0">
                     <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
@@ -98,7 +101,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
+                <div class="card h-100 border-0">
                     <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
                          class="card-img-top" alt="..."
                          width="30px" height="200px">
@@ -107,28 +110,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100 border-0" style="width: 18rem;">
-                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
-                         class="card-img-top" alt="..."
-                         width="30px" height="200px">
-                    <div class="card-body text-center">
-                        <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                            Ver Mensajes
-                        </button>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-    <h3 class="text-center mt-2">Mapa de Pets</h3>
+
+    <h3 class="text-center mt-2 titulo">Mapa de Pets</h3>
 
     <div id="map">
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
 </div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
