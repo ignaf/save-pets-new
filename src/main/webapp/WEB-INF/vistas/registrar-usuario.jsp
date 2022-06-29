@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -21,7 +22,31 @@
 </head>
 
 <body>
-<%@include file="../../template/navbar.jsp"%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Save-Pets</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="home">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form class="container-fluid justify-content-end">
+        <a href="login">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
+        </a>
+        <a href="registrar-usuario">
+            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+        </a>
+    </form>
+</nav>
+<main>
 <div class="container mt-5">
     <c:if test="${not empty error}">
         <h4 style="color: red"><span>${error}</span></h4>
@@ -58,6 +83,7 @@
 
 
 </div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>

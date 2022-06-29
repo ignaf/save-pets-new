@@ -19,13 +19,16 @@
 <body>
 
 <%@include file="../../template/navbar.jsp" %>
+
+<main>
 <form:form action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
-    <div id="buscar" class="d-flex">
-        <button id="boton_buscar" class="btn btn-outline-primary">Buscar</button>
+    <div class="buscar d-flex">
+        <button class="btn btn-outline-primary">Buscar</button>
         <input path="nombre" name="nombre" class="form-control me-2" type="text">
     </div>
 </form:form>
 
+<div class="resultado">
 <div id="seccion_cartas">
     <c:forEach items="${refugio}" var="refugio">
         <div id="cartas" class="card" style="width: 18rem;">
@@ -39,7 +42,8 @@
         </div>
     </c:forEach>
 </div>
-
+</div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 
 </body>

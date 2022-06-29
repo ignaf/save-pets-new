@@ -15,10 +15,10 @@
 </head>
 <body>
 <%@include file="../../template/navbar.jsp"%>
-
+<main>
 
 <form:form action="buscarProducto" method="POST" modelAttribute="datosProducto">
-    <div id="buscar" class="d-flex">
+    <div id="" class="d-flex buscar">
         <button id="boton_buscar" class="btn btn-outline-primary">Buscar</button>
         <input path="nombre" name="nombre" class="form-control me-2" type="text">
     </div>
@@ -55,6 +55,7 @@
         </c:forEach>
     </div>
 </div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

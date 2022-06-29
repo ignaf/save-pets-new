@@ -19,6 +19,7 @@
 <body>
 
 <%@include file="../../template/navbar.jsp"%>
+<main>
 <div class="container mt-5">
     <form:form action="enviar-mensaje" method="POST" modelAttribute="datosMensaje">
         <div class="form-group">
@@ -36,7 +37,7 @@
         <button class="btn btn-outline-primary mt-2" type="submit">Enviar</button>
     </form:form>
 </div>
-
+</main>
 <%@include file="../../template/footer.jsp"%>
 
 </body>

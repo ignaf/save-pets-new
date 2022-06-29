@@ -1,16 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 body{
+    font-family: 'Roboto', sans-serif;
     overflow-x:hidden;
+    background: rgb(255,253,190);
+    background: linear-gradient(90deg, rgba(255,253,190,1) 0%, rgba(251,209,255,1) 100%);
 }
 
-#body {
-    background-image: url(https://i2.wp.com/lanoticia.com/wp-content/uploads/2021/09/AdobeStock_231096579.jpg?fit=1200%2C766);
-    background-size: 100% 100%;
-    background-attachment: fixed;
+main{
+    min-height: 67.8vh;
 }
 
-#body_home {
-    background-color: rgb(230, 230, 230);
+h3{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
+
+.completarLogin{
+    height:800px;
+}
+
 
 #vinuclo_cartas{
     font-size:15px;
@@ -29,14 +38,7 @@ body{
     margin-bottom:20px;
 }
 
-#cartas{
-    margin-right:10%;
-}
 
-#cartas:hover{
-    box-shadow:3px 3px 30px black;
-    transition: 0.1s;
-}
 
 #body_registro {
     background-image: url(https://i2.wp.com/lanoticia.com/wp-content/uploads/2021/09/AdobeStock_231096579.jpg?fit=1200%2C766);
@@ -93,13 +95,8 @@ body{
 input{
     margin-right: 10px;
 }
-i{
-    margin-left: 50%;
-    transform: translateX(-50%);
-    color: rgba(0, 0, 0, 0.7);
-}
+
 a{
-    margin-left: 5%;
     text-decoration:none;
     color: black;
 }
@@ -132,6 +129,7 @@ p{
 #map {
     height: 400px;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 #navegador{
@@ -188,13 +186,14 @@ p{
 #menu-lateral li:hover{
     background-color:#9ab7fa;
 }
-#buscar{
-    margin:10px;
+.buscar{
+    max-width: 50%;
+    margin: 15px auto 0;
+    display: block;
 }
-#boton_buscar{
-    margin-right:20px;
+.buscar button{
+    margin-right: 20px;
 }
-
 #titulo{
     text-align:center;
     margin-top:20px;
@@ -223,42 +222,92 @@ p{
     text-align:center;
 }
 
-#body_patas{
-    background-image:url("https://thumbs.dreamstime.com/b/modelo-incons%C3%BAtil-del-vector-de-la-impresi%C3%B3n-pata-perro-103984861.jpg");
-}
 
-#footer{
-    background-color:#c2d3fc;
-
-}
-
-#footer i{
-    size:10px;
-}
-
-#especialistas{
-	margin-bottom:30px;
-	background-color:#c2d3fc;
-	border-radius:30px;
-}
-
-#especialistas img{
-	height:300px;
-}
-
-#cuida{
-	margin-left:10%;
-	text-align:center;
-	background-color:#c2d3fc;
-	width:80%;
-	border-radius:10px;
-}
-
-#resultado{
-margin-left:40%;
-margin-top:10%;
+.resultado{
+padding: 5% 10%;
 }
 
 .fixNav{
     overflow: hidden;
+}
+.cardlogin{
+    width: 400px;
+    border: #0f0f0f solid 1px;
+    border-radius: 10px;
+    margin-left: 700px;
+    background-color: rgba(55,52,51,0.51);
+}
+
+.seccion_cartas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.carta{
+    width: 30%;
+    max-width: 300px;
+    margin-bottom: 25px;
+}
+
+.carta:hover{
+    box-shadow:3px 3px 30px black;
+    transition: 0.1s;
+}
+
+.carta-info{
+    min-height: 150px;
+}
+
+.card-body a{
+    margin: 0;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+.titulo{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.btnmensajes{
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    top:80px;
+    right:30px;
+    background: #ff3000;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0,0.3);
+    z-index: 100;
+}
+.btnmensajes:hover{
+    text-decoration: none;
+    color:#ff3000;
+    background: #fff;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+
+.modal-body a{
+    color: red;
+    font-weight: lighter;
+}
+
+.modal-body a:hover{
+    color: red;
+    font-weight: bold;
+}
+
+.imgslider{
+    object-fit: cover;
+}
+
+.slider{
+    margin-top: 40px;
 }

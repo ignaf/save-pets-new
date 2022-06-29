@@ -26,7 +26,7 @@
 
 <body>
 <%@include file="../../template/navbar.jsp" %>
-
+<main>
 <div class="container mt-5">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
@@ -58,7 +58,7 @@
         </div>
     </div>
 </div>
-
+</main>
 <%@include file="../../template/footer.jsp"%>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
