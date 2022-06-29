@@ -83,7 +83,7 @@
     <div class="container mt-5">
         <div class="row" style="justify-content: center">
             <div class="col">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 cardHome">
                     <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 cardHome"">
                     <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 cardHome"">
                     <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
                          class="card-img-top" alt="..."
                          width="30px" height="200px">

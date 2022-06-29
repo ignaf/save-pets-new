@@ -38,23 +38,24 @@
         </a>
     </form>
 </nav>
-<main>
-
+<main style="position:relative">
+    <img src="css/PerroSolitario2.png" alt="" class="fondologin">
 <div class="cardlogin">
     <c:if test="${not empty error}">
         <h4 style="color: red"><span>${error}</span></h4>
         <br>
     </c:if>
     ${msg}
+    <h2 class="titulologin">Iniciar Sesion</h2>
     <form:form action="validar-login" method="post" modelAttribute="datosLogin">
         <div class="form-outline mb-4">
-            <form:input path="email" type="email" id="email" class="form-control"/>
             <form:label class="form-label" for="email" path="email">Email</form:label>
+            <form:input path="email" type="email" id="email" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="password" type="password" id="password" class="form-control"/>
             <form:label class="form-label" for="password" path="password">Clave</form:label>
+            <form:input path="password" type="password" id="password" class="form-control"/>
         </div>
 
         <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
