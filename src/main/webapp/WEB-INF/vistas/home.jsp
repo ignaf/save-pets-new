@@ -121,7 +121,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
                              width="30px" height="200px">
                         <div class="card-body text-center">
-                            <a href="mostrar-refugios" class="btn btn-primary">Ver Refugios</a>
+                            <a href="mostrar-refugios" class="btn btn-secondary">Ver Refugios</a>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
                              width="30px" height="200px">
                         <div class="card-body text-center">
-                            <a href="mostrar-mascotas" class="btn btn-primary">Ver Animales</a>
+                            <a href="mostrar-mascotas" class="btn btn-secondary">Ver Animales</a>
                         </div>
                     </div>
                 </div>

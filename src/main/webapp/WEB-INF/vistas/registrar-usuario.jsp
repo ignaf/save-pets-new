@@ -42,39 +42,41 @@
             <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
         </a>
         <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 10px">Registrarse</button>
         </a>
     </form>
 </nav>
-<main>
-<div class="container mt-5">
+<main style="position:relative">
+    <img src="css/PerroSolitario2right.png" alt="" class="fondoRegistroUser">
+<div class="cardRegistro">
     <c:if test="${not empty error}">
         <h4 style="color: red"><span>${error}</span></h4>
         <br>
     </c:if>
     ${msg}
+    <h2 class="titulologin">Registrarse</h2>
     <form:form action="registrar-usuario" method="post" modelAttribute="datosRegistro">
         <div class="form-outline mb-4">
-            <form:input path="email" type="email" id="email" class="form-control"/>
             <form:label class="form-label" for="email" path="email">Email</form:label>
+            <form:input path="email" type="email" id="email" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="direccion" type="text" id="direccion" class="form-control"/>
             <form:label class="form-label" for="direccion" path="direccion">Direccion</form:label>
+            <form:input path="direccion" type="text" id="direccion" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="clave" type="password" id="clave" class="form-control"/>
             <form:label class="form-label" for="clave" path="clave">Clave</form:label>
+            <form:input path="clave" type="password" id="clave" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="repiteClave" type="password" id="repiteClave" class="form-control"/>
             <form:label class="form-label" for="repiteClave" path="repiteClave">Repetir clave</form:label>
+            <form:input path="repiteClave" type="password" id="repiteClave" class="form-control"/>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block mb-4">Registrarme</button>
+        <button type="submit" class="btn btn-outline-dark btn-block mb-4" style="margin-left: 266px;">Registrarme</button>
 
         <div class="text-center">
             <p>Ya tienes una cuenta? <a href="login">Inicia sesion</a></p>

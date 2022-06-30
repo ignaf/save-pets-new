@@ -17,7 +17,7 @@
 <main>
 <div id="centrado" class="row mt-4">
     <div class="col-5"></div>
-    <div class="col"><a href="registrar-refugio" class="btn btn-primary">Nuevo refugio</a>
+    <div class="col"><a href="registrar-refugio" class="btn btn-success">Nuevo refugio</a>
     </div>
     <div class="col"></div>
 </div>
@@ -38,7 +38,7 @@
                     <h6 class="">Capacidad maxima: ${refugio.capMax}</h6>
                 </div>
                 <div id="centrado" class="col">
-                    <a href="borrar-refugio/${refugio.id}" class="btn btn-primary">Borrar refugio</a>
+                    <a href="borrar-refugio/${refugio.id}" class="btn btn-danger">Borrar refugio</a>
                 </div>
             </div>
         </c:forEach>

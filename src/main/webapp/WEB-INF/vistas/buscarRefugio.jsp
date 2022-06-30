@@ -23,21 +23,23 @@
 <main>
 <form:form action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
     <div class="buscar d-flex">
-        <button class="btn btn-outline-primary">Buscar</button>
         <input path="nombre" name="nombre" class="form-control me-2" type="text">
+        <button class="btn btn-outline-dark">Buscar</button>
     </div>
 </form:form>
 
 <div class="resultado">
 <div id="seccion_cartas">
     <c:forEach items="${refugio}" var="refugio">
-        <div id="cartas" class="card" style="width: 18rem;">
+        <div class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1)">
             <img src="${refugio.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
             <div class="col card-body">
+                <div style="min-height: 110px">
                 <h5 class="card-title">${refugio.nombre}</h5>
                 <h5 class="card-title">${refugio.direccion}</h5>
                 <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
-                <a href="mostrar-animales" class="mt-2 btn btn-primary">Ver animales</a>
+                </div>
+                <a href="mostrar-animales" class="mt-2 btn btn-dark">Ver animales</a>
             </div>
         </div>
     </c:forEach>

@@ -20,13 +20,15 @@
         <c:forEach items="${listaDeRefugios}" var="refugio">
             <div class="col">
 
-                <div class="card h-100" style="width: 18rem;">
+                <div class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1);">
                     <img src="${refugio.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
                     <div class="card-body">
+                        <div style="min-height: 110px">
                         <h5 class="card-title">${refugio.nombre}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">${refugio.direccion}</h6>
                         <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
-                        <a href="animales-refugio/${refugio.id}" class="btn btn-primary">Ver animales</a>
+                        </div>
+                        <a href="animales-refugio/${refugio.id}" class="btn btn-outline-dark">Ver animales</a>
                     </div>
                 </div>
 

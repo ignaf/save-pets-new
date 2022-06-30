@@ -26,37 +26,40 @@
 
 <body>
 <%@include file="../../template/navbar.jsp" %>
-<main>
-<div class="container mt-5">
-    <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
+<main style="position:relative">
+    <img src="css/perroSolitarioRight.png" alt="" class="fondoRegistroRef">
+<div class="cardRegistro">
+    <h2 class="titulologin">Registrar Refugio</h2>
             <form:form action="registrar-refugio" method="post" modelAttribute="datosRefugio">
-                <h1>Registrar Refugio</h1>
-                <div>
-                    <h6>Nombre</h6>
-                    <p>
-                        <form:input type="text" path="nombre" class="form-control" name="nombre" id="nombre" placeholder="Nombre"/></p>
+                <div class="form-outline mb-4">
+                    <form:label class="form-label" for="nombre" path="nombre">Nombre</form:label>
+
+                    <form:input type="text" path="nombre" class="form-control" name="nombre" id="nombre" placeholder="Nombre"/>
                 </div>
-                <div>
-                    <h6>Direccion</h6>
+                <div class="form-outline mb-4">
+                    <form:label class="form-label" for="direccion" path="direccion">Direccion</form:label>
+
                     <form:input type="text" path="direccion" class="form-control" name="direccion" id="direccion" placeholder="Direccion"/>
                 </div>
-                <div>
-                    <h6>Numero de telefono</h6>
+                <div class="form-outline mb-4">
+                    <form:label class="form-label" for="numeroTelefono" path="numeroTelefono">Numero de Telefono</form:label>
+
                     <form:input type="number" path="numeroTelefono" class="form-control" name="numeroTelefono" id="numeroTelefono" placeholder="Numero de telefono"/>
                 </div>
-                <div>
-                    <h6>Capacidad maxima</h6>
+                <div class="form-outline mb-4">
+                    <form:label class="form-label" for="capmax" path="capmax">Capacidad maxima</form:label>
+
                     <form:input type="number" path="capmax" class="form-control" name="capmax" id="capmax" placeholder="Capacidad maxima"/>
                 </div>
-                <div>
-                    <h6>URL de imagen</h6>
+                <div class="form-outline mb-4">
+                    <form:label class="form-label" for="urlimagen" path="urlimagen">URL Imagen</form:label>
+
                     <form:input type="text" path="urlimagen" class="form-control" name="urlimagen" id="urlimagen" placeholder="Url imagen"/>
                 </div>
-                <button class="btn btn-outline-primary mt-2" type="submit">Confirmar registro</button>
+                <button class="btn btn-outline-dark mt-2" type="submit">Confirmar registro</button>
             </form:form>
-        </div>
-    </div>
+
+
 </div>
 </main>
 <%@include file="../../template/footer.jsp"%>

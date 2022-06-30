@@ -81,7 +81,7 @@
             <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
         </a>
         <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 10px">Registrarse</button>
         </a>
     </form>
 </nav>
