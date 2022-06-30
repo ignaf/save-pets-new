@@ -20,7 +20,8 @@
 
 <%@include file="../../template/navbar.jsp"%>
 <main>
-<div class="container mt-5">
+    <img src="css/perroSolitario.png" alt="" class="fondoMensaje">
+<div class="cardMensaje">
     <form:form action="enviar-mensaje" method="POST" modelAttribute="datosMensaje">
         <div class="form-group">
             <form:label for="idDestinatario" path="idDestinatario">Seleccione el destinatario:</form:label>
@@ -34,7 +35,7 @@
             <form:label for="contenido" path="contenido">Mensaje:</form:label>
             <form:textarea class="form-control" path="contenido" name="contenido" rows="5" cols="30" id="contenido"/>
         </div>
-        <button class="btn btn-outline-primary mt-2" type="submit">Enviar</button>
+        <button class="btn btn-outline-dark mt-2" type="submit">Enviar</button>
     </form:form>
 </div>
 </main>

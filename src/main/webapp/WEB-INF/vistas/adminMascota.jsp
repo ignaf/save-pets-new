@@ -18,7 +18,7 @@
 <main>
 <div id="centrado" class="row mt-4">
     <div class="col-5"></div>
-    <div class="col"><a href="registrar-mascota" class="btn btn-primary">Nueva Mascota</a>
+    <div class="col"><a href="registrar-mascota" class="btn btn-success">Nueva Mascota</a>
     </div>
     <div class="col"></div>
 </div>
@@ -40,8 +40,8 @@
             <th scope="row">${mascota.nombre}</th>
             <th scope="row">${mascota.direccion}</th>
             <th scope="row">${mascota.refugio.nombre}</th>
-            <th scope="row"><a href="borrar-mascota/${mascota.id}" class="btn btn-primary">Borrar Mascota</a></th>
-            <th scope="row"><a href="asignar-refugio?id=${mascota.id}" class="btn btn-primary">Asignar refugio</a></th>
+            <th scope="row"><a href="borrar-mascota/${mascota.id}" class="btn btn-danger">Borrar Mascota</a></th>
+            <th scope="row"><a href="asignar-refugio?id=${mascota.id}" class="btn btn-success">Asignar refugio</a></th>
         </tr>
     </c:forEach>
     </tbody>

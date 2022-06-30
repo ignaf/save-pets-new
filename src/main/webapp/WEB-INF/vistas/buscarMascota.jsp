@@ -20,23 +20,25 @@
 
 <form:form action="buscarMascota" method="POST" modelAttribute="datosMascota">
     <div class="buscar d-flex">
-        <button class="btn btn-outline-primary">Buscar</button>
         <input path="nombre" name="nombre" class="form-control me-2" type="text">
+        <button class="btn btn-outline-dark">Buscar</button>
     </div>
 </form:form>
 
 <div class="resultado">
     <div class="seccion_cartas">
         <c:forEach items="${listaDeMascotas}" var="mascota">
-            <div class="card carta">
+            <div class="card h-100 mt20" style="width: 18rem; background-color: rgba(0,0,0,0.1)">
                 <img src="${mascota.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
                 <div class="card-body">
                     <div class="carta-info">
+                        <div style="min-height: 130px">
                         <h5 class="card-title">${mascota.especie}</h5>
                         <h5 class="card-title">${mascota.nombre}</h5>
                         <p class="card-text">${mascota.descripcion}</p>
+                        </div>
                     </div>
-                    <a href="mostrar-animales" id="center" class="btn btn-primary">Saber mas</a>
+                    <a href="mostrar-animales" id="center" class="btn btn-dark">Saber mas</a>
                 </div>
             </div>
         </c:forEach>

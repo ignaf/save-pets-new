@@ -19,13 +19,15 @@
         <c:forEach items="${listaDeMascotas}" var="mascota">
             <div class="col">
 
-                <div class="card h-100" style="width: 18rem;">
+                <div class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1)">
                     <img src="${mascota.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
                     <div class="card-body">
+                        <div style="min-height: 150px">
                         <h5 class="card-title">${mascota.nombre}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Visto por ultima vez en: ${mascota.direccion}</h6>
                         <p class="card-text">${mascota.descripcion}</p>
-                        <a href="mapa-mascotas" class="btn btn-primary">Ver mapa</a>
+                        </div>
+                        <a href="mapa-mascotas" class="btn btn-dark">Ver mapa</a>
                     </div>
                 </div>
 

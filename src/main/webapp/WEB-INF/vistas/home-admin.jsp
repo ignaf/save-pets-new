@@ -83,30 +83,30 @@
     <div class="container mt-5">
         <div class="row" style="justify-content: center">
             <div class="col">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 cardHome">
                     <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
-                        <a href="adminRefugio" class="btn btn-primary">Administrar Refugios</a>
+                        <a href="adminRefugio" class="btn btn-secondary">Administrar Refugios</a>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 cardHome"">
                     <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
-                        <a href="adminMascota" class="btn btn-primary">Administrar Animales</a>
+                        <a href="adminMascota" class="btn btn-secondary">Administrar Animales</a>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card h-100 border-0">
+                <div class="card h-100 border-0 cardHome"">
                     <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
                          class="card-img-top" alt="..."
                          width="30px" height="200px">
                     <div class="card-body text-center">
-                        <a href="enviar-mensaje" class="btn btn-primary">Enviar Mensaje</a>
+                        <a href="enviar-mensaje" class="btn btn-secondary">Enviar Mensaje</a>
                     </div>
                 </div>
             </div>

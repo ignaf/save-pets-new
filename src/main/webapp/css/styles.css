@@ -1,43 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
-    overflow-x:hidden;
-    background: rgb(255,253,190);
-    background: linear-gradient(90deg, rgba(255,253,190,1) 0%, rgba(251,209,255,1) 100%);
+    overflow-x: hidden;
+    background: rgb(255, 253, 190);
+    background: linear-gradient(90deg, rgba(255, 253, 190, 1) 0%, rgba(251, 209, 255, 1) 100%);
 }
 
-main{
+main {
     min-height: 67.8vh;
 }
 
-h3{
+h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
 
-.completarLogin{
-    height:800px;
+.completarLogin {
+    height: 800px;
 }
 
 
-#vinuclo_cartas{
-    font-size:15px;
-    color:grey;
-    text-decoration:none;
+#vinuclo_cartas {
+    font-size: 15px;
+    color: grey;
+    text-decoration: none;
 }
 
-#vinuclo_cartas:hover{
+#vinuclo_cartas:hover {
     color: blue;
 }
 
-#seccion_cartas{
-    margin-top:10px;
-    display:flex;
+#seccion_cartas {
+    margin-top: 10px;
+    display: flex;
     margin-left: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
-
 
 
 #body_registro {
@@ -46,14 +45,14 @@ h3{
     background-attachment: fixed;
 }
 
-#Titulo{
+#Titulo {
     color: black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     text-shadow: 1px 1px 1px black;
 }
 
-#Login{
+#Login {
     background-color: rgba(255, 255, 255, 0.8);
     width: 350px;
     height: 400px;
@@ -62,7 +61,8 @@ h3{
     margin-left: 65%;
     padding-top: 5px;
 }
-#Login2{
+
+#Login2 {
     background-color: rgba(255, 255, 255, 0.8);
     width: 350px;
     height: 430px;
@@ -71,59 +71,63 @@ h3{
     margin-left: 65%;
     padding-top: 5px;
 }
-#Boton{
+
+#Boton {
     margin-left: 50%;
     transform: translateX(-50%);
-    margin-top:0px;
+    margin-top: 0px;
 }
 
-#h2{
+#h2 {
     font-size: 20px;
     text-align: center;
 }
-#h3{
+
+#h3 {
     font-size: 15px;
     text-align: left;
     margin-left: 20px;
 }
 
-#caja{
+#caja {
     font-size: 15px;
     text-align: left;
     margin-left: 20px;
 }
-input{
+
+input {
     margin-right: 10px;
 }
 
-a{
-    text-decoration:none;
+a {
+    text-decoration: none;
     color: black;
 }
 
-#Titulo_cartas{
+#Titulo_cartas {
     margin-left: 5%;
-    text-decoration:none;
+    text-decoration: none;
     color: black;
-    font-size:30px;
+    font-size: 30px;
 }
 
-#Titulo_cartas_div{
+#Titulo_cartas_div {
     background-color: white;
-    padding-top:10px;
-    margin-top:10px;
-    padding-bottom:5px;
+    padding-top: 10px;
+    margin-top: 10px;
+    padding-bottom: 5px;
 }
 
-#NoCuenta{
+#NoCuenta {
     margin-left: 5%;
-    text-decoration:none;
+    text-decoration: none;
     color: black;
 
 }
-p{
-    margin-top:5px;
-    margin-bottom:0px;
+
+p {
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 #map {
@@ -132,182 +136,271 @@ p{
     margin-bottom: 40px;
 }
 
-#navegador{
+#navegador {
     padding-left: 10px;
     padding-right: 10px;
-    align-items:center;
-    border-bottom:1px solid #dfdfdf;
-    background-color:white;
+    align-items: center;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
 }
 
-#navegador a{
-    align-items:center;
+#navegador a {
+    align-items: center;
 }
 
-#botones_home{
-    text-align:end;
+#botones_home {
+    text-align: end;
 }
 
-#titulo_mapa{
-    font-size:30px;
+#titulo_mapa {
+    font-size: 30px;
 }
 
-#titulo_index_refugios{
-    text-align:center;
-    padding:15px;
-}
-#center{
-    text-align:center;
-}
-#menu-izquierdo{
-    background-color:grey;
-}
-#seccion{
-    background-color:#c2d3fc;
-    padding-top:10px;
-    padding-bottom:10px;
-    margin-top:30px;
-    margin-bottom:30px;
+#titulo_index_refugios {
+    text-align: center;
+    padding: 15px;
 }
 
-#menu-lateral{
-    background-color:#c2d3fc;
-    padding:30px;
-    color:black;
+#center {
+    text-align: center;
 }
-#menu-lateral ul{
-    margin-top:5px;
-    font-size:20px;
-    list-style:none;
+
+#menu-izquierdo {
+    background-color: grey;
 }
-#menu-lateral li{
-    background-color:padding 5px;
+
+#seccion {
+    background-color: #c2d3fc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-#menu-lateral li:hover{
-    background-color:#9ab7fa;
+
+#menu-lateral {
+    background-color: #c2d3fc;
+    padding: 30px;
+    color: black;
 }
-.buscar{
+
+#menu-lateral ul {
+    margin-top: 5px;
+    font-size: 20px;
+    list-style: none;
+}
+
+#menu-lateral li {
+    background-color: padding 5px;
+}
+
+#menu-lateral li:hover {
+    background-color: #9ab7fa;
+}
+
+.buscar {
     max-width: 50%;
     margin: 15px auto 0;
     display: block;
 }
-.buscar button{
+
+.buscar button {
     margin-right: 20px;
 }
-#titulo{
-    text-align:center;
-    margin-top:20px;
-    font-size:30px;
+
+#titulo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
 }
 
-#formulario{
-    margin-left:35%;
-    margin-top:50px;
-    background-color:rgba(120, 163, 255, 0.95);
-    box-shadow:5px 5px 5px;
-    padding-left:100px;
-    padding-right:100px;
-    padding-top:25px;
-    padding-bottom:50px;
-    width:30%;
-    border-radius:5%;
+#formulario {
+    margin-left: 35%;
+    margin-top: 50px;
+    background-color: rgba(120, 163, 255, 0.95);
+    box-shadow: 5px 5px 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    width: 30%;
+    border-radius: 5%;
 }
 
-#formulario_fila{
-    margin-bottom:30px;
+#formulario_fila {
+    margin-bottom: 30px;
 }
 
-#boton_formulario{
+#boton_formulario {
     align-items: center;
-    text-align:center;
+    text-align: center;
 }
 
 
-.resultado{
-padding: 5% 10%;
+.resultado {
+    padding: 5% 10%;
 }
 
-.fixNav{
+.fixNav {
     overflow: hidden;
 }
-.cardlogin{
+
+.cardlogin {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
     width: 400px;
     border: #0f0f0f solid 1px;
     border-radius: 10px;
-    margin-left: 700px;
-    background-color: rgba(55,52,51,0.51);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-.seccion_cartas{
+.cardRegistro {
+    margin-top: 40px;
+    margin-left: 487px;
+    margin-bottom: 40px;
+    width: 400px;
+    border: #0f0f0f solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.cardMensaje {
+    margin-top: 60px;
+    margin-left: 470px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.seccion_cartas {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.carta{
+
+.carta {
     width: 30%;
     max-width: 300px;
     margin-bottom: 25px;
 }
 
-.carta:hover{
-    box-shadow:3px 3px 30px black;
+.carta:hover {
+    box-shadow: 3px 3px 30px black;
     transition: 0.1s;
 }
 
-.carta-info{
+.carta-info {
     min-height: 150px;
 }
 
-.card-body a{
+.card-body a {
     margin: 0;
 }
 
-.card:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-3%);
 }
-.titulo{
+
+.titulo {
     margin-top: 40px;
     margin-bottom: 30px;
 }
 
-.btnmensajes{
+.btnmensajes {
     position: fixed;
     width: 55px;
     height: 55px;
     line-height: 55px;
-    top:80px;
-    right:30px;
+    top: 80px;
+    right: 30px;
     background: #ff3000;
     color: #fff;
     border-radius: 50px;
     text-align: center;
     font-size: 30px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0,0.3);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0, 0.3);
     z-index: 100;
 }
-.btnmensajes:hover{
+
+.btnmensajes:hover {
     text-decoration: none;
-    color:#ff3000;
+    color: #ff3000;
     background: #fff;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-3%);
 }
 
-.modal-body a{
+.modal-body a {
     color: red;
     font-weight: lighter;
 }
 
-.modal-body a:hover{
+.modal-body a:hover {
     color: red;
     font-weight: bold;
 }
 
-.imgslider{
+.imgslider {
     object-fit: cover;
 }
 
-.slider{
+.slider {
     margin-top: 40px;
+    border: solid 1px #fafafa;
+}
+
+.titulologin {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+.fondologin {
+    position: absolute;
+    width: 290px;
+    bottom: 20px;
+    left: auto;
+    right: 493px;
+}
+
+.fondoRegistroPet {
+    position: absolute;
+    bottom: 358px;
+    left: auto;
+    right: 893px;
+}
+
+.fondoRegistroRef {
+    position: absolute;
+    width: 290px;
+    bottom: 58px;
+    left: auto;
+    right: 893px;
+}
+
+.fondoRegistroUser {
+    position: absolute;
+    width: 290px;
+    bottom: 20px;
+    left: auto;
+    right: 860px;
+}
+
+.fondoMensaje {
+    position: absolute;
+    width: 290px;
+    bottom: 132px;
+    left: auto;
+    right: 856px;
+}
+
+.cardHome {
+    background-color: #0000001a;
+    padding: 10px;
+    padding-top: 20px;
 }
