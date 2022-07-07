@@ -59,7 +59,6 @@
                                rows="3"></form:textarea>
             </div>
             <div class="form-outline mb-4">
-                <h6>Sabes su raza?</h6>
                 <form:label class="form-label" for="raza" path="raza">Sabes su raza?</form:label>
                 <form:input type="text" path="raza" class="form-control" name="raza" id="raza" placeholder="Raza"/>
             </div>

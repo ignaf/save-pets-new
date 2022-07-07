@@ -42,7 +42,7 @@
             });
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
-            var texto = '<a href="refugio/${refugio.nombre}"><img src="${refugio.imagen}" width=250px height=auto></a>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
+            var texto = '<a href="refugio/${refugio.nombre}"><img src="${refugio.imagen}" width=150px height=auto></a>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
             var marker = new google.maps.Marker({
                 position: coordenadasRefugio,
                 map: map,
