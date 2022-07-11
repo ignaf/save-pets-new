@@ -59,7 +59,7 @@
     </form>
 </nav>
 <main>
-    <div class="card mb-3 mt-20" style="width: 50%; height: auto">
+    <div class="card mb-3" style="width: 50%; height: auto; margin-top: 40px; margin-left: 40px;">
         <img class="card-img-top" src="${mascota.imagen}" style="width: 50%; height: auto" >
         <div class="card-body">
             <h5 class="card-title">Nombre: ${mascota.nombre}</h5>
