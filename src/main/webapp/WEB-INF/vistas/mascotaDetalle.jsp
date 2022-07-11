@@ -5,7 +5,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
 </head>
 <body>
@@ -59,8 +59,17 @@
     </form>
 </nav>
 <main>
-<h1>${mascota.nombre}</h1>
-<img src="${mascota.imagen}" alt="">
+    <div class="card mb-3 mt-20" style="width: 50%; height: auto">
+        <img class="card-img-top" src="${mascota.imagen}" style="width: 50%; height: auto" >
+        <div class="card-body">
+            <h5 class="card-title">Nombre: ${mascota.nombre}</h5>
+            <p class="card-text">Descripcion: ${mascota.descripcion}</p>
+            <p class="card-text">Especie: ${mascota.especie}</p>
+            <p class="card-text">Raza: ${mascota.raza}</p>
+            <p class="card-text">Visto por ultima vez en: ${mascota.direccion}</p>
+            <p class="card-text">Tipo de pelaje: ${mascota.pelaje}</p>
+        </div>
+    </div>
 </main>
 <%@include file="../../template/footer.jsp"%>
 </body>
