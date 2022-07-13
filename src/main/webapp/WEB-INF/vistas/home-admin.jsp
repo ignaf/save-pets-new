@@ -46,7 +46,7 @@
             <c:forEach items="${listaDeMascotas}" var="mascota">
             var coordenadasMascota =
             ${mascota.coordenadas}
-            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=250px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
+            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=150px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
@@ -71,61 +71,56 @@
     </script>
 </head>
 <body>
-
 <%@include file="../../template/navbar.jsp"%>
-
 <%@include file="../../template/modalMensaje.jsp"%>
+<main>
+    <button type="button" class="btnmensajes" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+        <i class="bi bi-chat-right-heart-fill"></i>
+    </button>
 <div class="container">
 
     <div class="container mt-5">
         <div class="row" style="justify-content: center">
-            <div id="adminIcono" class="col">
-            <a href="adminRefugio">
-                <div class="">
-                    <img id="iconoLeft" src="css/Casa.png" alt="...">
-                    <div class="text-center">
-                        <h4>Administrar refugios</h4>
+            <div class="col">
+                <div class="card h-100 border-0 cardHome">
+                    <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
+                         width="30px" height="200px">
+                    <div class="card-body text-center">
+                        <a href="adminRefugio" class="btn btn-secondary">Administrar Refugios</a>
                     </div>
                 </div>
-            </a>
             </div>
-            
-
-            <div id="adminIcono" class="col">
-			<a href="adminMascota">
-                <div class="">
-                    <img id="iconoLeft" src="css/Mascota.png" alt="...">
-                    <div class="text-center">
-                        <h4>Administrar mascotas</h4>
+            <div class="col">
+                <div class="card h-100 border-0 cardHome"">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
+                         width="30px" height="200px">
+                    <div class="card-body text-center">
+                        <a href="adminMascota" class="btn btn-secondary">Administrar Animales</a>
                     </div>
                 </div>
-			</a>
             </div>
-
-            <div id="adminIcono" class="col">
-            <a href="enviar-mensaje">
-                <div class="">
-                    <img id="iconoLeft" src="css/Mensaje.png" alt="...">
-                    <div class="text-center">
-                        <h4>Enviar Mensaje</h4>
+            <div class="col">
+                <div class="card h-100 border-0 cardHome"">
+                    <img src="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Message-icon.png"
+                         class="card-img-top" alt="..."
+                         width="30px" height="200px">
+                    <div class="card-body text-center">
+                        <a href="enviar-mensaje" class="btn btn-secondary">Enviar Mensaje</a>
                     </div>
                 </div>
-            </a>
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    
-    <h3 class="text-center mt-2">Mapa de Pets</h3>
+
+    <h3 class="text-center mt-2 titulo">Mapa de Pets</h3>
 
     <div id="map">
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
 </div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

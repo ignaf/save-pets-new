@@ -50,7 +50,7 @@
             <c:forEach items="${mascotas}" var="mascota">
             var coordenadasMascota =
             ${mascota.coordenadas}
-            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=250px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
+            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=150px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
@@ -73,26 +73,21 @@
         window.initMap = initMap;
 
     </script>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
 
 </head>
 <body>
 
 <%@include file="../../template/navbar.jsp" %>
-
+<main>
 <div class="container">
-    <h3 class="text-center">Mapa de Pets</h3>
+    <h3 class="text-center titulo">Mapa de Pets</h3>
 
     <div id="map">
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
 </div>
+</main>
 <%@include file="../../template/footer.jsp" %>
 </body>
 </html>

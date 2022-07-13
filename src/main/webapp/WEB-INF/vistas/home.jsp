@@ -46,13 +46,13 @@
             <c:forEach items="${listaDeMascotas}" var="mascota">
             var coordenadasMascota =
             ${mascota.coordenadas}
-            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=250px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
+            var texto = '<a href="pet/${mascota.id}"><img src="${mascota.imagen}" width=150px height=auto></a>' + '<p><b>Visto por ultima vez en: ${mascota.direccion}</b></p>' + '<p>${mascota.descripcion}</p>'
             var marker = new google.maps.Marker({
                 position: coordenadasMascota,
                 map: map,
                 info: texto,
                 icon: <c:choose><c:when test="${mascota.especie=='gato'}">
-                iconGato,
+                iconGato
                 </c:when>
                 <c:when test="${mascota.especie=='perro'}">
                 iconPerro
@@ -74,72 +74,80 @@
 <%@include file="../../template/navbar.jsp"%>
 
 <%@include file="../../template/modalMensaje.jsp"%>
-
-	<div id="portada">
-	<div id="centrado">
-		<h1 id="textoGrande">Salvemos a las mascotas</h1>
-		<h2 id="textoMediano" class="pt-5">Rescatemos a los animales que estan en la calle</h2>
-	</div>
-	</div>
-
-	<div class="containter">
-	<div class="row">
-	<div id="mascotasCercanasCartel"><h4 id="textoGrande">Mira las mascotas que hay cerca de tu casa</h4></div>
-	<div><img src="css/ondaConPerro.jpg"></div>
-	</div>
-	</div>
-	
-<div id="fondoVioletaHome">
-	<div class="container">
-	<div class="row">
-<c:forEach items="${listaDeMascotas}" var="mascota">
-            <div id="transition" class="col">
-                <div id="columnaMascota" class="card h-100" style="width: 18rem;">
-                    <img src="${mascota.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
-                    <div class="card-body">
-                    	<div id="tarjetasAlto">
-                        <c:if test="${empty mascota.refugio}">
-        				<h5 id="center" class="card-title" style="color: red">MASCOTA PERDIDA</h5>
-    					</c:if>
-        				<h5 id="center"class="card-title" >${mascota.nombre}</h5>
-        				</div>
-                        <c:if test="${not empty mascota.refugio}">
-        				<h6 class="card-subtitle mb-2 text-muted">Refugio: ${mascota.refugio.nombre}</h6>
-        				<h6 class="card-subtitle mb-2 text-muted">Direccion: ${mascota.refugio.direccion}</h6>
-    					</c:if>
-    					<c:if test="${empty mascota.refugio}">
-        				<h6 class="card-subtitle mb-2 text-muted">Visto por ultima vez en: ${mascota.direccion}</h6>
-    					</c:if>
-                        <p class="card-text">Descripcion: ${mascota.descripcion}</p>
-                        <div id="center" class="mt-4">
-                        <c:if test="${empty mascota.refugio}">
-        				<a href="mapa-mascotas" class="btn btn-primary">Ver mapa</a>
-    					</c:if>
-    					</div>
-    					<div id="center" class="mt-4">
-    					<c:if test="${not empty mascota.refugio}">
-        				<a href="animales-refugio/${mascota.refugio.id}" class="btn btn-primary">Ver Refugio</a>
-    					</c:if>
-    					</div>
+<main>
+    <button type="button" class="btnmensajes" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+        <i class="bi bi-chat-right-heart-fill"></i>
+    </button>
+    <div class="container">
+        <div id="carouselExampleSlidesOnly" class="carousel slide slider" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2019_30/2945251/190724-better-lost-dog-stock-se-1148a.jpg"
+                         class="d-block w-100 imgslider" alt="..." height=300px style="object-position: 50% 42%;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Registra animales perdidos</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.villageveterinaryclinic.com/sites/default/files/tips-finding-lost-cats.jpg"
+                         class="d-block w-100 imgslider" alt="..." height=300px style="object-position: 50% -6%">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Busca animales en distintos refugios</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://marvel-b1-cdn.bc0a.com/f00000000107629/daysmart-pet.imgix.net/uploads/2018/07/lost-dog-how-to-avoid-the-unthinkable-1.jpg"
+                         class="d-block w-100 imgslider" alt="..." height=300px style="object-position: 50% 35%;" >
+                    <div class="carousel-caption d-none d-md-block" style="color:black">
+                        <h3>Busca animales en tu area</h3>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.homeagain.com/media/wysiwyg/PetResourceArticles/prevent-loss.jpg?auto=webp&format=pjpg&quality=85"
+                         class="d-block w-100 imgslider" alt="..." height=300px style="object-position: 50% 59%;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Enterate cuando se registren animales en tu zona</h3>
                     </div>
                 </div>
             </div>
-        </c:forEach>
-	</div>
-	</div>
-</div>
+        </div>
+    <div class="container">
 
-	<div id="degradeReves">
-    <h3 id="textoGrande"class="text-center">Mapa de mascotas</h3>
-	</div>
-	
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center">
+                <div class="col">
+                    <div class="card h-100 border-0 cardHome"">
+                        <img src="https://cdn-icons-png.flaticon.com/512/184/184197.png" class="card-img-top" alt="..."
+                             width="30px" height="200px">
+                        <div class="card-body text-center">
+                            <a href="mostrar-refugios" class="btn btn-secondary">Ver Refugios</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 border-0 cardHome"">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3460/3460335.png" class="card-img-top" alt="..."
+                             width="30px" height="200px">
+                        <div class="card-body text-center">
+                            <a href="mostrar-mascotas" class="btn btn-secondary">Ver Animales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <h3 class="text-center titulo">Mapa de Pets</h3>
+
     <div id="map">
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
+</div>
 
+</div>
+</main>
 <%@include file="../../template/footer.jsp"%>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

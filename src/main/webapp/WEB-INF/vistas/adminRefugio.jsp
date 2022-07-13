@@ -14,35 +14,37 @@
 </head>
 <body>
 <%@include file="../../template/navbar.jsp"%>
-
-<div id="" class="row mt-4 mb-4">
+<main>
+<div id="centrado" class="row mt-4">
     <div class="col-5"></div>
-    <div class="col"><a href="registrar-refugio" class="btn btn-primary">Nuevo refugio</a></div>
+    <div class="col"><a href="registrar-refugio" class="btn btn-success">Nuevo refugio</a>
+    </div>
     <div class="col"></div>
 </div>
-
-<div class="container">
+<div class="container mt-5">
+    <div class="">
         <c:forEach items="${listaDeRefugios}" var="refugio">
-            <div id="refugioAdmin" class="row pt-2 pb-2 mt-5 mb-5">
-                <div id="" class="col">
+            <div id="refugioAdmin" class="row mt-5">
+                <div id="centrado" class="col">
                     <img src="${refugio.imagen}" alt="..." width="70px" height="50px">
                 </div>
-                <div id="" class="col">
+                <div id="centrado" class="col">
                     <h5 class="">${refugio.nombre}</h5>
                 </div>
-                <div id="" class="col">
+                <div id="centrado" class="col">
                     <h6 id="center">${refugio.direccion}</h6>
                 </div>
-                <div id="" class="col">
+                <div id="centrado" class="col">
                     <h6 class="">Capacidad maxima: ${refugio.capMax}</h6>
                 </div>
-                <div id="" class="col">
-                    <a href="borrar-refugio/${refugio.id}" class="btn btn-primary">Borrar refugio</a>
+                <div id="centrado" class="col">
+                    <a href="borrar-refugio/${refugio.id}" class="btn btn-danger">Borrar refugio</a>
                 </div>
             </div>
         </c:forEach>
+    </div>
 </div>
-
+</main>
 <%@include file="../../template/footer.jsp"%>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

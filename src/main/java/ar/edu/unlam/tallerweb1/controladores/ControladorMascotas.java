@@ -61,17 +61,31 @@ public class ControladorMascotas {
 
     @RequestMapping(path = "/mapa-mascotas", method = RequestMethod.GET)
     public ModelAndView mostrarMapaMascotas() throws InterruptedException, ApiException, IOException {
-        if (estaLogueado()) {
+        if(estaLogueado()){
             ModelMap model = new ModelMap();
             Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
             Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
             model.put("mascotas", servicioMascota.listarMascotasSinRefugio());
+            model.put("direccionUsuario",usuario.getCoordenadas());
+            return new ModelAndView("vistaMapaMascotas",model);
+        }else{
+            return new ModelAndView("redirect:/login");
+        }
+
+    }
+
+    @RequestMapping(path="/mapa-mascotas-cercanas", method = RequestMethod.GET)
+    public ModelAndView mostrarMapaCercanas() throws InterruptedException, ApiException, IOException{
+        if (estaLogueado()) {
+            ModelMap model = new ModelMap();
+            Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+            Usuario usuario = servicioUsuario.buscarPorId(idUsuario);
+            model.put("mascotas", mapaService.filtrarMascotasPorDistancia(usuario.getCoordenadas(),servicioMascota.listarMascotasSinRefugio()));
             model.put("direccionUsuario", usuario.getCoordenadas());
             return new ModelAndView("vistaMapaMascotas", model);
         } else {
             return new ModelAndView("redirect:/login");
         }
-
     }
 
 
@@ -90,7 +104,7 @@ public class ControladorMascotas {
     public ModelAndView mascotaBuscada(@ModelAttribute("datosMascota") DatosMascota datosMascota) {
         if (estaLogueado()) {
             ModelMap modelo = new ModelMap();
-            modelo.put("listaDeMascotas", servicioMascota.buscarGeneral(datosMascota.getNombre()));
+            modelo.put("listaDeMascotas", servicioMascota.buscarGeneral(datosMascota));
             return new ModelAndView("buscarMascota", modelo);
         } else {
             return new ModelAndView("redirect:/login");
@@ -101,7 +115,10 @@ public class ControladorMascotas {
     public ModelAndView mostrarAnimales() {
         ModelMap modelo = new ModelMap();
         modelo.put("listaDeMascotas", servicioMascota.listarTodos());
-        if (estaLogueado() == true) {
+
+        if (estaLogueado() == true && esAdmin() == false) {
+            return new ModelAndView("Mascotas", modelo);
+        } else if (esAdmin() == true) {
             return new ModelAndView("MascotasAdm", modelo);
         } else {
             return new ModelAndView("redirect:/login");

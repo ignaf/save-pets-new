@@ -1,42 +1,43 @@
-body{
-    overflow-x:hidden;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background: rgb(255, 253, 190);
+    background: linear-gradient(90deg, rgba(255, 253, 190, 1) 0%, rgba(251, 209, 255, 1) 100%);
 }
 
-#body {
-    background-image: url(https://i2.wp.com/lanoticia.com/wp-content/uploads/2021/09/AdobeStock_231096579.jpg?fit=1200%2C766);
-    background-size: 100% 100%;
-    background-attachment: fixed;
+main {
+    min-height: 67.8vh;
 }
 
-#body_home {
-    background-color: rgb(230, 230, 230);
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
-#vinuclo_cartas{
-    font-size:15px;
-    color:grey;
-    text-decoration:none;
+.completarLogin {
+    height: 800px;
 }
 
-#vinuclo_cartas:hover{
+
+#vinuclo_cartas {
+    font-size: 15px;
+    color: grey;
+    text-decoration: none;
+}
+
+#vinuclo_cartas:hover {
     color: blue;
 }
 
-#seccion_cartas{
-    margin-top:10px;
-    display:flex;
+#seccion_cartas {
+    margin-top: 10px;
+    display: flex;
     margin-left: 20px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
-#cartas{
-    margin-right:10%;
-}
-
-#cartas:hover{
-    box-shadow:3px 3px 30px black;
-    transition: 0.1s;
-}
 
 #body_registro {
     background-image: url(https://i2.wp.com/lanoticia.com/wp-content/uploads/2021/09/AdobeStock_231096579.jpg?fit=1200%2C766);
@@ -44,14 +45,14 @@ body{
     background-attachment: fixed;
 }
 
-#Titulo{
+#Titulo {
     color: black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     text-shadow: 1px 1px 1px black;
 }
 
-#Login{
+#Login {
     background-color: rgba(255, 255, 255, 0.8);
     width: 350px;
     height: 400px;
@@ -60,7 +61,8 @@ body{
     margin-left: 65%;
     padding-top: 5px;
 }
-#Login2{
+
+#Login2 {
     background-color: rgba(255, 255, 255, 0.8);
     width: 350px;
     height: 430px;
@@ -69,344 +71,336 @@ body{
     margin-left: 65%;
     padding-top: 5px;
 }
-#Boton{
+
+#Boton {
     margin-left: 50%;
     transform: translateX(-50%);
-    margin-top:0px;
+    margin-top: 0px;
 }
 
-#h2{
+#h2 {
     font-size: 20px;
     text-align: center;
 }
-#h3{
+
+#h3 {
     font-size: 15px;
     text-align: left;
     margin-left: 20px;
 }
 
-#caja{
+#caja {
     font-size: 15px;
     text-align: left;
     margin-left: 20px;
 }
-input{
+
+input {
     margin-right: 10px;
 }
-i{
-    margin-left: 50%;
-    transform: translateX(-50%);
-    color: rgba(0, 0, 0, 0.7);
-}
-a{
-    margin-left: 5%;
-    text-decoration:none;
+
+a {
+    text-decoration: none;
     color: black;
 }
 
-#Titulo_cartas{
+#Titulo_cartas {
     margin-left: 5%;
-    text-decoration:none;
+    text-decoration: none;
     color: black;
-    font-size:30px;
+    font-size: 30px;
 }
 
-#Titulo_cartas_div{
+#Titulo_cartas_div {
     background-color: white;
-    padding-top:10px;
-    margin-top:10px;
-    padding-bottom:5px;
+    padding-top: 10px;
+    margin-top: 10px;
+    padding-bottom: 5px;
 }
 
-#NoCuenta{
+#NoCuenta {
     margin-left: 5%;
-    text-decoration:none;
+    text-decoration: none;
     color: black;
 
 }
-p{
-    margin-top:5px;
-    margin-bottom:0px;
+
+p {
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 
 #map {
-    height: 795px;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 40px;
 }
 
-#navegador{
+#navegador {
     padding-left: 10px;
     padding-right: 10px;
-    align-items:center;
-    border-bottom:1px solid #dfdfdf;
-    background-color:white;
-}
-
-#navegador a{
-    align-items:center;
-}
-
-#botones_home{
-    text-align:end;
-}
-
-#titulo_mapa{
-    font-size:30px;
-}
-
-#titulo_index_refugios{
-    text-align:center;
-    padding:15px;
-}
-#center{
-    text-align:center;
-}
-#menu-izquierdo{
-    background-color:grey;
-}
-#seccion{
-    background-color:#c2d3fc;
-    padding-top:10px;
-    padding-bottom:10px;
-    margin-top:30px;
-    margin-bottom:30px;
-}
-
-#menu-lateral{
-    background-color:#c2d3fc;
-    padding:30px;
-    color:black;
-}
-#menu-lateral ul{
-    margin-top:5px;
-    font-size:20px;
-    list-style:none;
-}
-#menu-lateral li{
-    background-color:padding 5px;
-}
-#menu-lateral li:hover{
-    background-color:#9ab7fa;
-}
-#buscar{
-    margin:10px;
-}
-#boton_buscar{
-    margin-right:20px;
-}
-
-#titulo{
-    text-align:center;
-    margin-top:20px;
-    font-size:30px;
-}
-
-#formulario{
-    margin-left:35%;
-    margin-top:50px;
-    background-color:rgba(120, 163, 255, 0.95);
-    box-shadow:5px 5px 5px;
-    padding-left:100px;
-    padding-right:100px;
-    padding-top:25px;
-    padding-bottom:50px;
-    width:30%;
-    border-radius:5%;
-}
-
-#formulario_fila{
-    margin-bottom:30px;
-}
-
-#boton_formulario{
     align-items: center;
-    text-align:center;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: white;
 }
 
-#body_patas{
-    background-image:url("https://thumbs.dreamstime.com/b/modelo-incons%C3%BAtil-del-vector-de-la-impresi%C3%B3n-pata-perro-103984861.jpg");
+#navegador a {
+    align-items: center;
 }
 
-#footer{
-    background-color:#c2d3fc;
-
+#botones_home {
+    text-align: end;
 }
 
-#footer i{
-    size:10px;
+#titulo_mapa {
+    font-size: 30px;
 }
 
-#especialistas{
-	margin-bottom:30px;
-	background-color:#c2d3fc;
-	border-radius:30px;
+#titulo_index_refugios {
+    text-align: center;
+    padding: 15px;
 }
 
-#especialistas img{
-	height:300px;
+#center {
+    text-align: center;
 }
 
-#cuida{
-	margin-left:10%;
-	text-align:center;
-	background-color:#c2d3fc;
-	width:80%;
-	border-radius:10px;
+#menu-izquierdo {
+    background-color: grey;
 }
 
-#resultado{
-margin-left:40%;
-margin-top:10%;
+#seccion {
+    background-color: #c2d3fc;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.fixNav{
+#menu-lateral {
+    background-color: #c2d3fc;
+    padding: 30px;
+    color: black;
+}
+
+#menu-lateral ul {
+    margin-top: 5px;
+    font-size: 20px;
+    list-style: none;
+}
+
+#menu-lateral li {
+    background-color: padding 5px;
+}
+
+#menu-lateral li:hover {
+    background-color: #9ab7fa;
+}
+
+.buscar {
+    max-width: 50%;
+    margin: 15px auto 0;
+    display: block;
+}
+
+.buscar button {
+    margin-right: 20px;
+}
+
+#titulo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+#formulario {
+    margin-left: 35%;
+    margin-top: 50px;
+    background-color: rgba(120, 163, 255, 0.95);
+    box-shadow: 5px 5px 5px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+    width: 30%;
+    border-radius: 5%;
+}
+
+#formulario_fila {
+    margin-bottom: 30px;
+}
+
+#boton_formulario {
+    align-items: center;
+    text-align: center;
+}
+
+
+.resultado {
+    padding: 5% 10%;
+}
+
+.fixNav {
     overflow: hidden;
 }
 
-#portada{
-	width:100%;
-	height:500px;
-	background-image:url("MascotaGrande.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
+.cardlogin {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+    width: 400px;
+    border: #0f0f0f solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-#centrado{
-padding-left:100px;
-padding-top:150px;
+.cardRegistro {
+    margin-top: 40px;
+    margin-left: 487px;
+    margin-bottom: 40px;
+    width: 400px;
+    border: #0f0f0f solid 1px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-#textoGrande{
-font-size:70px;
+.cardMensaje {
+    margin-top: 60px;
+    margin-left: 470px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
-#textoMediano{
-font-size:35px;
+.seccion_cartas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#imagenGrupal{
-	height:500px;
-	background-image:url("animalGrupo.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	align-items:center;
-	text-align:center;
+.carta {
+    width: 30%;
+    max-width: 300px;
+    margin-bottom: 25px;
 }
 
-#arribaMapa{
-	height: 50px;
-    width:50%;
-	margin-left:25%;
-	background-color:#7983ff;
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.carta:hover {
+    box-shadow: 3px 3px 30px black;
+    transition: 0.1s;
 }
 
-#fondoColor{
-	background-color:#b5b1ff;
+.carta-info {
+    min-height: 150px;
 }
 
-#degrade{
-	height:50px;
-	background-image: linear-gradient(180deg, white, #b5b1ff);
+.card-body a {
+    margin: 0;
 }
 
-#derecha{
-	align-items:right;
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
 }
 
-#margenIzquierdo{
-	margin-left:10px;
+.titulo {
+    margin-top: 40px;
+    margin-bottom: 30px;
 }
-#marginTopNegativo2{
-	margin-top:-2px;
+
+.btnmensajes {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    top: 80px;
+    right: 30px;
+    background: #ff3000;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0, 0.3);
+    z-index: 100;
 }
-#marginTopNegativo15{
-	margin-top:-15px;
+
+.btnmensajes:hover {
+    text-decoration: none;
+    color: #ff3000;
+    background: #fff;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
 }
-#huella{
-	margin-top:100px;
-	width:200px;
-	transition:0.2s;
-	margin-left:-50px;
+
+.modal-body a {
+    color: red;
+    font-weight: lighter;
 }
-#huella:hover{
-	width:230px;
+
+.modal-body a:hover {
+    color: red;
+    font-weight: bold;
 }
-#completarLogin{
-	height:800px;
+
+.imgslider {
+    object-fit: cover;
 }
-#marginLeft{
-	padding-left:100px;
+
+.slider {
+    margin-top: 40px;
+    border: solid 1px #fafafa;
 }
-#mascotasCercanasCartel{
-	text-align:right;
-	padding-top:200px;
-	position:absolute;
-	text-shadow: 2px 2px 3px;
+
+.titulologin {
+    text-align: center;
+    margin-bottom: 30px;
 }
-#iconoAdmin{
-	width:300px;
-	height:200px;
+
+
+.fondologin {
+    position: absolute;
+    width: 290px;
+    bottom: 20px;
+    left: auto;
+    right: 493px;
 }
-#columnaMascota{
-	transition:.2s;
-	margin-left:25%;
+
+.fondoRegistroPet {
+    position: absolute;
+    bottom: 358px;
+    left: auto;
+    right: 893px;
 }
-#columnaMascota:hover {
-	transform: translateY(-10px) scale(1.05);
-	box-shadow: 0 5px 5px 0px rgba(0,0,0, .4);
+
+.fondoRegistroRef {
+    position: absolute;
+    width: 290px;
+    bottom: 58px;
+    left: auto;
+    right: 893px;
 }
-#transition{
-	transition:.8s;
+
+.fondoRegistroUser {
+    position: absolute;
+    width: 290px;
+    bottom: 20px;
+    left: auto;
+    right: 860px;
 }
-#tarjetasAlto{
-	height:65px;
+
+.fondoMensaje {
+    position: absolute;
+    width: 290px;
+    bottom: 132px;
+    left: auto;
+    right: 856px;
 }
-#iconos{
-	background-color:black;
-}
-#fondoVioletaHome{
-	background-image: url(fondoVioleta.jpg);
-	height:600px;
-}
-#degradeReves{
-	background-image: linear-gradient(360deg, white, #b5b1ff);
-	height:100px;
-}
-#degrade-body{
-	background-image: linear-gradient(180deg, white, #b5b1ff);
-	height:100%
-}
-#headerRefugios{
-	background-image: url(fondoRefugios.jpg);
-	height:500px;
-}
-#tituloRefugios{
-	text-align:center;
-	align-items:center;
-	font-size:70px;
-	text-shadow: 1px 1px 2px;
-	padding-top:200px;
-}
-#headerMascotas{
-	background-image: url(fondoMascotas.jpg);
-	height:500px;
-}
-#refugioAdmin:hover{
-	transform: translateY(-10px) scale(1.05);
-	box-shadow: 0 5px 5px 0px rgba(0,0,0, .4);
-}
-#refugioAdmin{
-	background-color:#b5b1ff;
-	transition:0.2s;
-}
-#adminIcono{
-	background-color:#b5b1ff;
-	transition:0.2s;
-}
-#adminIcono:hover{
-	transform: translateY(-10px);
-	box-shadow: 0 5px 5px 0px rgba(0,0,0, .4);
-}
-#iconoLeft{
-	padding-left:70px;
+
+.cardHome {
+    background-color: #0000001a;
+    padding: 10px;
+    padding-top: 20px;
 }

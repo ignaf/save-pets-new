@@ -19,30 +19,94 @@
 <body>
 
 <%@include file="../../template/navbar.jsp" %>
+
+<main>
+<!--  
+<div id="marginRight" class="row mt-4 mr-5">
 <form:form action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
-    <div id="buscar" class="d-flex">
-        <button id="boton_buscar" class="btn btn-outline-primary">Buscar</button>
-        <input path="nombre" name="nombre" class="form-control me-2" type="text">
+    <div id="buscar" class="mt-3 ml-2">
+    <div class="col">
+    	<div class="row mt-3">
+		<h4 id="center">Busca una refugio</h4>
+        </div>
+        <div class="row mt-3">
+        <input placeholder="nombre" path="nombre" name="nombre" class="form-control me-2" type="text">
+        </div>
+        <div class="row mt-3">
+        <input placeholder="direccion" path="direccion" name="direccion" class="form-control me-2" type="text">
+        </div>
+        <button id="botonBuscar" class="btn btn-outline-primary mt-3">Buscar</button>
+    </div>
     </div>
 </form:form>
 
-<div id="seccion_cartas">
     <c:forEach items="${refugio}" var="refugio">
-        <div id="cartas" class="card" style="width: 18rem;">
+        <div class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1)">
             <img src="${refugio.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
             <div class="col card-body">
+                <div style="min-height: 110px">
                 <h5 class="card-title">${refugio.nombre}</h5>
                 <h5 class="card-title">${refugio.direccion}</h5>
                 <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
-                <a href="mostrar-animales" class="mt-2 btn btn-primary">Ver animales</a>
+                </div>
+                <a href="mostrar-animales" class="mt-2 btn btn-dark">Ver animales</a>
             </div>
         </div>
     </c:forEach>
+ </div>
+ -->
+
+<div class="container">
+<div class="row">
+<div id="marginRight" class="col-2 mt-4 mr-5">
+<form:form class="col" action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
+    <div id="buscar" class="mt-3 ml-2">
+    <div class="col">
+    	<div class="row mt-3">
+		<h4 id="center">Busca un refugio</h4>
+        </div>
+		<div class="row mt-3">
+        <input placeholder="nombre" path="nombre" name="nombre" class="form-control me-2" type="text">
+        </div>
+        <div class="row mt-3">
+        <input placeholder="direccion" path="direccion" name="direccion" class="form-control me-2" type="text">
+        </div>
+        <button id="botonBuscar" class="btn btn-outline-primary mt-3">Buscar</button>
+        </div>
+    </div>
+</form:form>
 </div>
 
-<%@include file="../../template/footer.jsp"%>
-
+<div class="col">
+<div class="row">
+     <c:if test="${empty refugio}">
+     <div class="col-8">
+     <h1 class="card-subtitle mb-2 text-muted mt-5" style="padding-left:20%">Busca en nuestros refugios registrados</h1>
+     </div>
+    </c:if>
+        <c:forEach items="${refugio}" var="refugio">
+        <div  class="col-4 mt-4" style="padding-left:10%">
+        <div   class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1);">
+            <img src="${refugio.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
+            <div class="col card-body">
+                <div style="min-height: 110px">
+                <h5 class="card-title">${refugio.nombre}</h5>
+                <h5 class="card-title">${refugio.direccion}</h5>
+                <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
+                </div>
+                <a href="mostrar-animales" class="mt-2 btn btn-dark">Ver animales</a>
+                </div>
+            </div>
+         </div>
+        </c:forEach>
+        </div>
+</div>
+</div>
+</div>
 </body>
+
+</main>
+<%@include file="../../template/footer.jsp"%>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>

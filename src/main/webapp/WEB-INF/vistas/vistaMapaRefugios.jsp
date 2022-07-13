@@ -42,7 +42,7 @@
             });
             <c:forEach items="${refugios}" var="refugio">
             var coordenadasRefugio = ${refugio.coordenadas};
-            var texto = '<a href="refugio/${refugio.nombre}"><img src="${refugio.imagen}" width=250px height=auto></a>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
+            var texto = '<a href="refugio/${refugio.nombre}"><img src="${refugio.imagen}" width=150px height=auto></a>' + '<h1>${refugio.nombre}</h1>' + '<p>Telefono:${refugio.numeroTelefono}' + '<p>Direccion:${refugio.direccion}</p>';
             var marker = new google.maps.Marker({
                 position: coordenadasRefugio,
                 map: map,
@@ -60,27 +60,20 @@
         window.initMap = initMap;
 
     </script>
-
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
-
 </head>
 <body>
 
 <%@include file="../../template/navbar.jsp"%>
-
+<main>
 <div class="container">
-    <h3 class="text-center">Mapa de Refugios</h3>
+    <h3 class="text-center titulo">Mapa de Refugios</h3>
 
     <div id="map">
         <script async
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDruCZjP_qnHh5ikKTqJWJWPAfM9CkhzIo&callback=initMap"></script>
     </div>
 </div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 </body>
 </html>

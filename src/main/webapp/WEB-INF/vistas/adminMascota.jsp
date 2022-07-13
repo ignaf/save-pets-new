@@ -15,37 +15,38 @@
 </head>
 <body>
 <%@include file="../../template/navbar.jsp" %>
-<div class="row mt-4 mb-4">
+<main>
+<div id="centrado" class="row mt-4">
     <div class="col-5"></div>
-    <div class="col"><a href="registrar-mascota" class="btn btn-primary">Nueva Mascota</a></div>
+    <div class="col"><a href="registrar-mascota" class="btn btn-success">Nueva Mascota</a>
+    </div>
     <div class="col"></div>
 </div>
-
-<hr>
-    <div class="container">
-        <div id="" class="row">
-            <div class="col"><h6>Imagen</h6></div>
-            <div class="col"><h6>Nombre</h6></div>
-            <div class="col"><h6>Direccion</h6></div>
-            <div class="col"><h6>Refugio</h6></div>
-            <div class="col"></div>
-            <div class="col"></div>
-        </div>
-    </div>
-<hr>
-    <div class="container">
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Visto por ultima vez en</th>
+        <th scope="col">Refugio</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${listaDeMascotas}" var="mascota">
-        <div id="refugioAdmin" class="row pt-2 pb-2 mt-5 mb-5">
-            <div class="col"><img src="${mascota.imagen}" alt="..." width="70px" height="50px"></div>
-            <div class="col">${mascota.nombre}</div>
-            <div class="col">${mascota.direccion}</div>
-            <div class="col">${mascota.refugio.nombre}</div>
-            <div class="col"><a href="borrar-mascota/${mascota.id}" class="btn btn-primary">Borrar Mascota</a></div>
-            <div class="col"><a href="asignar-refugio?id=${mascota.id}" class="btn btn-primary">Asignar refugio</a></div>
-        </div>
+        <tr>
+            <th scope="row"><img src="${mascota.imagen}" alt="..." width="70px" height="50px"></th>
+            <th scope="row">${mascota.nombre}</th>
+            <th scope="row">${mascota.direccion}</th>
+            <th scope="row">${mascota.refugio.nombre}</th>
+            <th scope="row"><a href="borrar-mascota/${mascota.id}" class="btn btn-danger">Borrar Mascota</a></th>
+            <th scope="row"><a href="asignar-refugio?id=${mascota.id}" class="btn btn-success">Asignar refugio</a></th>
+        </tr>
     </c:forEach>
-    </div>
-
+    </tbody>
+</table>
+</main>
 <%@include file="../../template/footer.jsp" %>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

@@ -1,0 +1,8 @@
+El objetivo de la APP es poder darle un hogar a los animales que estan en situacion de calle.
+-En nuestra APP van a poder ver un mapa que muestra todas las mascotas registradas como perdidas para poder saber donde se perdieron y rescatarlas o llevarlas a un refugio.
+-Tambien vamos a tener un apartado en el que nos muestre las mascotas solamente que estan cerca nuestro (de la direccion cargada al registrar el usuario logueado).
+-Vamos a tener la opcion de ver una lista de todas las mascotas, tanto perdidas y rescatadas.
+-Tambien vamos a poder ver un mapa de todos los refugios que esten registrados y otra vista en la que nos dara un listado de los mismos.
+-Si queremos buscar una mascota o un refugio en especifico, podemos buscar por sus diferentes campos.
+-Si nos logueamos con un usuario de admin podremos borrar o registrar nuevos refugios y asignarle mascotas a un refugio (estas tareas no estan permitidas si el usuario no tiene el rol admin asignado).
+-Podemos mandar mensajes a usuarios siendo admin para poder comunicarnos dentro de la APP.

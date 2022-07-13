@@ -63,14 +63,10 @@ public class RepositorioRefugioImpl implements RepositorioRefugio {
     }
 
     @Override
-    public List<Refugio> buscarGeneral(String nombre) {
+    public List<Refugio> buscarGeneral(String nombre, String direccion) {
         return sessionFactory.getCurrentSession().createCriteria(Refugio.class)
-                .add(Restrictions.disjunction()
                         .add(Restrictions.like("nombre", nombre, MatchMode.ANYWHERE))
-                        .add(Restrictions.like("direccion", nombre, MatchMode.ANYWHERE))
-                        .add(Restrictions.like("coordenadas", nombre, MatchMode.ANYWHERE))
-                        .add(Restrictions.like("numeroTelefono", nombre, MatchMode.ANYWHERE))
-                )
+                        .add(Restrictions.like("direccion", direccion, MatchMode.ANYWHERE))
                 .list();
     }
 }

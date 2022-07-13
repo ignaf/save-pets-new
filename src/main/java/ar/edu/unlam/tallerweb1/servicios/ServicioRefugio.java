@@ -13,5 +13,5 @@ public interface ServicioRefugio {
 	Refugio buscarRefugioPorNombre(String nombre);
 	List<Refugio> listarTodos();
 	void eliminar(Long id);
-	List<Refugio> buscarGeneral(String nombre);
+	List<Refugio> buscarGeneral(DatosRefugio datos);
 }

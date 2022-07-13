@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/styles.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width" initial-scale=1.0>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-light sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Save-Pets</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -41,53 +42,50 @@
             <button class="btn btn-sm btn-outline-secondary" type="button">Login</button>
         </a>
         <a href="registrar-usuario">
-            <button class="btn btn-sm btn-outline-secondary" type="button">Registrarse</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" style="margin-left: 10px">Registrarse</button>
         </a>
     </form>
 </nav>
-<div class="container mt-5">
+<main style="position:relative">
+    <img src="css/PerroSolitario2right.png" alt="" class="fondoRegistroUser">
+<div class="cardRegistro">
     <c:if test="${not empty error}">
         <h4 style="color: red"><span>${error}</span></h4>
         <br>
     </c:if>
     ${msg}
-    <div class="row">
-    	<div class="col-5 mt-5">
+    <h2 class="titulologin">Registrarse</h2>
     <form:form action="registrar-usuario" method="post" modelAttribute="datosRegistro">
         <div class="form-outline mb-4">
-            <form:input path="email" type="email" id="email" class="form-control"/>
             <form:label class="form-label" for="email" path="email">Email</form:label>
+            <form:input path="email" type="email" id="email" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="direccion" type="text" id="direccion" class="form-control"/>
             <form:label class="form-label" for="direccion" path="direccion">Direccion</form:label>
+            <form:input path="direccion" type="text" id="direccion" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="clave" type="password" id="clave" class="form-control"/>
             <form:label class="form-label" for="clave" path="clave">Clave</form:label>
+            <form:input path="clave" type="password" id="clave" class="form-control"/>
         </div>
 
         <div class="form-outline mb-4">
-            <form:input path="repiteClave" type="password" id="repiteClave" class="form-control"/>
             <form:label class="form-label" for="repiteClave" path="repiteClave">Repetir clave</form:label>
+            <form:input path="repiteClave" type="password" id="repiteClave" class="form-control"/>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block mb-4">Registrarme</button>
+        <button type="submit" class="btn btn-outline-dark btn-block mb-4" style="margin-left: 266px;">Registrarme</button>
 
         <div class="text-center">
             <p>Ya tienes una cuenta? <a href="login">Inicia sesion</a></p>
         </div>
     </form:form>
-    	</div>
-    <div id="marginLeft" class="col-6 ml-5">
-    <img src="css/perroRegister.jpg">
-    </div>
 
-	</div>
 
 </div>
+</main>
 <%@include file="../../template/footer.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
