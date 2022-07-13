@@ -20,7 +20,7 @@
         <div class="row">
             <div id="marginRight" class="col-2 mt-4 mr-5">
                 <form:form class="col" action="buscarMascota" method="POST" modelAttribute="datosMascota">
-                    <div id="buscar" class="mt-3 ml-2">
+                    <div class="mt-3 ml-2">
                         <div class="col">
                             <div class="row mt-3">
                                 <h4 class="center">Busca una mascota</h4>
@@ -40,7 +40,7 @@
                             <div class="row mt-3">
                                 <input placeholder="pelaje" path="pelaje" name="pelaje" class="form-control me-2" type="text">
                             </div>
-                            <button id="botonBuscar" class="btn btn-outline-primary mt-3">Buscar</button>
+                            <button class="btn btn-outline-dark mt-3 mb-3">Buscar</button>
                         </div>
                     </div>
                 </form:form>
@@ -50,15 +50,15 @@
                 <div class="row">
                     <c:if test="${empty listaDeMascotas}">
                         <div class="col-8">
-                            <h1 class="card-subtitle mb-2 text-muted mt-5" style="padding-left:20%">Busca en nuestros mascotas registradas</h1>
+                            <h1 class="card-subtitle mb-2 text-muted mt-5" style="padding-left:20%">Busca entre nuestras mascotas registradas</h1>
                         </div>
                     </c:if>
                     <c:forEach items="${listaDeMascotas}" var="mascota">
                         <div  class="col-4 mt-4" style="padding-left:10%">
-                            <div   class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1);">
+                            <div class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1);">
                                 <img src="${mascota.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
                                 <div class="card-body">
-                                    <div id="tarjetasAlto">
+                                    <div>
                                         <c:if test="${empty mascota.refugio}">
                                             <h5  class="card-title center" style="color: red">MASCOTA PERDIDA</h5>
                                         </c:if>
@@ -74,12 +74,12 @@
                                     <p class="card-text">Descripcion: ${mascota.descripcion}</p>
                                     <div class="mt-4 center">
                                         <c:if test="${empty mascota.refugio}">
-                                            <a href="mapa-mascotas" class="btn btn-primary">Ver mapa</a>
+                                            <a href="mapa-mascotas" class="btn btn-outline-dark mt-3 mb-3">Ver mapa</a>
                                         </c:if>
                                     </div>
                                     <div class="mt-4 center">
                                         <c:if test="${not empty mascota.refugio}">
-                                            <a href="animales-refugio/${mascota.refugio.id}" class="btn btn-primary">Ver Refugio</a>
+                                            <a href="animales-refugio/${mascota.refugio.id}" class="btn btn-outline-dark mt-3 mb-3">Ver Refugio</a>
                                         </c:if>
                                     </div>
                                 </div>

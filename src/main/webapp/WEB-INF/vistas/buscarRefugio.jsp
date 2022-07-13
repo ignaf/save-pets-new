@@ -24,10 +24,10 @@
         <div class="row">
             <div id="marginRight" class="col-2 mt-4 mr-5">
                 <form:form class="col" action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
-                    <div id="buscar" class="mt-3 ml-2">
+                    <div class="mt-3 ml-2">
                         <div class="col">
                             <div class="row mt-3">
-                                <h4 id="center">Busca un refugio</h4>
+                                <h4 class="center">Busca un refugio</h4>
                             </div>
                             <div class="row mt-3">
                                 <input placeholder="nombre" path="nombre" name="nombre" class="form-control me-2" type="text">
@@ -35,7 +35,7 @@
                             <div class="row mt-3">
                                 <input placeholder="direccion" path="direccion" name="direccion" class="form-control me-2" type="text">
                             </div>
-                            <button id="botonBuscar" class="btn btn-outline-primary mt-3">Buscar</button>
+                            <button class="btn btn-outline-dark mt-3 mb-3">Buscar</button>
                         </div>
                     </div>
                 </form:form>
@@ -58,7 +58,7 @@
                                         <h5 class="card-title">${refugio.direccion}</h5>
                                         <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
                                     </div>
-                                    <a href="mostrar-animales" class="mt-2 btn btn-dark">Ver animales</a>
+                                    <a href="mostrar-animales" class="btn btn-outline-dark mt-3 mb-3">Ver animales</a>
                                 </div>
                             </div>
                         </div>
