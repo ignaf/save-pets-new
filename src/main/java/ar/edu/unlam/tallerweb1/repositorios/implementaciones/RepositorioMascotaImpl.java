@@ -73,18 +73,14 @@ public class RepositorioMascotaImpl implements RepositorioMascota {
 
 
     @Override
-    public List<Mascota> buscarGeneral(String nombre) {
+    public List<Mascota> buscarGeneral(String especie, String direccion, String descripcion, String raza, String pelaje) {
         return sessionFactory.getCurrentSession().createCriteria(Mascota.class)
-                .add(Restrictions.disjunction()
-                        .add(Restrictions.like("especie", nombre, MatchMode.ANYWHERE))
-                        .add(Restrictions.like("nombre", nombre,MatchMode.ANYWHERE))
-                        .add(Restrictions.like("direccion", nombre,MatchMode.ANYWHERE))
-                        .add(Restrictions.like("raza", nombre,MatchMode.ANYWHERE))
-                        .add(Restrictions.like("pelaje", nombre,MatchMode.ANYWHERE))
-                        .add(Restrictions.like("descripcion", nombre,MatchMode.ANYWHERE))
-                )
+                .add(Restrictions.like("especie", especie,MatchMode.ANYWHERE))
+                .add(Restrictions.like("direccion", direccion,MatchMode.ANYWHERE))
+                .add(Restrictions.like("raza", raza,MatchMode.ANYWHERE))
+                .add(Restrictions.like("pelaje", pelaje,MatchMode.ANYWHERE))
+                .add(Restrictions.like("descripcion", descripcion,MatchMode.ANYWHERE))
                 .list();
-
     }
 
     @Override

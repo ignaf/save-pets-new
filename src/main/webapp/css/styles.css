@@ -404,3 +404,7 @@ p {
     padding: 10px;
     padding-top: 20px;
 }
+
+.center {
+    text-align: center;
+}

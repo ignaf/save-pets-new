@@ -61,8 +61,8 @@ public class ServicioRefugioImpl implements ServicioRefugio {
     }
 
     @Override
-    public List<Refugio> buscarGeneral(String nombre) {
-        return repositorioRefugio.buscarGeneral(nombre);
+    public List<Refugio> buscarGeneral(DatosRefugio datos) {
+        return repositorioRefugio.buscarGeneral(datos.getNombre(), datos.getDireccion());
     }
 
 

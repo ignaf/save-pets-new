@@ -93,8 +93,14 @@ public class ServicioMascotaImpl implements ServicioMascota {
     }
 
     @Override
-    public List<Mascota> buscarGeneral(String nombre) {
-        return repositorioMascota.buscarGeneral(nombre);
+    public List<Mascota> buscarGeneral(DatosMascota datos) {
+        return repositorioMascota.buscarGeneral(
+                datos.getEspecie(),
+                datos.getDireccion(),
+                datos.getDescripcion(),
+                datos.getRaza(),
+                datos.getPelaje()
+        );
     }
 
     @Override
