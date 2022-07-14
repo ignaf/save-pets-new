@@ -175,7 +175,7 @@ public class ControladorRefugios {
         if(estaLogueado()){
             ModelMap model = new ModelMap();
             model.put("listaDeMascotas",servicioMascota.buscarMascotaPorRefugio(idRefugio));
-            return new ModelAndView("Mascotas", model);
+            return new ModelAndView("MascotasDeRefugio", model);
         }else{
             return new ModelAndView("redirect:/login");
         }
