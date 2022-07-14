@@ -55,7 +55,7 @@
             </div>
             <div class="form-outline mb-4">
                 <form:label class="form-label" for="descripcion" path="descripcion">Ingresa una breve descripcion</form:label>
-                <form:textarea path="descripcion" class="form-control" id="descripcion" name="descripcion"
+                <form:textarea path="descripcion" maxlength="254" class="form-control" id="descripcion" name="descripcion"
                                rows="3"></form:textarea>
             </div>
             <div class="form-outline mb-4">

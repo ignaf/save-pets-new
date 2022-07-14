@@ -54,7 +54,7 @@
                 <div class="form-outline mb-4">
                     <form:label class="form-label" for="urlimagen" path="urlimagen">URL Imagen</form:label>
 
-                    <form:input type="text" path="urlimagen" class="form-control" name="urlimagen" id="urlimagen" placeholder="Url imagen"/>
+                    <form:input type="text" path="urlimagen" class="form-control" maxlength="254" name="urlimagen" id="urlimagen" placeholder="Url imagen"/>
                 </div>
                 <button class="btn btn-outline-dark mt-2" type="submit">Confirmar registro</button>
             </form:form>
