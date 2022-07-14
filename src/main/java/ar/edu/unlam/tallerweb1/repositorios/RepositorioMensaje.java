@@ -10,4 +10,5 @@ public interface RepositorioMensaje {
     void asignarUsuarios(Mensaje mensaje);
     void guardar(Mensaje mensaje);
     void eliminar(Long id);
+    void eliminarTodos(Long idUsuario);
 }

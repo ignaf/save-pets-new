@@ -52,4 +52,11 @@ public class RepositorioMensajeImpl implements RepositorioMensaje {
         Mensaje mensajeABorrar = this.buscar(id);
         sessionFactory.getCurrentSession().delete(mensajeABorrar);
     }
+
+    @Override
+    public void eliminarTodos(Long idUsuario) {
+
+        String hql = "delete from Mensaje where idDestinatario= :id";
+        sessionFactory.getCurrentSession().createQuery(hql).setLong("id", idUsuario).executeUpdate();
+    }
 }

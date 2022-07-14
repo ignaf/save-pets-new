@@ -4,6 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Mensajes</h5>
+                <a href="borrar-todos-mensajes">Borrar todos</a>
             </div>
             <div class="modal-body">
                 <c:forEach items="${listaDeMensajes}" var="mensaje">

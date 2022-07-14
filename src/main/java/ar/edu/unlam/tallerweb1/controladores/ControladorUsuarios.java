@@ -62,6 +62,17 @@ public class ControladorUsuarios {
         }
     }
 
+    @RequestMapping(path="/borrar-todos-mensajes", method = RequestMethod.GET)
+    public ModelAndView borrarTodosLosMensajes(){
+        Long idUsuario = (Long) request.getSession().getAttribute("idUsuario");
+        if(estaLogueado()){
+            servicioMensaje.eliminarTodos(idUsuario);
+            return new ModelAndView("redirect:/home");
+        }else{
+            return new ModelAndView("redirect:/login");
+        }
+    }
+
     public boolean estaLogueado() {
         if (request.getSession().getAttribute("Rol") == "Admin" || request.getSession().getAttribute("Rol") == "UsuarioEstandar") {
             return true;

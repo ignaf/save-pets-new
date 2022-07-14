@@ -10,4 +10,5 @@ public interface ServicioMensaje {
     Mensaje asignarUsuarios(Long idMensaje, Long idDestinatario);
     List<Mensaje> buscarMensajes(Long idDestinatario);
     void eliminar(Long id);
+    void eliminarTodos(Long idUsuario);
 }
