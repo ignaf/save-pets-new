@@ -6,3 +6,4 @@ El objetivo de la APP es poder darle un hogar a los animales que estan en situac
 -Si queremos buscar una mascota o un refugio en especifico, podemos buscar por sus diferentes campos.
 -Si nos logueamos con un usuario de admin podremos borrar o registrar nuevos refugios y asignarle mascotas a un refugio (estas tareas no estan permitidas si el usuario no tiene el rol admin asignado).
 -Podemos mandar mensajes a usuarios siendo admin para poder comunicarnos dentro de la APP.
+-Los usuarios reciben una notificacion cuando se registra un animal en su area (en un radio de 5km)
