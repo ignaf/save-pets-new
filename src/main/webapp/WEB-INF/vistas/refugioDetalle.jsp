@@ -55,8 +55,8 @@
     </form>
 </nav>
 <main>
-    <div class="card mb-3" style="width: 50%; height: auto; margin-top: 40px; margin-left: 40px;">
-        <img class="card-img-top" src="${refugio.imagen}" style="width: 50%; height: auto" >
+    <div class="card mb-3 card-detalle">
+        <img class="card-img-top img-detalle" src="${refugio.imagen}">
         <div class="card-body">
             <h5 class="card-title">${refugio.nombre}</h5>
             <p class="card-text">Direccion: ${refugio.direccion}</p>

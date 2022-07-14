@@ -408,3 +408,18 @@ p {
 .center {
     text-align: center;
 }
+
+.card-detalle{
+    width: 50%;
+    height: auto;
+    margin-top: 40px;
+    margin-left: 40px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.img-detalle{
+    width: 50%;
+    height: auto;
+    margin-top: 16px;
+    margin-left: 16px;
+}
