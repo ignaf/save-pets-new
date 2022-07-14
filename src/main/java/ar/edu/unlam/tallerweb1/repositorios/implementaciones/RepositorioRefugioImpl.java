@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.repositorios.implementaciones;
 import java.util.List;
 
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioRefugio;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
@@ -53,6 +54,7 @@ public class RepositorioRefugioImpl implements RepositorioRefugio {
     public List<Refugio> buscarTodos() {
         return sessionFactory.getCurrentSession()
                 .createCriteria(Refugio.class)
+                .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .list();
     }
 

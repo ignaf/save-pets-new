@@ -4,6 +4,7 @@ import ar.edu.unlam.tallerweb1.modelo.Mascota;
 import ar.edu.unlam.tallerweb1.modelo.Mensaje;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioUsuario;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -64,6 +65,7 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 	public List<Usuario> buscarTodos() {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(Usuario.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
 				.list();
 	}
 
