@@ -140,7 +140,7 @@ public class ControladorRefugios {
     public ModelAndView buscarRefugio(@ModelAttribute("datosRefugio") DatosRefugio datosRefugio) {
         if (estaLogueado()) {
             ModelMap modelo = new ModelMap();
-            modelo.put("refugio", servicioRefugio.buscarGeneral(datosRefugio.getNombre()));
+            modelo.put("refugio", servicioRefugio.buscarGeneral(datosRefugio));
             return new ModelAndView("buscarRefugio", modelo);
         } else {
             return new ModelAndView("redirect:/login");
@@ -175,7 +175,7 @@ public class ControladorRefugios {
         if(estaLogueado()){
             ModelMap model = new ModelMap();
             model.put("listaDeMascotas",servicioMascota.buscarMascotaPorRefugio(idRefugio));
-            return new ModelAndView("Mascotas", model);
+            return new ModelAndView("MascotasDeRefugio", model);
         }else{
             return new ModelAndView("redirect:/login");
         }

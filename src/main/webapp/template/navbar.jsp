@@ -36,9 +36,6 @@
                         <li><a class="dropdown-item" href="buscarMascota">Buscador</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="tienda">Tienda</a>
-                </li>
 
             </ul>
         </div>

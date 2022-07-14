@@ -34,7 +34,7 @@
                     <form:form action="asignar-refugio" method="post" modelAttribute="DatosMascota">
                         <input type="hidden" name="id" value="${mascota}">
                         <input type="hidden" name="refugioId" value="${refugio.id}">
-                        <input type="submit" value="SELECCIONAR">
+                        <input type="submit" class="btn btn-success"  value="SELECCIONAR">
                     </form:form>
                 </div>
 

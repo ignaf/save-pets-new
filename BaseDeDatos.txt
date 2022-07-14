@@ -1,0 +1,22 @@
+Insert into mascota (id, coordenadas, descripcion, direccion, especie, imagen, nombre, pelaje, raza) VALUES(
+					"1", '{"lat": -34.6233873,"lng": -58.45453679999999}', "Perro bueno", "Patio de los lecheros", "perro", "https://definicion.de/wp-content/uploads/2013/03/perro-1.jpg", "Firulais", "Corto", "Pastor Aleman");
+
+Insert into mascota (id, coordenadas, descripcion, direccion, especie, imagen, nombre, pelaje, raza) VALUES(
+					"2", '{"lat": -34.6445842,"lng": -58.51393599999999}', "Cuidado muerde", "Garcia de cossio 6165", "perro", "https://images.ecestaticos.com/6uBjSmsBorRk6l_IHAxkBS1JCwE=/114x0:1997x1410/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F721%2F122%2F714%2F72112271431cb1078c3fe3e75ad5ab41.jpg", "Pedro", "Largo", "Caniche");
+                    
+Insert into mascota (id, coordenadas, descripcion, direccion, especie, imagen, nombre, pelaje, raza) VALUES(
+					"3", '{"lat": -34.6814917,"lng": -58.5149733}', "Estaba asustado", "Charlone 269, la tablada", "perro", "https://www.consumer.es/app/uploads/2018/04/perro-comida-natural.jpg", "Juan", "Corto", "Bull terrier");
+                    
+Insert into mascota (id, coordenadas, descripcion, direccion, especie, imagen, nombre, pelaje, raza) VALUES(
+					"4", '{"lat": -34.6399036,"lng": -58.5086239}', "Gato gordo", "Garcia de cossio 5240", "gato", "https://www.radiohouse.hn/wp-content/uploads/2019/08/ANIMAL-MASCOTA.jpg", "Miki", "Corto", "Siames");
+
+Insert into mascota (id, coordenadas, descripcion, direccion, especie, imagen, nombre, pelaje, raza) VALUES(
+					"5", '{"lat": -34.5133685,"lng": -58.4774538}', "Tenia correa", "Av. del libertador 2032", "perro", "https://mascotafiel.com/wp-content/uploads/2014/03/pitbull-portada.jpg", "Matias", "Corto", "Pitbull");
+                       
+Insert into usuario (id, email, esAdmin, password, coordenadas, direccion) VALUES (1, "usuario@hotmail.com", 0, "Usuario1", '{"lat": -34.6468097,"lng": -58.5162225}', "Garcia de cossio 6400");
+
+Insert into usuario (id, email, esAdmin, password, coordenadas, direccion) VALUES (9999, "admin@hotmail.com", 1, "Usuario1", NULL, NULL);
+
+Insert into refugio (id, capMax, coordenadas, direccion, imagen, nombre, numeroTelefono) VALUES (1, 20, '{"lat": -34.5732009,"lng": -58.5039968}', "Av. de los Constituyentes 5880", "https://www.elcampitorefugio.org/imgs/uploaded/_978018.jpg", "Mascota feliz", 1103948956);                   
+
+Insert into refugio (id, capMax, coordenadas, direccion, imagen, nombre, numeroTelefono) VALUES (2, 30, '{"lat": -34.5866206,"lng": -58.43590679999999}', "Av. Juan B. Justo 1658", "https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/07/24175545/Guarderia-de-perros-el-Refugio-17.jpg", "Animal Nocturno", 1195049285);

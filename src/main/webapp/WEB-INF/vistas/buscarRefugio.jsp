@@ -4,7 +4,6 @@
 
 <html>
 <head>
-    <!--  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
@@ -21,30 +20,53 @@
 <%@include file="../../template/navbar.jsp" %>
 
 <main>
-<form:form action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
-    <div class="buscar d-flex">
-        <input path="nombre" name="nombre" class="form-control me-2" type="text">
-        <button class="btn btn-outline-dark">Buscar</button>
-    </div>
-</form:form>
+    <div class="container">
+        <div class="row">
+            <div id="marginRight" class="col-2 mt-4 mr-5">
+                <form:form class="col" action="buscarRefugio" method="POST" modelAttribute="datosRefugio">
+                    <div class="mt-3 ml-2">
+                        <div class="col">
+                            <div class="row mt-3">
+                                <h4 class="center">Busca un refugio</h4>
+                            </div>
+                            <div class="row mt-3">
+                                <input placeholder="nombre" path="nombre" name="nombre" class="form-control me-2" type="text">
+                            </div>
+                            <div class="row mt-3">
+                                <input placeholder="direccion" path="direccion" name="direccion" class="form-control me-2" type="text">
+                            </div>
+                            <button class="btn btn-outline-dark mt-3 mb-3">Buscar</button>
+                        </div>
+                    </div>
+                </form:form>
+            </div>
 
-<div class="resultado">
-<div id="seccion_cartas">
-    <c:forEach items="${refugio}" var="refugio">
-        <div class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1)">
-            <img src="${refugio.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
-            <div class="col card-body">
-                <div style="min-height: 110px">
-                <h5 class="card-title">${refugio.nombre}</h5>
-                <h5 class="card-title">${refugio.direccion}</h5>
-                <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
+            <div class="col">
+                <div class="row">
+                    <c:if test="${empty refugio}">
+                        <div class="col-8">
+                            <h1 class="card-subtitle mb-2 text-muted mt-5" style="padding-left:20%">Busca en nuestros refugios registrados</h1>
+                        </div>
+                    </c:if>
+                    <c:forEach items="${refugio}" var="refugio">
+                        <div  class="col-4 mt-4" style="padding-left:10%">
+                            <div   class="card h-100" style="width: 18rem; background-color: rgba(0,0,0,0.1);">
+                                <img src="${refugio.imagen}" class="card-img-top" alt="..." width="30px" height="200px">
+                                <div class="col card-body">
+                                    <div style="min-height: 110px">
+                                        <h5 class="card-title">${refugio.nombre}</h5>
+                                        <h5 class="card-title">${refugio.direccion}</h5>
+                                        <p class="card-text">Capacidad maxima: ${refugio.capMax}</p>
+                                    </div>
+                                    <a href="mostrar-animales" class="btn btn-outline-dark mt-3 mb-3">Ver animales</a>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
                 </div>
-                <a href="mostrar-animales" class="mt-2 btn btn-dark">Ver animales</a>
             </div>
         </div>
-    </c:forEach>
-</div>
-</div>
+    </div>
 </main>
 <%@include file="../../template/footer.jsp"%>
 

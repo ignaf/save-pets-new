@@ -12,6 +12,6 @@ public interface RepositorioMascota {
     List<Mascota> buscarTodos();
     void eliminar(Long id);
     List<Mascota> buscarMascotaPorRefugio(Long idRefugio);
-    List<Mascota> buscarGeneral(String nombre);
+    List<Mascota> buscarGeneral(String especie, String direccion, String descripcion, String raza, String pelaje);
     List<Mascota> listarMascotasSinRefugio();
 }

@@ -104,7 +104,7 @@ public class ControladorMascotas {
     public ModelAndView mascotaBuscada(@ModelAttribute("datosMascota") DatosMascota datosMascota) {
         if (estaLogueado()) {
             ModelMap modelo = new ModelMap();
-            modelo.put("listaDeMascotas", servicioMascota.buscarGeneral(datosMascota.getNombre()));
+            modelo.put("listaDeMascotas", servicioMascota.buscarGeneral(datosMascota));
             return new ModelAndView("buscarMascota", modelo);
         } else {
             return new ModelAndView("redirect:/login");

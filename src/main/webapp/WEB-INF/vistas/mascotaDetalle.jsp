@@ -59,14 +59,23 @@
     </form>
 </nav>
 <main>
-    <div class="card mb-3" style="width: 50%; height: auto; margin-top: 40px; margin-left: 40px;">
-        <img class="card-img-top" src="${mascota.imagen}" style="width: 50%; height: auto" >
+    <div class="card mb-3 card-detalle">
+        <img class="card-img-top img-detalle" src="${mascota.imagen}" >
         <div class="card-body">
+            <c:if test="${empty mascota.refugio}">
+                <h5  class="card-title center" style="color: red">MASCOTA PERDIDA</h5>
+            </c:if>
             <h5 class="card-title">Nombre: ${mascota.nombre}</h5>
+            <c:if test="${not empty mascota.refugio}">
+                <h6 class="card-subtitle mb-2 text-muted">Refugio: ${mascota.refugio.nombre}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Direccion: ${mascota.refugio.direccion}</h6>
+            </c:if>
             <p class="card-text">Descripcion: ${mascota.descripcion}</p>
             <p class="card-text">Especie: ${mascota.especie}</p>
             <p class="card-text">Raza: ${mascota.raza}</p>
-            <p class="card-text">Visto por ultima vez en: ${mascota.direccion}</p>
+            <c:if test="${empty mascota.refugio}">
+                <p class="card-text">Visto por ultima vez en: ${mascota.direccion}</p>
+            </c:if>
             <p class="card-text">Tipo de pelaje: ${mascota.pelaje}</p>
         </div>
     </div>
