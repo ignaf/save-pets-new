@@ -23,6 +23,7 @@
 </div>
 <div class="container mt-5">
     <div class="">
+
         <c:forEach items="${listaDeRefugios}" var="refugio">
             <div id="refugioAdmin" class="row mt-5">
                 <div id="centrado" class="col">

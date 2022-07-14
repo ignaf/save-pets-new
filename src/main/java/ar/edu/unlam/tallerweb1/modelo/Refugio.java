@@ -19,7 +19,7 @@ public class Refugio {
 	private String numeroTelefono;
 	private Integer capMax;
 	private String imagen;
-	@OneToMany(mappedBy = "refugio")
+	@OneToMany(mappedBy = "refugio", fetch = FetchType.EAGER)
 	private Set<Mascota> mascotas;
 	
 	public Refugio() {}

@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.controladores.dtos.*;
+import ar.edu.unlam.tallerweb1.modelo.Refugio;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.MapaService;
 import ar.edu.unlam.tallerweb1.servicios.ServicioMascota;
@@ -150,10 +151,15 @@ public class ControladorRefugios {
 
     @RequestMapping(path = "/borrar-refugio/{id}", method = RequestMethod.GET)
     public ModelAndView borrarRefugio(@PathVariable("id") Long idRefugio) {
-        if (esAdmin()) {
+        Refugio refugio = servicioRefugio.buscarPorId(idRefugio);
+        ModelMap model = new ModelMap();
+        if(refugio.getMascotas().isEmpty() && esAdmin()){
             servicioRefugio.eliminar(idRefugio);
             return new ModelAndView("redirect:/adminRefugio");
-        } else {
+        }else if(!refugio.getMascotas().isEmpty() && esAdmin()) {
+            model.put("error", "No se puede eliminar un refugio que tenga animales asignados");
+            return new ModelAndView("vistaError", model);
+        }else{
             return new ModelAndView("redirect:/login");
         }
     }

@@ -11,6 +11,7 @@ public interface ServicioRefugio {
 
 	Refugio agregarRefugio(DatosRefugio datosRefugio) throws InterruptedException, ApiException, IOException;
 	Refugio buscarRefugioPorNombre(String nombre);
+	Refugio buscarPorId(Long id);
 	List<Refugio> listarTodos();
 	void eliminar(Long id);
 	List<Refugio> buscarGeneral(DatosRefugio datos);
