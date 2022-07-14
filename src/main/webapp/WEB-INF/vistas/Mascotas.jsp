@@ -27,7 +27,7 @@
                         <div style="min-height: 150px">
                         <h5 class="card-title">${mascota.nombre}</h5>
                             <c:if test="${not empty mascota.refugio}">
-                                <h6 class="card-subtitle mb-2 text-muted">Refugio: ${mascota.refugio.nombre}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Refugio: <a href="refugio/${mascota.refugio.nombre}">${mascota.refugio.nombre}</a></h6>
                                 <h6 class="card-subtitle mb-2 text-muted">Direccion: ${mascota.refugio.direccion}</h6>
                             </c:if>
                             <c:if test="${empty mascota.refugio}">

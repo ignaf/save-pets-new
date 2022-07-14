@@ -54,7 +54,7 @@
 
     </form>
 </nav>
-<main>
+<main style="padding-bottom: 20px">
     <div class="card mb-3 card-detalle">
         <img class="card-img-top img-detalle" src="${refugio.imagen}">
         <div class="card-body">
@@ -62,6 +62,7 @@
             <p class="card-text">Direccion: ${refugio.direccion}</p>
             <p class="card-text">Telefono: ${refugio.numeroTelefono}</p>
             <p class="card-text">Capacidad Maxima: ${refugio.capMax}</p>
+            <a href="../animales-refugio/${refugio.id}" class="btn btn-outline-dark">Ver animales</a>
         </div>
     </div>
 </main>
