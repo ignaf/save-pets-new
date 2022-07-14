@@ -71,7 +71,10 @@
                     <div class="card-body">
                         <div style="min-height: 150px">
                         <h5 class="card-title">${mascota.nombre}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Visto por ultima vez en: ${mascota.direccion}</h6>
+                            <c:if test="${not empty mascota.refugio}">
+                                <h6 class="card-subtitle mb-2 text-muted">Refugio: ${mascota.refugio.nombre}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Direccion: ${mascota.refugio.direccion}</h6>
+                            </c:if>
                         <p class="card-text">${mascota.descripcion}</p>
                         </div>
                         <a href="mapa-mascotas" class="btn btn-dark mt-2">Ver mapa</a>
